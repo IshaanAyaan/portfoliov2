@@ -2,1167 +2,380 @@
 <html lang="en">
 
 <head>
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QFCM4Y7NL3"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-QFCM4Y7NL3');
+    gtag("js", new Date());
+    gtag("config", "G-QFCM4Y7NL3");
   </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ishaan ranjan — terminal</title>
+  <title>Ishaan Ranjan</title>
   <meta name="description"
-    content="Text-first, terminal-flavored portfolio of Ishaan Ranjan — founder building applied AI and researching social systems.">
-  <meta property="og:title" content="ishaan ranjan — terminal">
+    content="Georgia Tech computer science student building AI systems across developer tooling, policy, and research.">
+  <meta property="og:title" content="Ishaan Ranjan">
   <meta property="og:description"
-    content="Text-first, terminal-flavored portfolio of Ishaan Ranjan — founder building applied AI and researching social systems.">
+    content="Georgia Tech computer science student building AI systems across developer tooling, policy, and research.">
   <meta property="og:type" content="website">
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0b0c0e;
-      --fg: #e9eaee;
-      --muted: #9aa0a6;
-      --dim: #7b8087;
-      --accent: #7c9cff;
-      --accent-2: #a8b4ff;
-      --ok: #22d3a6;
-      --border: rgba(255, 255, 255, .12);
-      --hair: rgba(255, 255, 255, .1);
-      --panel: rgba(255, 255, 255, .04);
-      --link: #aab8ff;
-      --link-hover: #c7d2fe;
-      --dur: 220ms;
-      --ease: cubic-bezier(.22, .61, .36, 1);
-      --wrap: 860px;
-    }
-
-    .theme-light {
-      --bg: #f6f7fb;
-      --fg: #101216;
-      --muted: #5f6670;
-      --dim: #7a818b;
-      --accent: #3b5bdb;
-      --accent-2: #5368ff;
-      --ok: #12b886;
-      --border: #e3e7f0;
-      --hair: #eceff6;
-      --panel: #fff;
-      --link: #2b3db8;
-      --link-hover: #1f2a8a;
-    }
-
-    .theme-matrix {
-      --bg: #000;
-      --fg: #c7ffd8;
-      --muted: #79e6b0;
-      --dim: #4cbf8e;
-      --accent: #00ff95;
-      --accent-2: #66ffc0;
-      --ok: #00ff95;
-      --border: #0c754f;
-      --hair: #074b34;
-      --panel: #02160e;
-      --link: #66ffc0;
-      --link-hover: #a6ffdd;
-    }
-
-    /* Base */
-    * {
-      box-sizing: border-box
-    }
-
-    html {
-      scroll-behavior: smooth
-    }
-
-    @media (prefers-reduced-motion:reduce) {
-      html {
-        scroll-behavior: auto
-      }
-
-      :root {
-        --dur: 0ms
-      }
-    }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--fg);
-      font: 16px/1.75 "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-      font-variant-ligatures: none;
-    }
-
-    ::selection {
-      background: color-mix(in oklab, var(--accent) 28%, transparent)
-    }
-
-    a {
-      color: var(--link);
-      text-decoration: none;
-      border-bottom: 1px dashed transparent;
-      transition: border-color var(--dur) var(--ease)
-    }
-
-    a:hover {
-      border-bottom-color: var(--link-hover)
-    }
-
-    a:visited {
-      color: var(--link)
-    }
-
-    /* never purple */
-
-    /* limit "↗" to text links; never on icons/chips/nav */
-    a[target="_blank"]::after {
-      content: " ↗";
-      opacity: .85
-    }
-
-    .iconbtn[target="_blank"]::after,
-    .nav a[target="_blank"]::after,
-    .chip[target="_blank"]::after {
-      content: none
-    }
-
-    .wrap {
-      max-width: var(--wrap);
-      margin: 0 auto;
-      padding: 0 24px
-    }
-
-    .container {
-      max-width: var(--wrap);
-      margin: 28px auto 120px;
-      padding: 0 24px
-    }
-
-    /* Progress */
-    .progress {
-      position: fixed;
-      inset: 0 0 auto 0;
-      height: 2px;
-      z-index: 100;
-      background: transparent
-    }
-
-    .progress>i {
-      display: block;
-      height: 100%;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
-      transform-origin: 0 0;
-      transform: scaleX(0)
-    }
-
-    /* Header */
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: saturate(140%) blur(8px);
-      background: linear-gradient(180deg, color-mix(in oklab, var(--bg) 90%, transparent), color-mix(in oklab, var(--bg) 94%, transparent));
-      border-bottom: 1px solid var(--hair);
-    }
-
-    .header .wrap {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      padding: 14px 0 10px
-    }
-
-    /* Mast row */
-    .mast {
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      align-items: center;
-      gap: 18px;
-      min-height: 46px
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 600;
-      white-space: nowrap;
-      letter-spacing: .2px
-    }
-
-    .brand .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, #35f7c6, var(--ok) 70%);
-      box-shadow: 0 0 10px var(--ok), 0 0 24px color-mix(in oklab, var(--ok) 40%, transparent);
-      animation: breath 3.2s ease-in-out infinite;
-    }
-
-    @keyframes breath {
-
-      0%,
-      100% {
-        transform: scale(1)
-      }
-
-      50% {
-        transform: scale(1.06)
-      }
-    }
-
-    @media (prefers-reduced-motion:reduce) {
-      .brand .dot {
-        animation: none
-      }
-    }
-
-    .mast-spacer {
-      min-width: 8px
-    }
-
-    /* Icon buttons — normalized boxes, no arrows */
-    .right {
-      display: flex;
-      gap: 8px;
-      align-items: center
-    }
-
-    .iconbtn {
-      display: inline-grid;
-      place-items: center;
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: var(--panel);
-      color: var(--fg);
-      cursor: pointer;
-      transition: color .12s, background .12s, border-color .12s, transform .12s;
-    }
-
-    .iconbtn:hover {
-      color: var(--accent);
-      background: rgba(255, 255, 255, .03);
-      border-color: var(--accent);
-      transform: translateY(-1px)
-    }
-
-    .iconbtn:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 2px
-    }
-
-    .iconbtn svg {
-      width: 18px;
-      height: 18px;
-      display: block
-    }
-
-    /* Nav row — compact, cohesive chips + underline */
-    .nav-row {
-      display: flex;
-      align-items: center
-    }
-
-    .nav {
-      position: relative;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px
-    }
-
-    .nav a {
-      padding: 6px 12px;
-      border-radius: 999px;
-      color: var(--muted);
-      border: 1px solid var(--border);
-      background: var(--panel);
-      font-weight: 500;
-      letter-spacing: .015em;
-      transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease), background var(--dur) var(--ease)
-    }
-
-    .nav a:hover {
-      border-color: var(--accent);
-      color: var(--fg)
-    }
-
-    .nav a[aria-current="page"] {
-      color: var(--fg);
-      border-color: color-mix(in oklab, var(--accent) 38%, var(--border));
-      background: color-mix(in oklab, var(--panel) 70%, var(--accent) 8%)
-    }
-
-    .indicator {
-      position: absolute;
-      height: 2px;
-      background: var(--accent);
-      left: 0;
-      top: calc(100% + 6px);
-      width: var(--u-w, 0px);
-      transform: translateX(var(--u-x, 0px));
-      border-radius: 2px;
-      transition: transform var(--dur) var(--ease), width var(--dur) var(--ease)
-    }
-
-    /* Breadcrumb */
-    .breadcrumb {
-      margin: 16px 0 18px;
-      color: var(--muted);
-      font-size: 12.5px;
-      border: 1px dashed var(--hair);
-      border-radius: 8px;
-      padding: 7px 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px
-    }
-
-    .path {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis
-    }
-
-    .copy {
-      position: relative;
-      border: 1px solid var(--border);
-      background: var(--panel);
-      color: var(--fg);
-      border-radius: 8px;
-      padding: 4px 10px;
-      cursor: pointer;
-      font-size: 12.5px
-    }
-
-    .copy:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 2px
-    }
-
-    .copy.tip::after {
-      content: "copied";
-      position: absolute;
-      top: -30px;
-      right: 0;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 2px 6px;
-      color: var(--fg);
-      font-size: 12px;
-      opacity: 0;
-      transform: translateY(4px);
-      transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease)
-    }
-
-    .copy.tip.show::after {
-      opacity: 1;
-      transform: translateY(0)
-    }
-
-    /* Type & content */
-    h1 {
-      font-size: 28px;
-      line-height: 1.3;
-      margin: 18px 0 6px
-    }
-
-    h2 {
-      font-size: 20px;
-      line-height: 1.4;
-      margin: 40px 0 8px;
-      color: var(--muted);
-      letter-spacing: .06em;
-      text-transform: uppercase
-    }
-
-    h3 {
-      font-size: 16px;
-      line-height: 1.5;
-      margin: 14px 0 6px;
-      font-weight: 600
-    }
-
-    .small {
-      color: var(--dim);
-      font-size: 12.8px
-    }
-
-    .section {
-      padding: 6px 0
-    }
-
-    .items {
-      margin-top: 8px
-    }
-
-    .entry {
-      padding: 14px 0;
-      border-top: 1px solid var(--hair)
-    }
-
-    .entry:first-child {
-      border-top: 0;
-      padding-top: 0
-    }
-
-    .ul {
-      list-style: none;
-      margin: 0;
-      padding-left: 18px
-    }
-
-    .ul li {
-      margin: 2px 0;
-      position: relative
-    }
-
-    .ul li::before {
-      content: "– ";
-      position: absolute;
-      left: -18px;
-      color: var(--muted)
-    }
-
-    .inline {
-      white-space: nowrap
-    }
-
-    /* Entry header with date */
-    .entry-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 8px
-    }
-
-    .entry-date {
-      color: var(--muted);
-      font-size: 13px;
-      white-space: nowrap
-    }
-
-    .entry-subtitle {
-      color: var(--dim);
-      font-size: 14px;
-      margin: 2px 0 8px
-    }
-
-    /* Contact list (refined) */
-    .contact-list {
-      display: grid;
-      gap: 10px;
-      margin-top: 8px
-    }
-
-    .contact-row {
-      display: grid;
-      grid-template-columns: 120px 1fr auto;
-      align-items: baseline;
-      padding: 10px 0;
-      border-top: 1px solid var(--hair);
-    }
-
-    .contact-row:first-child {
-      border-top: 0;
-      padding-top: 0
-    }
-
-    .contact-row dt {
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      font-size: 12.5px
-    }
-
-    .contact-row dd {
-      margin: 0;
-      position: relative
-    }
-
-    .contact-link {
-      display: inline-block;
-      padding: 2px 0;
-      transition: transform .14s var(--ease), text-shadow .14s var(--ease)
-    }
-
-    .contact-link:hover {
-      transform: translateY(-1px)
-    }
-
-    .contact-link::after {
-      content: "✶";
-      font-size: 10px;
-      margin-left: 6px;
-      opacity: 0;
-      transform: translateY(-2px) scale(.6);
-      display: inline-block;
-      transition: opacity .18s var(--ease), transform .18s var(--ease);
-      color: var(--accent-2)
-    }
-
-    .contact-link:hover::after {
-      opacity: 1;
-      transform: translateY(-6px) scale(1)
-    }
-
-    .copy.mini {
-      padding: 3px 8px;
-      font-size: 12px;
-      border-radius: 7px
-    }
-
-    /* Skills grid */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      margin-top: 12px
-    }
-
-    .skill-group h3 {
-      margin: 0 0 6px;
-      font-size: 14px;
-      color: var(--accent)
-    }
-
-    .skill-group p {
-      margin: 0;
-      color: var(--fg);
-      font-size: 14px
-    }
-
-    /* Modal */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, .7);
-      z-index: 1000;
-      display: none;
-      place-items: center;
-      backdrop-filter: blur(4px);
-    }
-
-    .modal-backdrop.open {
-      display: grid
-    }
-
-    .modal {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      max-width: 600px;
-      width: 90%;
-      max-height: 80vh;
-      overflow-y: auto;
-      padding: 24px;
-      position: relative;
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      width: 32px;
-      height: 32px;
-      border: 1px solid var(--border);
-      background: var(--panel);
-      border-radius: 8px;
-      color: var(--fg);
-      cursor: pointer;
-      display: grid;
-      place-items: center;
-    }
-
-    .modal-close:hover {
-      border-color: var(--accent);
-      color: var(--accent)
-    }
-
-    .modal h3 {
-      margin-top: 0
-    }
-
-    .modal-actions {
-      display: flex;
-      gap: 12px;
-      margin-top: 16px
-    }
-
-    .modal-btn {
-      padding: 8px 16px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: var(--panel);
-      color: var(--fg);
-      cursor: pointer;
-      font-size: 14px;
-      transition: border-color .12s, color .12s;
-    }
-
-    .modal-btn:hover {
-      border-color: var(--accent);
-      color: var(--accent)
-    }
-
-    /* Tiny toyish bits */
-    @keyframes boop {
-      0% {
-        transform: translateY(0) rotate(0)
-      }
-
-      40% {
-        transform: translateY(-1px) rotate(-1.5deg)
-      }
-
-      70% {
-        transform: translateY(0) rotate(1.2deg)
-      }
-
-      100% {
-        transform: translateY(0) rotate(0)
-      }
-    }
-
-    .nav a:hover {
-      animation: boop .28s ease-out
-    }
-
-    @media (prefers-reduced-motion:reduce) {
-      .nav a:hover {
-        animation: none
-      }
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(4px);
-      transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease)
-    }
-
-    .reveal.in {
-      opacity: 1;
-      transform: translateY(0)
-    }
-
-    @media (prefers-reduced-motion:reduce) {
-      .reveal {
-        opacity: 1;
-        transform: none
-      }
-    }
-
-    .anchor {
-      scroll-margin-top: 124px
-    }
-
-    .footer {
-      margin-top: 48px;
-      color: var(--muted);
-      font-size: 12.5px;
-      text-align: center;
-      border-top: 1px solid var(--hair);
-      padding-top: 12px
-    }
-
-    /* Profile picture */
-    .pfp {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid var(--accent);
-      box-shadow: 0 0 16px color-mix(in oklab, var(--accent) 40%, transparent);
-      transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
-    }
-
-    .pfp:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 24px color-mix(in oklab, var(--accent) 60%, transparent)
-    }
-
-    .about-header {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      flex-wrap: wrap
-    }
-
-    /* Print */
-    @media print {
-
-      .header,
-      .breadcrumb,
-      .progress,
-      .right,
-      .indicator {
-        display: none !important
-      }
-
-      .container {
-        margin: 0;
-        padding: 0
-      }
-
-      a[href^="http"]::after {
-        content: " (" attr(href) ")";
-        color: var(--dim)
-      }
-
-      a[href^="mailto:"]::after {
-        content: " (" attr(href) ")";
-        color: var(--dim)
-      }
-    }
-  </style>
+  <meta name="theme-color" content="#05070b">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
-  <div class="progress" aria-hidden="true"><i></i></div>
-
-  <header class="header" role="banner">
-    <div class="wrap">
-      <div class="mast">
-        <div class="brand"><span class="dot" aria-hidden="true"></span>ishaan@terminal</div>
-        <div class="mast-spacer" aria-hidden="true"></div>
-        <div class="right">
-          <a class="iconbtn" href="https://github.com/ishaanayaan" target="_blank" rel="noopener" aria-label="GitHub">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path
-                d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.2c-3.34.73-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.1-.75.09-.74.09-.74 1.22.09 1.86 1.26 1.86 1.26 1.08 1.86 2.84 1.32 3.54 1.01.11-.78.43-1.32.78-1.62-2.67-.3-5.48-1.34-5.48-5.95 0-1.31.47-2.38 1.24-3.22-.12-.31-.54-1.55.12-3.22 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.66 1.67.24 2.91.12 3.22.77.84 1.24 1.91 1.24 3.22 0 4.62-2.81 5.65-5.5 5.95.44.38.83 1.12.83 2.26v3.35c0 .32.22.69.83.58A12 12 0 0 0 12 .5z" />
-            </svg>
-          </a>
-          <!-- TODO: Replace with actual LinkedIn URL -->
-          <a class="iconbtn" href="https://www.linkedin.com/in/ishaan-ranjan-86a41a217/" target="_blank" rel="noopener"
-            aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path
-                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-            </svg>
-          </a>
-          <a class="iconbtn" href="https://www.instagram.com/ish.ran15/" target="_blank" rel="noopener"
-            aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path
-                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
-            </svg>
-          </a>
-          <a class="iconbtn" href="https://x.com/ishaanranjan15" target="_blank" rel="noopener"
-            aria-label="X (Twitter)">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path
-                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-            </svg>
-          </a>
-          <button class="iconbtn" id="themeBtn" aria-label="Toggle theme">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      <div class="nav-row">
-        <nav class="nav" id="topnav" aria-label="primary">
-          <a href="#about" data-section="about">about</a>
-          <a href="#education" data-section="education">education</a>
-          <a href="#activities" data-section="activities">work experience</a>
-          <a href="#publications" data-section="publications">research & publications</a>
-          <a href="#community" data-section="community">community</a>
-          <a href="#honors" data-section="honors">achievements</a>
-          <a href="#skills" data-section="skills">skills</a>
-          <a href="#contact" data-section="contact">contact</a>
-          <a href="#help" data-section="help">help</a>
-          <div class="indicator" aria-hidden="true"></div>
-        </nav>
-      </div>
-    </div>
-  </header>
-
-  <main class="container" id="main">
-    <div class="breadcrumb">
-      <div class="path" id="path">tty0 — /home/ishaan/about</div>
-      <button class="copy tip" id="copyPath">copy path</button>
-    </div>
-
-    <!-- ABOUT -->
-    <section id="about" class="section anchor">
-      <div class="about-header reveal">
-        <img src="pic.jpeg" alt="Ishaan Ranjan" class="pfp">
-        <h1 style="margin:0">ishaan ranjan</h1>
-      </div>
-      <p class="reveal">Founder building applied AI and researching social systems.</p>
-      <p class="reveal">I'm Ishaan Ranjan, an incoming student at Georgia Tech, studing Computer Science (AI + Embedded
-        Systems). I build applied
-        AI products
-        spanning from agents, graph tracking networks on societal issues, and economics. I'm most passionate about
-        building ethical AI
-        systems that solve complex societal level problems. Additionally, I have worked on parameter efficient methods
-        for creating low-latency computer use agents using frontier models.</p>
-      <p class="small reveal">last updated: Jan 2026</p>
-      <p class="small reveal">applied ai · research · community</p>
-    </section>
-
-    <!-- EDUCATION -->
-    <section id="education" class="section anchor">
-      <h2 class="reveal">education</h2>
-      <div class="items">
-        <article class="entry">
-          <div class="entry-header reveal">
-            <h3 style="margin:0"><a href="https://www.gatech.edu/" target="_blank" rel="noopener">Georgia Institute of
-                Technology</a></h3>
-            <span class="entry-date">Incoming Fall 2026</span>
-          </div>
-          <div class="entry-subtitle reveal">Major in Computer Science</div>
-          <ul class="ul reveal">
-            <li>Nominated for STAMPS + Gold Scholarship (0.747% Acceptance Rate)</li>
-          </ul>
-        </article>
-
-        <article class="entry">
-          <h3 class="reveal" style="margin:0">Other Acceptances</h3>
-          <ul class="ul reveal">
-            <li>UIUC, UNC-Chapel Hill, ASU Barrett, Embry Riddle</li>
-          </ul>
-        </article>
-        <article class="entry">
-          <div class="entry-header reveal">
-            <h3 style="margin:0"><a href="https://enrollbasis.com/basis-peoria-number-1-high-school/" target="_blank"
-                rel="noopener">BASIS Peoria - #1 High School in the United States</a></h3>
-            <span class="entry-date">Aug 2022 – May 2026</span>
-          </div>
-          <div class="entry-subtitle reveal">High School Diploma</div>
-          <ul class="ul reveal">
-            <li>GPA: 3.98 UW · 4.84 W</li>
-            <li>SAT: 1540 · ACT: 35</li>
-            <li>AP: 15 AP exams, 14×5s and 1×4</li>
-            <li>National Merit Commended Scholar · AP Scholar with Distinction (2×)</li>
-            <li>Leadership: President of <a href="https://www.basispeoriaresearch.com/" target="_blank"
-                rel="noopener">Research Club</a>, Captain of Speech & Debate, Engineering Lead in Science Olympiad,
-              National Honor Society Cohort Lead, Spanish Honor Society</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- WORK EXPERIENCE (id stays as activities) -->
-    <section id="activities" class="section anchor">
-      <h2 class="reveal">work experience</h2>
-      <div class="items">
-        <article class="entry">
-          <h3 class="reveal">Luxen LLC (Applied AI Lab) — Co-Founder</h3>
-          <ul class="ul reveal">
-            <li>Built applied AI products and autonomous agents.</li>
-            <li>Raised $48K+ in pre-seed support from 1517 Fund, SoftBank, and BizWorld.</li>
-            <li>Reached 5K+ active users and 1.5M+ media views.</li>
-            <li>Flagship products: Varyn (vitamin + eczema CV scanner), Kalo (AI grocery management and meal prep),
-              Ardus (computer-use automation).</li>
-            <li>Hub: <a href="https://luxenai.org/" target="_blank" rel="noopener">luxenai.org</a></li>
-          </ul>
-        </article>
-        <article class="entry">
-          <h3 class="reveal">Mathnasium — Tutor</h3>
-          <ul class="ul reveal">
-            <li>Tutored 400+ students (grades preK–college) in fundamentals through College Algebra.</li>
-            <li>Built repeatable practice plans and checkpoints to track improvement.</li>
-          </ul>
-        </article>
-
-        <article class="entry">
-          <h3 class="reveal">KEYS @ University of Arizona — Research Intern (Precision Aging Network Lab)</h3>
-          <ul class="ul reveal">
-            <li>Used R/Python to analyze vitamin D, omega-3, and exercise signals against epigenetic aging clocks.</li>
-            <li>Presented a poster talk to 800+ attendees.</li>
-            <li>Manuscript: <a href="https://ishaanayaan.github.io/KEYS-PAN/" target="_blank" rel="noopener">site</a> ·
-              Abstract:
-              <a href="#" id="openAbstractModal" onclick="openModal(); return false;">view</a> · Talk: <a
-                href="https://youtu.be/xY2U8qdTc5E?t=6564" target="_blank" rel="noopener">YouTube</a>
-            </li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- RESEARCH & PUBLICATIONS (id stays as publications) -->
-    <section id="publications" class="section anchor">
-      <h2 class="reveal">research & publications</h2>
-      <div class="items">
-        <article class="entry">
-          <h3 class="reveal">National History Day Research (with Dr. Nidhi Mishra) — Criminal Tribes Act</h3>
-          <ul class="ul reveal">
-            <li>Studied how colonial policy shaped social exclusion and long-run outcomes.</li>
-            <li>Wrote and published an analysis connecting historical law to modern social systems.</li>
-            <li>Paper: <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5349605" target="_blank"
-                rel="noopener">SSRN 5349605</a></li>
-          </ul>
-        </article>
-
-        <article class="entry">
-          <h3 class="reveal">SABER — Sustainable AI-automated Bioreactor (AZSEF Environmental Engineering)</h3>
-          <ul class="ul reveal">
-            <li>Built an AI-automated Chlorella vulgaris bioreactor with microcontroller systems for environmental
-              remediation.</li>
-            <li>Published on ResearchGate.</li>
-            <li>Paper: <a
-                href="https://www.researchgate.net/publication/394721081_SABER_-_Sustainable_AI-automated_Bioreactor_for_Environment_Remediation_Using_Chlorella_Vulgaris_and_Microcontroller_Systems_to_Support_Life_in_Restrictive_Environments"
-                target="_blank" rel="noopener">ResearchGate</a></li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- COMMUNITY -->
-    <section id="community" class="section anchor">
-      <h2 class="reveal">community</h2>
-      <div class="items">
-        <article class="entry">
-          <h3 class="reveal">Debatica</h3>
-          <ul class="ul reveal">
-            <li>Why: built to help under-resourced debaters prep like they had a full coaching staff.</li>
-            <li>What: evidence workflow plus round strategy feedback.</li>
-            <li>Impact: 2K+ users.</li>
-            <li>Link: <a href="https://www.debatica.org/" target="_blank" rel="noopener">debatica.org</a></li>
-          </ul>
-        </article>
-
-        <article class="entry">
-          <h3 class="reveal">AI Literacy Initiative</h3>
-          <ul class="ul reveal">
-            <li>Why: built to make classroom AI use clearer for teachers and students.</li>
-            <li>What: teacher resources, assignment guardrails, and practical workflows.</li>
-            <li>Impact: adopted across courses at BASIS Peoria.</li>
-            <li>Link: <a href="https://ai-literacy-app.vercel.app" target="_blank"
-                rel="noopener">ai-literacy-app.vercel.app</a></li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- ACHIEVEMENTS (id stays as honors) -->
-    <section id="honors" class="section anchor">
-      <h2 class="reveal">achievements</h2>
-      <div class="items">
-        <article class="entry">
-          <h3 class="reveal">Debate</h3>
-          <ul class="ul reveal">
-            <li>NSDA Big Questions — Ranked #5 nationally (Aug 2025)</li>
-            <li> AZ State Champion + Nationals qualifier</li>
-          </ul>
-        </article>
-
-        <article class="entry">
-          <h3 class="reveal">Founding & Grants</h3>
-          <ul class="ul reveal">
-            <li><a href="https://www.zfellows.com/" target="_blank" rel="noopener">Z Fellows 2x</a> Finalist (2024,
-              2025)
-            </li>
-            <li><a href="https://www.1517fund.com/" target="_blank" rel="noopener">1517 Fund</a> Medici Grantee (2025)
-            </li>
-            <li><a href="https://bizworld.org/" target="_blank" rel="noopener">BizWorld</a> YES! Startup Accelerator
-              (2025)</li>
-            <li><a href="https://foundershub.startups.microsoft.com/" target="_blank" rel="noopener">Microsoft for
-                Startups</a> Founders Hub (2024)</li>
-          </ul>
-        </article>
-
-        <article class="entry">
-          <h3 class="reveal">Research</h3>
-          <ul class="ul reveal">
-            <li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5349605" target="_blank"
-                rel="noopener">SSRN Rank #1</a> in downloads (Post-Colonial & World Literature eJournal, June + July)
-            </li>
-          </ul>
-        </article>
-
-        <article class="entry">
-          <h3 class="reveal">STEM & Competitions</h3>
-          <ul class="ul reveal">
-            <li><a href="https://www.azscience.org/visit/events/arizona-science-engineering-fair-azsef/awards/"
-                target="_blank" rel="noopener">AZSEF</a> Grand Award — Environmental Engineering</li>
-            <li>Science Olympiad Wind Power — <a
-                href="https://www.duosmium.org/results/2025-02-09_gopher_invitational_c/" target="_blank"
-                rel="noopener">#1 at Gopher Invitational</a></li>
-            <li>Top 43 National Economics Olympiad</li>
-            <li>US Medicine Olympiad — Honorable Mention</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="section anchor">
-      <h2 class="reveal">skills</h2>
-      <div class="skills-grid reveal">
-        <div class="skill-group">
-          <h3>Languages</h3>
-          <p>Python, Java, JavaScript, SQL, HTML/CSS</p>
-        </div>
-        <div class="skill-group">
-          <h3>ML</h3>
-          <p>PyTorch, TensorFlow, Transformers, LLMs</p>
-        </div>
-        <div class="skill-group">
-          <h3>Tools</h3>
-          <p>Git, Playwright, RPA, data analysis in R/python</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section anchor">
-      <h2 class="reveal">contact</h2>
-      <dl class="contact-list reveal">
-        <div class="contact-row">
-          <dt>email</dt>
-          <dd><a class="contact-link" href="mailto:ishaanranjan15@gmail.com">ishaanranjan15@gmail.com</a></dd>
-          <dd><button class="copy mini tip" id="copyEmail" type="button" aria-label="copy email">copy</button></dd>
-        </div>
-      </dl>
-    </section>
-
-    <section id="help" class="section anchor">
-      <h2 class="reveal">help</h2>
-      <ul class="ul reveal">
-        <li>tabs are a segmented control; the underline slides to the active tab.</li>
-        <li>breadcrumb shows a pseudo path; "copy path" copies the current section.</li>
-        <li>press <kbd>t</kbd> to toggle theme (dark → light → matrix).</li>
-        <li>press <kbd>g</kbd> to scroll to the top.</li>
-      </ul>
-    </section>
-
-    <div class="footer">© 2026 Ishaan Ranjan</div>
-  </main>
-
-  <!-- Abstract Modal -->
-  <div class="modal-backdrop" id="abstractModal">
-    <div class="modal">
-      <button class="modal-close" onclick="closeModal()" aria-label="Close modal">×</button>
-      <h3>KEYS PAN Research Abstract</h3>
-      <p>This study investigates the relationship between vitamin D supplementation, omega-3 fatty acid intake, and
-        exercise interventions on epigenetic aging clocks. Using data from the Precision Aging Network, we analyzed
-        multiple biomarkers to assess the impact of lifestyle factors on biological aging trajectories.</p>
-      <p>Our findings suggest that combined interventions may have synergistic effects on slowing epigenetic aging, with
-        implications for preventive health strategies and personalized medicine approaches.</p>
-      <div class="modal-actions">
-        <a href="KEYS Abstract.pdf" target="_blank" class="modal-btn">Open PDF ↗</a>
-        <a href="KEYS Abstract.pdf" download class="modal-btn">Download PDF</a>
-      </div>
-    </div>
+<body class="page-body page-home">
+  <div class="luxen-network" data-luxen-network aria-hidden="true">
+    <canvas class="luxen-network__canvas"></canvas>
+    <div class="luxen-network__glow luxen-network__glow--top"></div>
+    <div class="luxen-network__glow luxen-network__glow--bottom"></div>
   </div>
 
+  <div class="site-shell">
+    <header class="browser-shell">
+      <div class="browser-strip">
+        <div class="browser-window-controls" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="browser-tab">
+          <span class="browser-tab-icon" aria-hidden="true"></span>
+          <span class="browser-tab-title">Ishaan Ranjan</span>
+          <span class="browser-tab-close" aria-hidden="true">&times;</span>
+        </div>
+        <div class="browser-actions">
+          <button class="top-button" data-theme-toggle type="button" aria-label="Switch theme">Light</button>
+          <a class="icon-button" href="offline.html" aria-label="Open offline mode">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <path d="M4.75 9.25a10.5 10.5 0 0 1 14.5 0" />
+              <path d="M7.75 12.25a6.25 6.25 0 0 1 8.5 0" />
+              <path d="M10.75 15.25a2.2 2.2 0 0 1 2.5 0" />
+              <circle cx="12" cy="18.4" r="1" fill="currentColor" stroke="none" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#about" data-section="about">About</a>
+        <a href="#education" data-section="education">Education</a>
+        <a href="#experience" data-section="experience">Experience</a>
+        <a href="#distinctions" data-section="distinctions">Distinctions</a>
+        <a href="#projects" data-section="projects">Projects</a>
+        <a href="#papers" data-section="papers">Papers</a>
+        <a href="#resume" data-section="resume">Resume</a>
+        <a href="#contact" data-section="contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="content-stack">
+      <section id="about" class="hero-grid">
+        <article class="surface hero-copy">
+          <h1>Ishaan Ranjan</h1>
+          <p class="hero-lede">
+            Georgia Tech computer science student building AI systems across developer tooling, policy, and research.
+          </p>
+          <div class="social-strip" aria-label="Profile links">
+            <a class="social-link" href="https://github.com/ishaanayaan" target="_blank" rel="noopener"
+              aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.4 11.4 0 0 1 12 6.84c1.02.01 2.05.14 3.01.41 2.29-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.87.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.22.69.83.58C20.57 21.8 24 17.3 24 12 24 5.37 18.63 0 12 0Z" />
+              </svg>
+              <span class="sr-only">GitHub</span>
+            </a>
+            <a class="social-link" href="https://www.linkedin.com/in/ishaan-ranjan-86a41a217" target="_blank"
+              rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M4.98 3.5A2.49 2.49 0 0 1 2.5 6 2.5 2.5 0 1 1 4.98 3.5ZM.5 8H4.5V23H.5V8ZM7 8H10.84V10.05H10.89C11.42 9.05 12.71 8 14.63 8 18.64 8 19.38 10.64 19.38 14.07V23H15.38V15.95C15.38 14.27 15.35 12.11 13.04 12.11 10.7 12.11 10.34 13.94 10.34 15.83V23H7V8Z" />
+              </svg>
+              <span class="sr-only">LinkedIn</span>
+            </a>
+            <a class="social-link" href="https://www.instagram.com/ish.ran15/" target="_blank" rel="noopener"
+              aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" />
+                <circle cx="12" cy="12" r="4.1" />
+                <circle cx="17.35" cy="6.65" r="1" fill="currentColor" stroke="none" />
+              </svg>
+              <span class="sr-only">Instagram</span>
+            </a>
+            <a class="social-link" href="https://x.com/ishaanranjan15" target="_blank" rel="noopener"
+              aria-label="X">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M18.9 2H22l-6.77 7.73L23.2 22h-6.25l-4.89-7.39L5.62 22H2.5l7.24-8.27L.8 2h6.4l4.42 6.74L18.9 2Zm-1.1 18h1.72L6.28 3.9H4.44L17.8 20Z" />
+              </svg>
+              <span class="sr-only">X</span>
+            </a>
+          </div>
+          <div class="chip-row">
+            <span class="chip">Applied AI</span>
+            <span class="chip">Agent systems</span>
+            <span class="chip">Automation</span>
+            <span class="chip">Research</span>
+          </div>
+          <div id="education" class="hero-education">
+            <h2>Education</h2>
+            <div class="hero-education-list">
+              <article class="hero-education-card">
+                <h3>Georgia Institute of Technology</h3>
+                <p class="meta">Computer Science</p>
+                <p class="hero-education-copy">Threads: Intelligence, Theory</p>
+              </article>
+              <article class="hero-education-card">
+                <h3>BASIS Peoria</h3>
+                <p class="hero-education-note">
+                  <a href="https://www.prnewswire.com/news-releases/basis-charter-schools-1-once-again-302124989.html"
+                    target="_blank" rel="noopener">U.S. News 2024: #1 public high school in the United States</a>
+                </p>
+                <p class="hero-education-copy">GPA: 3.98 UW / 4.84 W</p>
+                <p class="hero-education-copy">SAT: 1540 / ACT: 35</p>
+                <p class="hero-education-copy">Clubs: Research Club President, Debate Captain, SciOly Engineering Lead</p>
+              </article>
+            </div>
+          </div>
+        </article>
+
+        <aside class="surface hero-side">
+          <div class="portrait">
+            <img src="pic.jpeg" alt="Portrait of Ishaan Ranjan">
+          </div>
+          <div class="fact-list">
+            <div class="fact">
+              <span>Luxen LLC</span>
+              <strong>Co-Founder</strong>
+              <small>Shipped AI products and agent tooling.</small>
+            </div>
+            <div class="fact">
+              <span>Focus</span>
+              <strong>Systems, automation, research</strong>
+              <small>Debate, policy, environment, and health.</small>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="experience" class="section">
+        <h2>Experience</h2>
+        <div class="stack">
+          <article class="surface card">
+            <div class="card-head">
+              <div>
+                <h3>Luxen LLC</h3>
+                <p class="meta">Co-Founder</p>
+              </div>
+            </div>
+            <ul class="list">
+              <li>Built and shipped AI products and agent tooling.</li>
+              <li>Took products from prototype to deployment.</li>
+              <li>Raised $48K+ in support and cloud credits.</li>
+              <li>Scaled products to 5K+ active users and 1.5M+ media views.</li>
+            </ul>
+            <div class="link-row">
+              <a href="https://luxenai.org" target="_blank" rel="noopener">Luxen</a>
+              <a href="https://github.com/LuxenAI/agent-tree" target="_blank" rel="noopener">AgentTree</a>
+            </div>
+          </article>
+
+          <article class="surface card">
+            <div class="card-head">
+              <div>
+                <h3>KEYS Research Intern, Precision Aging Network Lab</h3>
+                <p class="meta">University of Arizona</p>
+              </div>
+            </div>
+            <ul class="list">
+              <li>Analyzed vitamin D, omega-3, and exercise interventions in R and Python.</li>
+              <li>Built reproducible notebooks and plots.</li>
+              <li>Presented a poster talk to 800+ attendees.</li>
+            </ul>
+            <div class="link-row">
+              <a href="https://ishaanayaan.github.io/KEYS-PAN/" target="_blank" rel="noopener">Project site</a>
+              <a href="KEYS Abstract.pdf" target="_blank" rel="noopener">Abstract PDF</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="distinctions" class="section">
+        <h2>Distinctions</h2>
+        <article class="surface distinctions-panel">
+          <ul class="distinctions-list">
+            <li>1517 Fund Medici Grantee</li>
+            <li>Over $30K in grants and credits</li>
+            <li>Z Fellows Finalist (2x)</li>
+            <li>Ranked Top 5 Nationally in BQ Debate</li>
+            <li>Arizona State Champion in Speech &amp; Debate</li>
+            <li>NSDA Nationals qualifier</li>
+            <li>SSRN paper ranked #1 in downloads</li>
+            <li>AZSEF Grand Award for SABER</li>
+            <li>ACT 35 / SAT 1540</li>
+            <li>Science Olympiad Wind Power #1 at Gopher Invitational</li>
+            <li>Top 43 National Economics Olympiad</li>
+            <li>US Medicine Olympiad Honorable Mention</li>
+            <li>Georgia Tech Stamps + Gold Scholarship nomination</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="projects" class="section">
+        <h2>Projects</h2>
+        <div class="grid-two">
+          <article class="surface project-card">
+            <h3>PRISM</h3>
+            <p>Policy benchmark for classification, causal audit, and crash-risk forecasting.</p>
+            <div class="link-row">
+              <a class="repo-link" href="https://github.com/IshaanAyaan/prism-policy-ai" target="_blank"
+                rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.4 11.4 0 0 1 12 6.84c1.02.01 2.05.14 3.01.41 2.29-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.87.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.22.69.83.58C20.57 21.8 24 17.3 24 12 24 5.37 18.63 0 12 0Z" />
+                </svg>
+                <span>Repository</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="surface project-card">
+            <h3>AgentTree</h3>
+            <p>Workspace for multi-agent coding sessions and runtime control.</p>
+            <div class="link-row">
+              <a class="repo-link" href="https://github.com/LuxenAI/agent-tree" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.4 11.4 0 0 1 12 6.84c1.02.01 2.05.14 3.01.41 2.29-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.87.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.22.69.83.58C20.57 21.8 24 17.3 24 12 24 5.37 18.63 0 12 0Z" />
+                </svg>
+                <span>Repository</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="surface project-card">
+            <h3>GreenhouseAgent</h3>
+            <p>Built at MIT Blueprint: sensor, actuator, and recommendation stack for greenhouse automation.</p>
+            <div class="link-row">
+              <a class="repo-link" href="https://github.com/IshaanAyaan/GreenhouseAgent" target="_blank"
+                rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.4 11.4 0 0 1 12 6.84c1.02.01 2.05.14 3.01.41 2.29-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.87.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.22.69.83.58C20.57 21.8 24 17.3 24 12 24 5.37 18.63 0 12 0Z" />
+                </svg>
+                <span>Repository</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="surface project-card">
+            <h3>Debatica</h3>
+            <p>Debate research and round-prep platform used by 2000+ debaters.</p>
+            <div class="link-row">
+              <a class="repo-link" href="https://github.com/IshaanAyaan/debaticav1" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.4 11.4 0 0 1 12 6.84c1.02.01 2.05.14 3.01.41 2.29-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.87.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.22.69.83.58C20.57 21.8 24 17.3 24 12 24 5.37 18.63 0 12 0Z" />
+                </svg>
+                <span>Repository</span>
+              </a>
+              <a href="https://www.debatica.org/" target="_blank" rel="noopener">Site</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="papers" class="section">
+        <h2>Papers</h2>
+        <div class="grid-three">
+          <article class="surface paper-card">
+            <h3>Criminal Tribes Act and social exclusion</h3>
+            <p>Historical analysis connecting colonial law to long-run social exclusion.</p>
+            <div class="link-row">
+              <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5349605" target="_blank"
+                rel="noopener">SSRN</a>
+            </div>
+          </article>
+
+          <article class="surface paper-card">
+            <h3>SABER</h3>
+            <p>AI-automated bioreactor work for environmental remediation.</p>
+            <div class="link-row">
+              <a href="https://www.researchgate.net/publication/394721081_SABER_-_Sustainable_AI-automated_Bioreactor_for_Environment_Remediation_Using_Chlorella_Vulgaris_and_Microcontroller_Systems_to_Support_Life_in_Restrictive_Environments"
+                target="_blank" rel="noopener">ResearchGate</a>
+            </div>
+          </article>
+
+          <article class="surface paper-card">
+            <h3>KEYS @ Precision Aging Network</h3>
+            <p>Epigenetic aging analysis with the project site, abstract PDF, and talk.</p>
+            <div class="link-row">
+              <a href="https://ishaanayaan.github.io/KEYS-PAN/" target="_blank" rel="noopener">Site</a>
+              <a href="KEYS Abstract.pdf" target="_blank" rel="noopener">PDF</a>
+              <a href="https://youtu.be/xY2U8qdTc5E?t=6564" target="_blank" rel="noopener">Talk</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="resume" class="section">
+        <h2>Resume</h2>
+        <article class="surface resume-card">
+          <div>
+            <h3>Ishaan Ranjan Resume</h3>
+            <p>Current internship resume in PDF format.</p>
+          </div>
+          <div class="hero-actions">
+            <a class="button" href="Ishaan_Ranjan_Job_Resume.pdf" target="_blank" rel="noopener">View Resume</a>
+            <a class="button subtle-button" href="Ishaan_Ranjan_Job_Resume.pdf" download>Download Resume</a>
+          </div>
+        </article>
+      </section>
+
+      <section id="contact" class="section">
+        <h2>Contact</h2>
+        <article class="surface contact-card">
+          <ul class="contact-list">
+            <li>
+              <span>Email</span>
+              <a href="mailto:ishaanranjan15@gmail.com">ishaanranjan15@gmail.com</a>
+            </li>
+            <li>
+              <span>GitHub</span>
+              <a href="https://github.com/ishaanayaan" target="_blank" rel="noopener">github.com/ishaanayaan</a>
+            </li>
+            <li>
+              <span>LinkedIn</span>
+              <a href="https://www.linkedin.com/in/ishaan-ranjan-86a41a217" target="_blank"
+                rel="noopener">ishaan-ranjan-86a41a217</a>
+            </li>
+            <li>
+              <span>Luxen</span>
+              <a href="https://luxenai.org" target="_blank" rel="noopener">luxenai.org</a>
+            </li>
+            <li>
+              <span>Instagram</span>
+              <a href="https://www.instagram.com/ish.ran15/" target="_blank" rel="noopener">@ish.ran15</a>
+            </li>
+            <li>
+              <span>X</span>
+              <a href="https://x.com/ishaanranjan15" target="_blank" rel="noopener">@ishaanranjan15</a>
+            </li>
+          </ul>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="site.js"></script>
   <script>
-    /* tiny helpers */
-    const $ = s => document.querySelector(s);
-    const $$ = s => [...document.querySelectorAll(s)];
-    const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    /* progress */
-    const bar = document.querySelector('.progress>i');
-    function setProgress() { const h = document.documentElement; const p = h.scrollTop / ((h.scrollHeight - h.clientHeight) || 1); bar.style.transform = `scaleX(${Math.max(0, Math.min(1, p))})`; }
-    setProgress(); addEventListener('scroll', setProgress, { passive: true }); addEventListener('resize', setProgress);
-
-    /* theme */
-    const themeBtn = $('#themeBtn');
-    function applyTheme(t) { document.documentElement.classList.remove('theme-light', 'theme-matrix'); if (t === 'light') document.documentElement.classList.add('theme-light'); if (t === 'matrix') document.documentElement.classList.add('theme-matrix'); localStorage.setItem('theme', t); }
-    function nextTheme(t) { return t === 'dark' ? 'light' : t === 'light' ? 'matrix' : 'dark'; }
-    let theme = localStorage.getItem('theme') || 'dark'; applyTheme(theme);
-    themeBtn.addEventListener('click', () => { theme = nextTheme(theme); applyTheme(theme); });
-
-    /* scrollspy + indicator + breadcrumb */
-    const rail = $('#topnav'), links = $$('#topnav a'), indicator = $('.indicator'), pathEl = $('#path');
-    const sections = links.map(a => document.getElementById(a.dataset.section));
-    function moveIndicator() {
-      const cur = links.find(a => a.getAttribute('aria-current') === 'page') || links[0];
-      const r = cur.getBoundingClientRect(), rr = rail.getBoundingClientRect();
-      indicator.style.width = r.width + 'px'; indicator.style.transform = `translateX(${r.left - rr.left}px)`;
-    }
-    function setActive(id, fromScroll = true) {
-      links.forEach(a => a.setAttribute('aria-current', a.dataset.section === id ? 'page' : 'false'));
-      pathEl.textContent = `tty0 — /home/ishaan/${id}`; moveIndicator();
-      if (fromScroll) history.replaceState(null, "", `#${id}`);
-    }
-    const spy = new IntersectionObserver((ents) => {
-      const vis = ents.filter(e => e.isIntersecting).sort((a, b) => a.target.offsetTop - b.target.offsetTop);
-      if (vis[0]) setActive(vis[0].target.id, true);
-    }, { rootMargin: "-55% 0px -40% 0px", threshold: [0, 1] });
-    sections.forEach(s => { if (s) spy.observe(s); });
-    addEventListener('resize', moveIndicator);
-    rail.addEventListener('click', (e) => {
-      const a = e.target.closest('a'); if (!a) return; e.preventDefault();
-      const target = document.getElementById(a.dataset.section);
-      if (target) target.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth', block: 'start' });
-      setActive(a.dataset.section, false);
-    });
-
-    /* breadcrumb copy */
-    const copyBtn = $('#copyPath');
-    copyBtn.addEventListener('click', async () => {
-      const val = (pathEl.textContent.split(' — ')[1] || '/home/ishaan/about').trim();
-      try { await navigator.clipboard.writeText(val); copyBtn.classList.add('show'); setTimeout(() => copyBtn.classList.remove('show'), 1100); } catch (_) { }
-    });
-
-    /* contact: copy email */
-    const copyEmail = $('#copyEmail');
-    copyEmail.addEventListener('click', async () => {
-      try { await navigator.clipboard.writeText('ishaanranjan15@gmail.com'); copyEmail.classList.add('show'); setTimeout(() => copyEmail.classList.remove('show'), 1100); } catch (_) { }
-    });
-
-    /* keyboard shortcuts */
-    document.addEventListener('keydown', (e) => {
-      // Ignore if user is typing in an input field
-      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable) return;
-
-      // 't' - toggle theme
-      if (e.key === 't' || e.key === 'T') {
-        theme = nextTheme(theme); applyTheme(theme);
-      }
-      // 'g' - scroll to top
-      if (e.key === 'g' || e.key === 'G') {
-        window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
-      }
-      // Escape - close modal
-      if (e.key === 'Escape') {
-        closeModal();
-      }
-    });
-
-    /* Modal */
-    function openModal() {
-      $('#abstractModal').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeModal() {
-      $('#abstractModal').classList.remove('open');
-      document.body.style.overflow = '';
-    }
-    $('#abstractModal').addEventListener('click', (e) => {
-      if (e.target === $('#abstractModal')) closeModal();
-    });
-
-    /* reveal */
-    const reveals = $$('.reveal');
-    if (!prefersReduced) {
-      const obs = new IntersectionObserver((es) => { es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); obs.unobserve(en.target); } }); }, { threshold: .12 });
-      reveals.forEach(el => obs.observe(el));
-    } else { reveals.forEach(el => el.classList.add('in')); }
-
-    /* boot */
-    document.addEventListener('DOMContentLoaded', () => {
-      const id = (location.hash || '#about').slice(1);
-      const target = document.getElementById(id) || document.getElementById('about');
-      target.scrollIntoView({ behavior: 'auto', block: 'start' });
-      setActive(target.id, true); moveIndicator();
-    });
+    window.Portfolio.init({ scrollSpy: true });
   </script>
 </body>
 
