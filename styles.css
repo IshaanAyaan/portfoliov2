@@ -695,6 +695,48 @@ html.theme-light .subtle-button {
   gap: 16px;
 }
 
+.project-links {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.project-link-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--panel) 92%, transparent), transparent 140%),
+    color-mix(in srgb, var(--surface-strong) 90%, transparent);
+  color: var(--soft);
+  font: 500 0.72rem/1 var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+.project-link-pill svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.project-link-pill:hover,
+.project-link-pill:focus-visible {
+  transform: translateY(-1px);
+  border-color: var(--border-strong);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--panel) 100%, transparent), transparent 140%),
+    color-mix(in srgb, var(--surface-strong) 96%, transparent);
+  color: var(--text);
+  outline: none;
+}
+
 .repo-link {
   display: inline-flex;
   align-items: center;
@@ -900,6 +942,15 @@ html.theme-light.inverted .runner-canvas {
   .contact-list li {
     flex-direction: column;
     gap: 8px;
+  }
+
+  .project-links {
+    gap: 8px;
+  }
+
+  .project-link-pill {
+    min-height: 36px;
+    padding: 0 11px;
   }
 
   .hero-copy h1 {
