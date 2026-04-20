@@ -705,24 +705,32 @@ html.theme-light .subtle-button {
 .project-link-pill {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  width: fit-content;
+  max-width: 100%;
+  flex: 0 0 auto;
   min-height: 38px;
   padding: 0 12px;
   border-radius: 999px;
   border: 1px solid var(--border);
-  background:
-    linear-gradient(135deg, color-mix(in srgb, var(--panel) 92%, transparent), transparent 140%),
-    color-mix(in srgb, var(--surface-strong) 90%, transparent);
+  background: var(--surface-strong);
   color: var(--soft);
   font: 500 0.72rem/1 var(--mono);
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  white-space: nowrap;
   transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, color 160ms ease;
 }
 
 .project-link-pill svg {
+  display: block;
   width: 15px;
   height: 15px;
+  min-width: 15px;
+  min-height: 15px;
+  max-width: 15px;
+  max-height: 15px;
   flex-shrink: 0;
 }
 
@@ -730,9 +738,7 @@ html.theme-light .subtle-button {
 .project-link-pill:focus-visible {
   transform: translateY(-1px);
   border-color: var(--border-strong);
-  background:
-    linear-gradient(135deg, color-mix(in srgb, var(--panel) 100%, transparent), transparent 140%),
-    color-mix(in srgb, var(--surface-strong) 96%, transparent);
+  background: color-mix(in srgb, var(--surface-strong) 92%, var(--panel));
   color: var(--text);
   outline: none;
 }
