@@ -742,6 +742,17 @@ html.theme-light .subtle-button {
   margin-top: 12px;
 }
 
+.blog-card-built {
+  margin-top: 14px !important;
+  padding: 12px 14px;
+  border-left: 2px solid var(--border-strong);
+  color: var(--muted) !important;
+  font-size: 0.9rem !important;
+  line-height: 1.6;
+  border-radius: 0 8px 8px 0;
+  background: var(--panel);
+}
+
 .list {
   list-style: none;
   padding: 0;
