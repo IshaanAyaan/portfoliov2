@@ -222,12 +222,25 @@
     });
   }
 
+  function initBlogToggle() {
+    document.querySelectorAll("[data-blog-toggle]").forEach(function (card) {
+      card.addEventListener("click", function (event) {
+        if (event.target.closest("a")) {
+          return;
+        }
+        var isExpanded = card.classList.toggle("is-expanded");
+        card.setAttribute("aria-expanded", isExpanded ? "true" : "false");
+      });
+    });
+  }
+
   window.Portfolio = {
     init(options) {
       const settings = options || {};
       setTheme(loadTheme());
       initThemeButtons();
       initBackgrounds();
+      initBlogToggle();
 
       if (settings.scrollSpy) {
         initScrollSpy();

@@ -340,6 +340,7 @@ html.theme-light .luxen-network__glow--bottom {
 .hero-side,
 .card,
 .project-card,
+.blog-card,
 .paper-card,
 .distinction-card,
 .resume-card,
@@ -352,6 +353,7 @@ html.theme-light .luxen-network__glow--bottom {
 .hero-side,
 .card,
 .project-card,
+.blog-card,
 .paper-card,
 .resume-card,
 .contact-card,
@@ -595,6 +597,12 @@ html.theme-light .subtle-button {
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
+.blog-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+}
+
 .distinctions-panel {
   padding: 24px;
   border-radius: 24px;
@@ -635,6 +643,7 @@ html.theme-light .subtle-button {
 
 .card h3,
 .project-card h3,
+.blog-card h3,
 .paper-card h3,
 .resume-card h3,
 .distinction-card h3 {
@@ -646,6 +655,7 @@ html.theme-light .subtle-button {
 
 .card p,
 .project-card p,
+.blog-card p,
 .paper-card p,
 .resume-card p,
 .distinction-card p {
@@ -659,6 +669,77 @@ html.theme-light .subtle-button {
   justify-content: space-between;
   align-items: start;
   gap: 10px;
+}
+
+.blog-card {
+  cursor: pointer;
+  transition: border-color 200ms ease;
+}
+
+.blog-card:hover {
+  border-color: var(--border-strong);
+}
+
+.blog-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.blog-card-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.blog-card-blurb {
+  margin: 4px 0 0 !important;
+  color: var(--muted) !important;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.blog-chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--muted);
+  transition: transform 300ms ease, color 200ms ease, background 200ms ease;
+  margin-top: 2px;
+}
+
+.blog-card.is-expanded .blog-chevron {
+  transform: rotate(180deg);
+  color: var(--text);
+  background: var(--surface-strong);
+}
+
+.blog-card-body {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 400ms cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 300ms ease 50ms,
+              margin-top 300ms ease;
+  margin-top: 0;
+}
+
+.blog-card.is-expanded .blog-card-body {
+  max-height: 500px;
+  opacity: 1;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.blog-card-body .project-links {
+  margin-top: 12px;
 }
 
 .list {
@@ -931,6 +1012,7 @@ html.theme-light.inverted .runner-canvas {
   .hero-side,
   .card,
   .project-card,
+  .blog-card,
   .paper-card,
   .distinction-card,
   .distinctions-panel,
