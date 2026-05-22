@@ -322,6 +322,10 @@ html.theme-light .luxen-network__glow--bottom {
   gap: 40px;
 }
 
+.content-stack > * {
+  min-width: 0;
+}
+
 .hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.85fr);
@@ -578,6 +582,19 @@ html.theme-light .subtle-button {
   letter-spacing: -0.04em;
 }
 
+.section-head {
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.section-head h2 {
+  margin: 0;
+}
+
 .grid-two,
 .grid-three,
 .distinctions-grid {
@@ -676,8 +693,16 @@ html.theme-light .subtle-button {
   transition: border-color 200ms ease;
 }
 
+.blog-card-static {
+  cursor: default;
+}
+
 .blog-card:hover {
   border-color: var(--border-strong);
+}
+
+.blog-card-static:hover {
+  border-color: var(--border);
 }
 
 .blog-card-header {
@@ -751,6 +776,26 @@ html.theme-light .subtle-button {
   line-height: 1.6;
   border-radius: 0 8px 8px 0;
   background: var(--panel);
+}
+
+.papers-scroll {
+  display: flex;
+  overflow-x: auto;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  gap: 14px;
+  padding-bottom: 6px;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+  overscroll-behavior-x: contain;
+}
+
+.papers-scroll .paper-card {
+  flex: 0 0 min(320px, calc(100vw - 56px));
+  min-width: 0;
+  min-height: 100%;
+  scroll-snap-align: start;
 }
 
 .list {
