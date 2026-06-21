@@ -1,0 +1,130 @@
+{
+  "updatedAt": "2026-06-21T02:34:27+00:00",
+  "book": {
+    "title": "Genghis Khan and the Making of the Modern World",
+    "author": "Jack Weatherford"
+  },
+  "spotify": {
+    "topTimeRange": "short_term",
+    "recentTracks": [
+      {
+        "name": "Drugs N Hella Melodies (feat. Kali Uchis)",
+        "artistNames": [
+          "Don Toliver",
+          "Kali Uchis"
+        ],
+        "albumName": "Life of a DON",
+        "playedAt": "2026-06-21T00:02:51.911Z",
+        "url": "https://open.spotify.com/track/0IX5OFffosy8wk16m1IFCa",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27372951fef63d89bee5e8224c7"
+      },
+      {
+        "name": "The Way I Are",
+        "artistNames": [
+          "Timbaland",
+          "Keri Hilson",
+          "D.O.E."
+        ],
+        "albumName": "Shock Value",
+        "playedAt": "2026-06-20T23:59:39.906Z",
+        "url": "https://open.spotify.com/track/2bLqfJjuC5syrsgDsZfGmn",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2734ed674ab91bdc566534f9285"
+      },
+      {
+        "name": "Headlines",
+        "artistNames": [
+          "Drake"
+        ],
+        "albumName": "Take Care (Deluxe)",
+        "playedAt": "2026-06-20T23:56:46.708Z",
+        "url": "https://open.spotify.com/track/6LxSe8YmdPxy095Ux6znaQ",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273c7ea04a9b455e3f68ef82550"
+      },
+      {
+        "name": "Bohemian Rhapsody - Remastered 2011",
+        "artistNames": [
+          "Queen"
+        ],
+        "albumName": "A Night At The Opera (Deluxe Remastered Version)",
+        "playedAt": "2026-06-20T23:51:19.040Z",
+        "url": "https://open.spotify.com/track/7tFiyTwD0nx5a1eklYtX2J",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273ce4f1737bc8a646c8c4bd25a"
+      },
+      {
+        "name": "Let It Happen",
+        "artistNames": [
+          "Tame Impala"
+        ],
+        "albumName": "Currents",
+        "playedAt": "2026-06-20T08:37:26.326Z",
+        "url": "https://open.spotify.com/track/2X485T9Z5Ly0xyaghN73ed",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2739e1cfc756886ac782e363d79"
+      }
+    ],
+    "topTracks": [
+      {
+        "name": "Bad - 2012 Remaster",
+        "artistNames": [
+          "Michael Jackson"
+        ],
+        "url": "https://open.spotify.com/track/2gSNBigeWMVtY3QBIvPAEc"
+      },
+      {
+        "name": "90210 (feat. Kacy Hill)",
+        "artistNames": [
+          "Travis Scott",
+          "Kacy Hill"
+        ],
+        "url": "https://open.spotify.com/track/51EC3I1nQXpec4gDk0mQyP"
+      },
+      {
+        "name": "Can't Tell Me Nothing",
+        "artistNames": [
+          "Kanye West"
+        ],
+        "url": "https://open.spotify.com/track/0mEdbdeRFQwBhN4xfyIeUM"
+      },
+      {
+        "name": "Thriller",
+        "artistNames": [
+          "Michael Jackson"
+        ],
+        "url": "https://open.spotify.com/track/2LlQb7Uoj1kKyGhlkBf9aC"
+      },
+      {
+        "name": "Let It Happen",
+        "artistNames": [
+          "Tame Impala"
+        ],
+        "url": "https://open.spotify.com/track/2X485T9Z5Ly0xyaghN73ed"
+      }
+    ],
+    "topArtists": [
+      {
+        "name": "Michael Jackson",
+        "genres": [],
+        "url": "https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm"
+      },
+      {
+        "name": "Tame Impala",
+        "genres": [],
+        "url": "https://open.spotify.com/artist/5INjqkS1o8h1imAzPqGZBb"
+      },
+      {
+        "name": "Kanye West",
+        "genres": [],
+        "url": "https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x"
+      },
+      {
+        "name": "Drake",
+        "genres": [],
+        "url": "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4"
+      },
+      {
+        "name": "Kendrick Lamar",
+        "genres": [],
+        "url": "https://open.spotify.com/artist/2YZyLoL8N0Wb9xBt1NhZWg"
+      }
+    ]
+  }
+}

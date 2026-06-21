@@ -234,6 +234,161 @@
     });
   }
 
+  function escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function joinArtists(artists) {
+    return Array.isArray(artists) ? artists.filter(Boolean).join(", ") : "";
+  }
+
+  function formatUpdatedAt(value) {
+    if (!value) {
+      return "Waiting for sync";
+    }
+
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) {
+      return "Waiting for sync";
+    }
+
+    return "Updated " + date.toLocaleDateString(undefined, {
+      month: "short",
+      day: "numeric",
+    });
+  }
+
+  function renderRecentTracks(element, items) {
+    if (!element) {
+      return;
+    }
+
+    if (!Array.isArray(items) || !items.length) {
+      element.innerHTML = "<li>No recent songs yet.</li>";
+      return;
+    }
+
+    element.innerHTML = items.map(function (item) {
+      const name = escapeHtml(item && item.name ? item.name : "Unknown track");
+      const artists = escapeHtml(joinArtists(item && item.artistNames));
+      const url = item && item.url;
+      const title = url
+        ? '<a class="now-link" href="' + escapeHtml(url) + '" target="_blank" rel="noopener">' + name + "</a>"
+        : name;
+      const subtitle = artists ? '<span class="now-subtle">' + artists + "</span>" : "";
+      return "<li>" + title + subtitle + "</li>";
+    }).join("");
+  }
+
+  function renderTopTracks(element, items) {
+    if (!element) {
+      return;
+    }
+
+    if (!Array.isArray(items) || !items.length) {
+      element.innerHTML = "<li>No top tracks available yet.</li>";
+      return;
+    }
+
+    element.innerHTML = items.map(function (item) {
+      const name = escapeHtml(item && item.name ? item.name : "Unknown track");
+      const artists = escapeHtml(joinArtists(item && item.artistNames));
+      const url = item && item.url;
+      const title = url
+        ? '<a class="now-link" href="' + escapeHtml(url) + '" target="_blank" rel="noopener">' + name + "</a>"
+        : name;
+      const subtitle = artists ? '<span class="now-subtle">' + artists + "</span>" : "";
+      return "<li>" + title + subtitle + "</li>";
+    }).join("");
+  }
+
+  function renderTopArtists(element, items) {
+    if (!element) {
+      return;
+    }
+
+    if (!Array.isArray(items) || !items.length) {
+      element.innerHTML = "<li>No top artists available yet.</li>";
+      return;
+    }
+
+    element.innerHTML = items.map(function (item) {
+      const name = escapeHtml(item && item.name ? item.name : "Unknown artist");
+      const url = item && item.url;
+      const title = url
+        ? '<a class="now-link" href="' + escapeHtml(url) + '" target="_blank" rel="noopener">' + name + "</a>"
+        : name;
+      return "<li>" + title + "</li>";
+    }).join("");
+  }
+
+  function renderNowWidget(payload) {
+    const rootElement = document.querySelector("[data-now-widget]");
+    if (!rootElement || !payload) {
+      return;
+    }
+
+    const bookElement = rootElement.querySelector("[data-now-book]");
+    const updatedElement = rootElement.querySelector("[data-now-updated]");
+    const recentElement = rootElement.querySelector("[data-now-recent]");
+    const topTracksElement = rootElement.querySelector("[data-now-top-tracks]");
+    const topArtistsElement = rootElement.querySelector("[data-now-top-artists]");
+
+    if (bookElement) {
+      const book = payload.book || {};
+      const title = book.title || "No current book set";
+      const author = book.author ? " by " + book.author : "";
+      bookElement.textContent = title + author;
+    }
+
+    if (updatedElement) {
+      updatedElement.textContent = formatUpdatedAt(payload.updatedAt);
+    }
+
+    const spotify = payload.spotify || {};
+    renderRecentTracks(recentElement, spotify.recentTracks);
+    renderTopTracks(topTracksElement, spotify.topTracks);
+    renderTopArtists(topArtistsElement, spotify.topArtists);
+  }
+
+  async function initNowWidget() {
+    const rootElement = document.querySelector("[data-now-widget]");
+    if (!rootElement) {
+      return;
+    }
+
+    try {
+      const response = await window.fetch("data/now.json?ts=" + Date.now(), {
+        cache: "no-store",
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to load now.json (" + response.status + ")");
+      }
+
+      const payload = await response.json();
+      renderNowWidget(payload);
+    } catch (_) {
+      renderNowWidget({
+        updatedAt: null,
+        book: {
+          title: "Genghis Khan and the Making of the Modern World",
+          author: "Jack Weatherford",
+        },
+        spotify: {
+          recentTracks: [],
+          topTracks: [],
+          topArtists: [],
+        },
+      });
+    }
+  }
+
   window.Portfolio = {
     init(options) {
       const settings = options || {};
@@ -241,6 +396,7 @@
       initThemeButtons();
       initBackgrounds();
       initBlogToggle();
+      initNowWidget();
 
       if (settings.scrollSpy) {
         initScrollSpy();
