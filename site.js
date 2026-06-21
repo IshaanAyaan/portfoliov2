@@ -418,6 +418,36 @@
     }
   }
 
+  function renderPreviewSummary(rootElement, spotify) {
+    if (!rootElement) {
+      return;
+    }
+
+    const topTrackTitle = rootElement.querySelector("[data-now-top-track-summary]");
+    const topTrackArtist = rootElement.querySelector("[data-now-top-track-artist]");
+    const topArtistTitle = rootElement.querySelector("[data-now-top-artist-summary]");
+    const topArtistNote = rootElement.querySelector("[data-now-top-artist-note]");
+
+    const topTrack = Array.isArray(spotify && spotify.topTracks) ? spotify.topTracks[0] : null;
+    const topArtist = Array.isArray(spotify && spotify.topArtists) ? spotify.topArtists[0] : null;
+
+    if (topTrackTitle) {
+      topTrackTitle.textContent = topTrack && topTrack.name ? topTrack.name : "No top track yet";
+    }
+
+    if (topTrackArtist) {
+      topTrackArtist.textContent = topTrack ? (joinArtists(topTrack.artistNames) || "Unknown artist") : "Spotify sync in progress.";
+    }
+
+    if (topArtistTitle) {
+      topArtistTitle.textContent = topArtist && topArtist.name ? topArtist.name : "No top artist yet";
+    }
+
+    if (topArtistNote) {
+      topArtistNote.textContent = topArtist ? "Current #1 artist on Spotify." : "Daily Spotify snapshot.";
+    }
+  }
+
   function renderNowWidget(payload) {
     const rootElement = document.querySelector("[data-now-widget]");
     if (!rootElement || !payload) {
@@ -442,10 +472,48 @@
     }
 
     const spotify = payload.spotify || {};
+    renderPreviewSummary(rootElement, spotify);
     renderFeatureTrack(rootElement, Array.isArray(spotify.recentTracks) ? spotify.recentTracks[0] : null);
     renderRecentTracks(recentElement, spotify.recentTracks);
     renderTopTracks(topTracksElement, spotify.topTracks);
     renderTopArtists(topArtistsElement, spotify.topArtists);
+  }
+
+  function setNowWidgetExpanded(rootElement, expanded) {
+    if (!rootElement) {
+      return;
+    }
+
+    rootElement.classList.toggle("is-open", expanded);
+
+    const toggle = rootElement.querySelector("[data-now-toggle]");
+    const label = rootElement.querySelector("[data-now-toggle-label]");
+
+    if (toggle) {
+      toggle.setAttribute("aria-expanded", expanded ? "true" : "false");
+    }
+
+    if (label) {
+      label.textContent = expanded ? "Collapse" : "Expand";
+    }
+  }
+
+  function initNowWidgetToggle(rootElement) {
+    if (!rootElement) {
+      return;
+    }
+
+    const toggle = rootElement.querySelector("[data-now-toggle]");
+    if (!toggle) {
+      return;
+    }
+
+    setNowWidgetExpanded(rootElement, false);
+
+    toggle.addEventListener("click", function () {
+      const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+      setNowWidgetExpanded(rootElement, !isExpanded);
+    });
   }
 
   async function initNowWidget() {
@@ -453,6 +521,8 @@
     if (!rootElement) {
       return;
     }
+
+    initNowWidgetToggle(rootElement);
 
     try {
       const response = await window.fetch("data/now.json?ts=" + Date.now(), {
