@@ -257,10 +257,47 @@
       return "Waiting for sync";
     }
 
-    return "Updated " + date.toLocaleDateString(undefined, {
+    return "Synced " + date.toLocaleString(undefined, {
       month: "short",
       day: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
     });
+  }
+
+  function formatPlayedAt(value) {
+    if (!value) {
+      return "No recent playback captured yet";
+    }
+
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) {
+      return "No recent playback captured yet";
+    }
+
+    return "Played " + date.toLocaleString(undefined, {
+      month: "short",
+      day: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+    });
+  }
+
+  function placeholderArt() {
+    return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">' +
+        '<defs>' +
+          '<linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">' +
+            '<stop offset="0%" stop-color="#1ed760"/>' +
+            '<stop offset="100%" stop-color="#06110a"/>' +
+          "</linearGradient>" +
+        "</defs>" +
+        '<rect width="600" height="600" fill="url(#g)"/>' +
+        '<circle cx="470" cy="130" r="120" fill="rgba(255,255,255,0.12)"/>' +
+        '<circle cx="150" cy="480" r="170" fill="rgba(255,255,255,0.08)"/>' +
+        '<path d="M252 175v180.4c-10.3-6.2-24.6-9.4-40.7-7.2-32.6 4.4-56.1 28.6-52.4 54 3.7 25.5 33.1 42.6 65.7 38.2 29.8-4 52.2-24.8 52.9-48.1V243.2L420 211v120.7c-10.3-6.2-24.6-9.4-40.7-7.2-32.6 4.4-56.1 28.6-52.4 54 3.7 25.5 33.1 42.6 65.7 38.2 29.8-4 52.2-24.8 52.9-48.1V137L252 175z" fill="rgba(255,255,255,0.9)"/>' +
+      "</svg>"
+    );
   }
 
   function renderRecentTracks(element, items) {
@@ -327,6 +364,60 @@
     }).join("");
   }
 
+  function renderFeatureTrack(rootElement, item) {
+    if (!rootElement) {
+      return;
+    }
+
+    const artElement = rootElement.querySelector("[data-now-art]");
+    const titleElement = rootElement.querySelector("[data-now-feature-title]");
+    const artistElement = rootElement.querySelector("[data-now-feature-artist]");
+    const noteElement = rootElement.querySelector("[data-now-feature-note]");
+    const linkElement = rootElement.querySelector("[data-now-feature-link]");
+
+    if (!item) {
+      if (artElement) {
+        artElement.src = placeholderArt();
+        artElement.alt = "Spotify placeholder art";
+      }
+      if (titleElement) {
+        titleElement.textContent = "No recent song yet";
+      }
+      if (artistElement) {
+        artistElement.textContent = "Play something on Spotify and the card will update on the next sync.";
+      }
+      if (noteElement) {
+        noteElement.textContent = "Waiting for playback";
+      }
+      if (linkElement) {
+        linkElement.href = "https://open.spotify.com";
+      }
+      return;
+    }
+
+    const title = item.name || "Unknown track";
+    const artists = joinArtists(item.artistNames) || "Unknown artist";
+    const imageUrl = item.albumImageUrl || placeholderArt();
+    const trackUrl = item.url || "https://open.spotify.com";
+
+    if (artElement) {
+      artElement.src = imageUrl;
+      artElement.alt = "Album art for " + title;
+    }
+    if (titleElement) {
+      titleElement.innerHTML = '<a class="now-link" href="' + escapeHtml(trackUrl) + '" target="_blank" rel="noopener">' + escapeHtml(title) + "</a>";
+    }
+    if (artistElement) {
+      artistElement.textContent = artists;
+    }
+    if (noteElement) {
+      noteElement.textContent = formatPlayedAt(item.playedAt);
+    }
+    if (linkElement) {
+      linkElement.href = trackUrl;
+    }
+  }
+
   function renderNowWidget(payload) {
     const rootElement = document.querySelector("[data-now-widget]");
     if (!rootElement || !payload) {
@@ -351,6 +442,7 @@
     }
 
     const spotify = payload.spotify || {};
+    renderFeatureTrack(rootElement, Array.isArray(spotify.recentTracks) ? spotify.recentTracks[0] : null);
     renderRecentTracks(recentElement, spotify.recentTracks);
     renderTopTracks(topTracksElement, spotify.topTracks);
     renderTopArtists(topArtistsElement, spotify.topArtists);
