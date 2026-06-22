@@ -444,7 +444,7 @@
     }
 
     if (topArtistNote) {
-      topArtistNote.textContent = topArtist ? "Current #1 artist on Spotify." : "Daily Spotify snapshot.";
+      topArtistNote.textContent = topArtist ? "On Spotify" : "Daily snapshot";
     }
   }
 
