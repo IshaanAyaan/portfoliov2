@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-23T15:44:32+00:00",
+  "updatedAt": "2026-06-23T20:58:33+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -8,54 +8,56 @@
     "topTimeRange": "short_term",
     "recentTracks": [
       {
-        "name": "One More Hour",
+        "name": "No Pole",
         "artistNames": [
-          "Tame Impala"
+          "Don Toliver"
         ],
-        "albumName": "The Slow Rush",
-        "playedAt": "2026-06-23T03:22:36.706Z",
-        "url": "https://open.spotify.com/track/0mO6oS60RST2sWmN2FKknP",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27358267bd34420a00d5cf83a49"
+        "albumName": "Love Sick (Deluxe)",
+        "playedAt": "2026-06-23T19:53:40.790Z",
+        "url": "https://open.spotify.com/track/0eaVIYo2zeOaGJeqZ5TwYz",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273307323fa550564b0201b1d76"
       },
       {
-        "name": "Headlines",
+        "name": "Runaway",
         "artistNames": [
-          "Drake"
+          "Kanye West",
+          "Pusha T"
         ],
-        "albumName": "Take Care (Deluxe)",
-        "playedAt": "2026-06-23T01:00:46.908Z",
-        "url": "https://open.spotify.com/track/6LxSe8YmdPxy095Ux6znaQ",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273c7ea04a9b455e3f68ef82550"
+        "albumName": "My Beautiful Dark Twisted Fantasy",
+        "playedAt": "2026-06-23T19:50:23.636Z",
+        "url": "https://open.spotify.com/track/3DK6m7It6Pw857FcQftMds",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273d9194aa18fa4c9362b47464f"
       },
       {
-        "name": "Stronger",
+        "name": "Runaway",
         "artistNames": [
-          "Kanye West"
+          "Kanye West",
+          "Pusha T"
         ],
-        "albumName": "Graduation",
-        "playedAt": "2026-06-22T20:56:16.756Z",
-        "url": "https://open.spotify.com/track/0j2T0R9dR9qdJYsB7ciXhf",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27326f7f19c7f0381e56156c94a"
+        "albumName": "My Beautiful Dark Twisted Fantasy",
+        "playedAt": "2026-06-23T19:32:46.834Z",
+        "url": "https://open.spotify.com/track/3DK6m7It6Pw857FcQftMds",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273d9194aa18fa4c9362b47464f"
       },
       {
-        "name": "Can't Tell Me Nothing",
+        "name": "Smooth Criminal - 2012 Remaster",
         "artistNames": [
-          "Kanye West"
+          "Michael Jackson"
         ],
-        "albumName": "Graduation",
-        "playedAt": "2026-06-22T20:46:48.587Z",
-        "url": "https://open.spotify.com/track/0mEdbdeRFQwBhN4xfyIeUM",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27326f7f19c7f0381e56156c94a"
+        "albumName": "Bad (Remastered)",
+        "playedAt": "2026-06-23T17:53:17.514Z",
+        "url": "https://open.spotify.com/track/5T7ywazdGIydr6JCW6t02j",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273eb2087dcd1eb61f833bdedff"
       },
       {
-        "name": "Headlines",
+        "name": "Les - Instrumental Slowed",
         "artistNames": [
-          "Drake"
+          "Scammacist"
         ],
-        "albumName": "Take Care (Deluxe)",
-        "playedAt": "2026-06-22T20:42:23Z",
-        "url": "https://open.spotify.com/track/6LxSe8YmdPxy095Ux6znaQ",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273c7ea04a9b455e3f68ef82550"
+        "albumName": "Les",
+        "playedAt": "2026-06-23T17:05:55.549Z",
+        "url": "https://open.spotify.com/track/1KB5RNokmVYTLnPip7tpLX",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27337161a7b0abb5a066cafd6f0"
       }
     ],
     "topTracks": [
@@ -82,18 +84,18 @@
         "url": "https://open.spotify.com/track/0mEdbdeRFQwBhN4xfyIeUM"
       },
       {
-        "name": "Headlines",
-        "artistNames": [
-          "Drake"
-        ],
-        "url": "https://open.spotify.com/track/6LxSe8YmdPxy095Ux6znaQ"
-      },
-      {
         "name": "Thriller",
         "artistNames": [
           "Michael Jackson"
         ],
         "url": "https://open.spotify.com/track/2LlQb7Uoj1kKyGhlkBf9aC"
+      },
+      {
+        "name": "Headlines",
+        "artistNames": [
+          "Drake"
+        ],
+        "url": "https://open.spotify.com/track/6LxSe8YmdPxy095Ux6znaQ"
       }
     ],
     "topArtists": [
@@ -101,11 +103,6 @@
         "name": "Michael Jackson",
         "genres": [],
         "url": "https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm"
-      },
-      {
-        "name": "Drake",
-        "genres": [],
-        "url": "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4"
       },
       {
         "name": "Kanye West",
@@ -121,6 +118,11 @@
         "name": "The Weeknd",
         "genres": [],
         "url": "https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ"
+      },
+      {
+        "name": "Drake",
+        "genres": [],
+        "url": "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4"
       }
     ]
   }
