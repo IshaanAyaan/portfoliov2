@@ -2,7 +2,7 @@ name: Update Now Widget
 
 on:
   schedule:
-    - cron: "0 15 * * *"
+    - cron: "0 1,7,13,19 * * *"
   workflow_dispatch:
 
 permissions:
