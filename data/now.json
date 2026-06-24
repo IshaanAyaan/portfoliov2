@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-23T20:58:33+00:00",
+  "updatedAt": "2026-06-24T04:59:42+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -8,56 +8,54 @@
     "topTimeRange": "short_term",
     "recentTracks": [
       {
-        "name": "No Pole",
-        "artistNames": [
-          "Don Toliver"
-        ],
-        "albumName": "Love Sick (Deluxe)",
-        "playedAt": "2026-06-23T19:53:40.790Z",
-        "url": "https://open.spotify.com/track/0eaVIYo2zeOaGJeqZ5TwYz",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273307323fa550564b0201b1d76"
-      },
-      {
-        "name": "Runaway",
-        "artistNames": [
-          "Kanye West",
-          "Pusha T"
-        ],
-        "albumName": "My Beautiful Dark Twisted Fantasy",
-        "playedAt": "2026-06-23T19:50:23.636Z",
-        "url": "https://open.spotify.com/track/3DK6m7It6Pw857FcQftMds",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273d9194aa18fa4c9362b47464f"
-      },
-      {
-        "name": "Runaway",
-        "artistNames": [
-          "Kanye West",
-          "Pusha T"
-        ],
-        "albumName": "My Beautiful Dark Twisted Fantasy",
-        "playedAt": "2026-06-23T19:32:46.834Z",
-        "url": "https://open.spotify.com/track/3DK6m7It6Pw857FcQftMds",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273d9194aa18fa4c9362b47464f"
-      },
-      {
-        "name": "Smooth Criminal - 2012 Remaster",
+        "name": "Human Nature",
         "artistNames": [
           "Michael Jackson"
         ],
-        "albumName": "Bad (Remastered)",
-        "playedAt": "2026-06-23T17:53:17.514Z",
-        "url": "https://open.spotify.com/track/5T7ywazdGIydr6JCW6t02j",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273eb2087dcd1eb61f833bdedff"
+        "albumName": "Thriller",
+        "playedAt": "2026-06-23T23:13:43.430Z",
+        "url": "https://open.spotify.com/track/4cgjA7B4fJBHyB9Ya2bu0t",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27332a7d87248d1b75463483df5"
       },
       {
-        "name": "Les - Instrumental Slowed",
+        "name": "Shape of You",
         "artistNames": [
-          "Scammacist"
+          "Ed Sheeran"
         ],
-        "albumName": "Les",
-        "playedAt": "2026-06-23T17:05:55.549Z",
-        "url": "https://open.spotify.com/track/1KB5RNokmVYTLnPip7tpLX",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27337161a7b0abb5a066cafd6f0"
+        "albumName": "\u00f7 (Deluxe)",
+        "playedAt": "2026-06-23T23:08:31.841Z",
+        "url": "https://open.spotify.com/track/7qiZfU4dY1lWllzX7mPBI3",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273ba5db46f4b838ef6027e6f96"
+      },
+      {
+        "name": "CAN'T SAY",
+        "artistNames": [
+          "Travis Scott"
+        ],
+        "albumName": "ASTROWORLD",
+        "playedAt": "2026-06-23T23:04:34.140Z",
+        "url": "https://open.spotify.com/track/27a1mYSG5tYg7dmEjWBcmL",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273daec894c14c0ca42d76eeb32"
+      },
+      {
+        "name": "My All",
+        "artistNames": [
+          "Mariah Carey"
+        ],
+        "albumName": "Butterfly",
+        "playedAt": "2026-06-23T23:01:21.742Z",
+        "url": "https://open.spotify.com/track/3RSpK5Y0y5tl25qvssrwJ6",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27398ed501c6a838b2244ebaf75"
+      },
+      {
+        "name": "Coming Down",
+        "artistNames": [
+          "The Weeknd"
+        ],
+        "albumName": "Trilogy",
+        "playedAt": "2026-06-23T22:57:36.818Z",
+        "url": "https://open.spotify.com/track/4q75XguyPrsduy70hcBVFu",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273158c84a1b6f8b935dc7fa9a9"
       }
     ],
     "topTracks": [
@@ -120,9 +118,9 @@
         "url": "https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ"
       },
       {
-        "name": "Drake",
+        "name": "Travis Scott",
         "genres": [],
-        "url": "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4"
+        "url": "https://open.spotify.com/artist/0Y5tJX1MQlPlqiwlOH1tJY"
       }
     ]
   }
