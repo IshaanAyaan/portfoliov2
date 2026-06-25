@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-24T21:50:54+00:00",
+  "updatedAt": "2026-06-25T08:23:01+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -8,58 +8,64 @@
     "topTimeRange": "short_term",
     "recentTracks": [
       {
-        "name": "Feel This Moment (feat. Christina Aguilera)",
+        "name": "Trance (with Travis Scott & Young Thug)",
         "artistNames": [
-          "Pitbull",
-          "Christina Aguilera"
+          "Metro Boomin",
+          "Travis Scott",
+          "Young Thug"
         ],
-        "albumName": "Global Warming: Meltdown (Deluxe Version)",
-        "playedAt": "2026-06-24T21:47:19.787Z",
-        "url": "https://open.spotify.com/track/0Hf4aIJpsN4Os2f0y0VqWl",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2732ffc2c580b6595a3e675a730"
+        "albumName": "HEROES & VILLAINS",
+        "playedAt": "2026-06-25T06:14:26.179Z",
+        "url": "https://open.spotify.com/track/5wG3HvLhF6Y5KTGlK0IW3J",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273c4fee55d7b51479627c31f89"
       },
       {
-        "name": "See You Again (feat. Kali Uchis)",
+        "name": "Touch The Sky",
         "artistNames": [
-          "Tyler, The Creator",
-          "Kali Uchis"
+          "Kanye West",
+          "Lupe Fiasco"
         ],
-        "albumName": "Flower Boy",
-        "playedAt": "2026-06-24T21:43:29.766Z",
-        "url": "https://open.spotify.com/track/7KA4W4McWYRpgf0fWsJZWB",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2738940ac99f49e44f59e6f7fb3"
+        "albumName": "Late Registration",
+        "playedAt": "2026-06-25T04:51:30.080Z",
+        "url": "https://open.spotify.com/track/2dxjKgT0li4qBI3QwuN9Ih",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273428d2255141c2119409a31b2"
       },
       {
-        "name": "Cheerleader - Felix Jaehn Remix Radio Edit",
+        "name": "Timeless (feat Playboi Carti)",
         "artistNames": [
-          "OMI"
+          "The Weeknd",
+          "Playboi Carti"
         ],
-        "albumName": "Me 4 U",
-        "playedAt": "2026-06-24T21:40:28.857Z",
-        "url": "https://open.spotify.com/track/023OVLNzXhX0j7CxswUt6D",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2731c61cec78c70409b783d1480"
+        "albumName": "Hurry Up Tomorrow",
+        "playedAt": "2026-06-25T04:47:32.963Z",
+        "url": "https://open.spotify.com/track/0FIDCNYYjNvPVimz5icugS",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273de79f330bc297af3fae736da"
       },
       {
-        "name": "misses",
+        "name": "No Church In The Wild",
         "artistNames": [
-          "Dominic Fike"
+          "JA\u0178-Z",
+          "Kanye West",
+          "Frank Ocean",
+          "THE-DREAM"
         ],
-        "albumName": "14 minutes",
-        "playedAt": "2026-06-24T21:37:27.779Z",
-        "url": "https://open.spotify.com/track/6WTFHKrnZpwEBLRS10Ylqs",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2730297fb98f81fc0b611fcf71d"
+        "albumName": "Watch The Throne",
+        "playedAt": "2026-06-25T04:43:16.446Z",
+        "url": "https://open.spotify.com/track/7r6PigmGzlB3YPB7wvBBbi",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27352e61456aa4995ba48d94e30"
       },
       {
-        "name": "DIE TRYING",
+        "name": "No Church In The Wild",
         "artistNames": [
-          "PARTYNEXTDOOR",
-          "Drake",
-          "Yebba"
+          "JA\u0178-Z",
+          "Kanye West",
+          "Frank Ocean",
+          "THE-DREAM"
         ],
-        "albumName": "$ome $exy $ongs 4 U",
-        "playedAt": "2026-06-24T21:36:12.879Z",
-        "url": "https://open.spotify.com/track/0NUqi0ps17YpLUC3kgsZq0",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273b5a28a256eae6dc0424fef59"
+        "albumName": "Watch The Throne",
+        "playedAt": "2026-06-25T04:38:30.525Z",
+        "url": "https://open.spotify.com/track/7r6PigmGzlB3YPB7wvBBbi",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27352e61456aa4995ba48d94e30"
       }
     ],
     "topTracks": [
@@ -122,9 +128,9 @@
         "url": "https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ"
       },
       {
-        "name": "Travis Scott",
+        "name": "Drake",
         "genres": [],
-        "url": "https://open.spotify.com/artist/0Y5tJX1MQlPlqiwlOH1tJY"
+        "url": "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4"
       }
     ]
   }
