@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-25T15:39:40+00:00",
+  "updatedAt": "2026-06-25T22:20:52+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -7,6 +7,29 @@
   "spotify": {
     "topTimeRange": "short_term",
     "recentTracks": [
+      {
+        "name": "No Church In The Wild",
+        "artistNames": [
+          "JA\u0178-Z",
+          "Kanye West",
+          "Frank Ocean",
+          "THE-DREAM"
+        ],
+        "albumName": "Watch The Throne",
+        "playedAt": "2026-06-25T22:17:50.316Z",
+        "url": "https://open.spotify.com/track/7r6PigmGzlB3YPB7wvBBbi",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27352e61456aa4995ba48d94e30"
+      },
+      {
+        "name": "Veridis Quo",
+        "artistNames": [
+          "Daft Punk"
+        ],
+        "albumName": "Discovery",
+        "playedAt": "2026-06-25T06:34:13.768Z",
+        "url": "https://open.spotify.com/track/2LD2gT7gwAurzdQDQtILds",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2731e81bff9807a9e629fce5ade"
+      },
       {
         "name": "Trance (with Travis Scott & Young Thug)",
         "artistNames": [
@@ -40,32 +63,6 @@
         "playedAt": "2026-06-25T04:47:32.963Z",
         "url": "https://open.spotify.com/track/0FIDCNYYjNvPVimz5icugS",
         "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273de79f330bc297af3fae736da"
-      },
-      {
-        "name": "No Church In The Wild",
-        "artistNames": [
-          "JA\u0178-Z",
-          "Kanye West",
-          "Frank Ocean",
-          "THE-DREAM"
-        ],
-        "albumName": "Watch The Throne",
-        "playedAt": "2026-06-25T04:43:16.446Z",
-        "url": "https://open.spotify.com/track/7r6PigmGzlB3YPB7wvBBbi",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27352e61456aa4995ba48d94e30"
-      },
-      {
-        "name": "No Church In The Wild",
-        "artistNames": [
-          "JA\u0178-Z",
-          "Kanye West",
-          "Frank Ocean",
-          "THE-DREAM"
-        ],
-        "albumName": "Watch The Throne",
-        "playedAt": "2026-06-25T04:38:30.525Z",
-        "url": "https://open.spotify.com/track/7r6PigmGzlB3YPB7wvBBbi",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27352e61456aa4995ba48d94e30"
       }
     ],
     "topTracks": [
@@ -123,14 +120,14 @@
         "url": "https://open.spotify.com/artist/5INjqkS1o8h1imAzPqGZBb"
       },
       {
-        "name": "The Weeknd",
-        "genres": [],
-        "url": "https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ"
-      },
-      {
         "name": "Drake",
         "genres": [],
         "url": "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4"
+      },
+      {
+        "name": "Don Toliver",
+        "genres": [],
+        "url": "https://open.spotify.com/artist/4Gso3d4CscCijv0lmajZWs"
       }
     ]
   }
