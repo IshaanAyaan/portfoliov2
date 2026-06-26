@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-26T15:24:08+00:00",
+  "updatedAt": "2026-06-26T22:12:58+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -8,61 +8,60 @@
     "topTimeRange": "short_term",
     "recentTracks": [
       {
-        "name": "Love Me Not",
+        "name": "telepat\u00eda",
         "artistNames": [
-          "Ravyn Lenae"
+          "Kali Uchis"
         ],
-        "albumName": "Love Me Not / Love Is Blind",
-        "playedAt": "2026-06-26T07:32:10.888Z",
-        "url": "https://open.spotify.com/track/1UNEuG9DYOWiikf00ayr52",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27333b05d358247bbe9971370f2"
+        "albumName": "Sin Miedo (del Amor y Otros Demonios) \u221e",
+        "playedAt": "2026-06-26T22:07:33.393Z",
+        "url": "https://open.spotify.com/track/6tDDoYIxWvMLTdKpjFkc1B",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273044a5466dac00f7b3c570b99"
       },
       {
-        "name": "Love Me Not",
+        "name": "Nightcrawler (feat. Swae Lee & Chief Keef)",
         "artistNames": [
-          "Ravyn Lenae"
+          "Travis Scott",
+          "Swae Lee",
+          "Chief Keef"
         ],
-        "albumName": "Love Me Not / Love Is Blind",
-        "playedAt": "2026-06-26T03:00:39.708Z",
-        "url": "https://open.spotify.com/track/1UNEuG9DYOWiikf00ayr52",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27333b05d358247bbe9971370f2"
+        "albumName": "Rodeo",
+        "playedAt": "2026-06-26T21:58:00.376Z",
+        "url": "https://open.spotify.com/track/3xby7fOyqmeON8jsnom0AT",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273d3b5affd8824b4ed301b7137"
       },
       {
-        "name": "Rendezvous (feat. Yeat)",
+        "name": "Just Dance",
         "artistNames": [
-          "Don Toliver",
-          "Yeat"
+          "Lady Gaga",
+          "Colby O'Donis"
         ],
-        "albumName": "OCTANE",
-        "playedAt": "2026-06-26T02:59:26.250Z",
-        "url": "https://open.spotify.com/track/2Ejyg4CavumEr7lFUkk9aF",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27325c28f3c9fbdbab1a88dd619"
+        "albumName": "The Fame",
+        "playedAt": "2026-06-26T21:52:44.777Z",
+        "url": "https://open.spotify.com/track/2x7MyWybabEz6Y6wvHuwGE",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273613aaa3ae566d9f36008aed0"
       },
       {
-        "name": "No Church In The Wild",
+        "name": "Paper Soldier (feat. Joony)",
         "artistNames": [
-          "JA\u0178-Z",
-          "Kanye West",
-          "Frank Ocean",
-          "THE-DREAM"
+          "Brent Faiyaz",
+          "Joony",
+          "ISO Supremacy"
         ],
-        "albumName": "Watch The Throne",
-        "playedAt": "2026-06-26T00:42:53.455Z",
-        "url": "https://open.spotify.com/track/7r6PigmGzlB3YPB7wvBBbi",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27352e61456aa4995ba48d94e30"
+        "albumName": "Paper Soldier (feat. Joony)",
+        "playedAt": "2026-06-26T21:41:43.489Z",
+        "url": "https://open.spotify.com/track/0ReoK9isNvJmI7nV2iJcNR",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27307fff1810b19ae0e35f505c0"
       },
       {
-        "name": "No Church In The Wild",
+        "name": "Confident",
         "artistNames": [
-          "JA\u0178-Z",
-          "Kanye West",
-          "Frank Ocean",
-          "THE-DREAM"
+          "Justin Bieber",
+          "Chance the Rapper"
         ],
-        "albumName": "Watch The Throne",
-        "playedAt": "2026-06-25T22:17:50.316Z",
-        "url": "https://open.spotify.com/track/7r6PigmGzlB3YPB7wvBBbi",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27352e61456aa4995ba48d94e30"
+        "albumName": "Journals",
+        "playedAt": "2026-06-26T21:35:46.400Z",
+        "url": "https://open.spotify.com/track/5Isz0twJeFdduOQEFQLezv",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273aac2a4189ed89b369c539df6"
       }
     ],
     "topTracks": [
