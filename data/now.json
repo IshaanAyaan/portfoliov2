@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-26T22:12:58+00:00",
+  "updatedAt": "2026-06-27T07:49:07+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -8,60 +8,54 @@
     "topTimeRange": "short_term",
     "recentTracks": [
       {
-        "name": "telepat\u00eda",
+        "name": "Break from Toronto",
         "artistNames": [
-          "Kali Uchis"
+          "PARTYNEXTDOOR"
         ],
-        "albumName": "Sin Miedo (del Amor y Otros Demonios) \u221e",
-        "playedAt": "2026-06-26T22:07:33.393Z",
-        "url": "https://open.spotify.com/track/6tDDoYIxWvMLTdKpjFkc1B",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273044a5466dac00f7b3c570b99"
+        "albumName": "PARTYNEXTDOOR",
+        "playedAt": "2026-06-27T03:24:56.237Z",
+        "url": "https://open.spotify.com/track/5fEB6ZmVkg63GZg9qO86jh",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273090b1f9557a6d23c0817bd88"
       },
       {
-        "name": "Nightcrawler (feat. Swae Lee & Chief Keef)",
+        "name": "Softcore",
         "artistNames": [
-          "Travis Scott",
-          "Swae Lee",
-          "Chief Keef"
+          "The Neighbourhood"
         ],
-        "albumName": "Rodeo",
-        "playedAt": "2026-06-26T21:58:00.376Z",
-        "url": "https://open.spotify.com/track/3xby7fOyqmeON8jsnom0AT",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273d3b5affd8824b4ed301b7137"
+        "albumName": "Hard To Imagine The Neighbourhood Ever Changing",
+        "playedAt": "2026-06-27T03:24:56.237Z",
+        "url": "https://open.spotify.com/track/2K7xn816oNHJZ0aVqdQsha",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2739b6ac98a52f62d5cb473da40"
       },
       {
-        "name": "Just Dance",
+        "name": "SKELETONS",
         "artistNames": [
-          "Lady Gaga",
-          "Colby O'Donis"
+          "Travis Scott"
         ],
-        "albumName": "The Fame",
-        "playedAt": "2026-06-26T21:52:44.777Z",
-        "url": "https://open.spotify.com/track/2x7MyWybabEz6Y6wvHuwGE",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273613aaa3ae566d9f36008aed0"
+        "albumName": "ASTROWORLD",
+        "playedAt": "2026-06-27T02:29:56.304Z",
+        "url": "https://open.spotify.com/track/6NMtzpDQBTOfJwMzgMX0zl",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273daec894c14c0ca42d76eeb32"
       },
       {
-        "name": "Paper Soldier (feat. Joony)",
+        "name": "SKELETONS",
         "artistNames": [
-          "Brent Faiyaz",
-          "Joony",
-          "ISO Supremacy"
+          "Travis Scott"
         ],
-        "albumName": "Paper Soldier (feat. Joony)",
-        "playedAt": "2026-06-26T21:41:43.489Z",
-        "url": "https://open.spotify.com/track/0ReoK9isNvJmI7nV2iJcNR",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27307fff1810b19ae0e35f505c0"
+        "albumName": "ASTROWORLD",
+        "playedAt": "2026-06-27T02:29:09.605Z",
+        "url": "https://open.spotify.com/track/6NMtzpDQBTOfJwMzgMX0zl",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273daec894c14c0ca42d76eeb32"
       },
       {
-        "name": "Confident",
+        "name": "Treasure",
         "artistNames": [
-          "Justin Bieber",
-          "Chance the Rapper"
+          "Bruno Mars"
         ],
-        "albumName": "Journals",
-        "playedAt": "2026-06-26T21:35:46.400Z",
-        "url": "https://open.spotify.com/track/5Isz0twJeFdduOQEFQLezv",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273aac2a4189ed89b369c539df6"
+        "albumName": "Unorthodox Jukebox",
+        "playedAt": "2026-06-26T23:54:34.410Z",
+        "url": "https://open.spotify.com/track/55h7vJchibLdUkxdlX3fK7",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273926f43e7cce571e62720fd46"
       }
     ],
     "topTracks": [
@@ -124,9 +118,9 @@
         "url": "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4"
       },
       {
-        "name": "Don Toliver",
+        "name": "Travis Scott",
         "genres": [],
-        "url": "https://open.spotify.com/artist/4Gso3d4CscCijv0lmajZWs"
+        "url": "https://open.spotify.com/artist/0Y5tJX1MQlPlqiwlOH1tJY"
       }
     ]
   }
