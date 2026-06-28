@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-28T14:48:30+00:00",
+  "updatedAt": "2026-06-28T22:01:59+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -7,6 +7,26 @@
   "spotify": {
     "topTimeRange": "short_term",
     "recentTracks": [
+      {
+        "name": "Stick Talk",
+        "artistNames": [
+          "Future"
+        ],
+        "albumName": "DS2 (Deluxe)",
+        "playedAt": "2026-06-28T17:37:33.180Z",
+        "url": "https://open.spotify.com/track/20fAoPjfYltmd3K3bO7gbt",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273b2592bea12d840fd096ef965"
+      },
+      {
+        "name": "Wait a Minute!",
+        "artistNames": [
+          "WILLOW"
+        ],
+        "albumName": "ARDIPITHECUS",
+        "playedAt": "2026-06-28T17:37:16.234Z",
+        "url": "https://open.spotify.com/track/0y60itmpH0aPKsFiGxmtnh",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27353b17b025865ae89bcb68062"
+      },
       {
         "name": "Bad Romance",
         "artistNames": [
@@ -36,26 +56,6 @@
         "playedAt": "2026-06-27T03:24:56.237Z",
         "url": "https://open.spotify.com/track/2K7xn816oNHJZ0aVqdQsha",
         "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2739b6ac98a52f62d5cb473da40"
-      },
-      {
-        "name": "SKELETONS",
-        "artistNames": [
-          "Travis Scott"
-        ],
-        "albumName": "ASTROWORLD",
-        "playedAt": "2026-06-27T02:29:56.304Z",
-        "url": "https://open.spotify.com/track/6NMtzpDQBTOfJwMzgMX0zl",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273daec894c14c0ca42d76eeb32"
-      },
-      {
-        "name": "SKELETONS",
-        "artistNames": [
-          "Travis Scott"
-        ],
-        "albumName": "ASTROWORLD",
-        "playedAt": "2026-06-27T02:29:09.605Z",
-        "url": "https://open.spotify.com/track/6NMtzpDQBTOfJwMzgMX0zl",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273daec894c14c0ca42d76eeb32"
       }
     ],
     "topTracks": [
@@ -66,13 +66,6 @@
           "Kacy Hill"
         ],
         "url": "https://open.spotify.com/track/51EC3I1nQXpec4gDk0mQyP"
-      },
-      {
-        "name": "Bad - 2012 Remaster",
-        "artistNames": [
-          "Michael Jackson"
-        ],
-        "url": "https://open.spotify.com/track/2gSNBigeWMVtY3QBIvPAEc"
       },
       {
         "name": "Can't Tell Me Nothing",
@@ -89,6 +82,13 @@
         "url": "https://open.spotify.com/track/6LxSe8YmdPxy095Ux6znaQ"
       },
       {
+        "name": "Bad - 2012 Remaster",
+        "artistNames": [
+          "Michael Jackson"
+        ],
+        "url": "https://open.spotify.com/track/2gSNBigeWMVtY3QBIvPAEc"
+      },
+      {
         "name": "Thriller",
         "artistNames": [
           "Michael Jackson"
@@ -98,14 +98,14 @@
     ],
     "topArtists": [
       {
-        "name": "Michael Jackson",
-        "genres": [],
-        "url": "https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm"
-      },
-      {
         "name": "Kanye West",
         "genres": [],
         "url": "https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x"
+      },
+      {
+        "name": "Michael Jackson",
+        "genres": [],
+        "url": "https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm"
       },
       {
         "name": "Tame Impala",
