@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-28T08:21:11+00:00",
+  "updatedAt": "2026-06-28T14:48:30+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -7,6 +7,16 @@
   "spotify": {
     "topTimeRange": "short_term",
     "recentTracks": [
+      {
+        "name": "Bad Romance",
+        "artistNames": [
+          "Lady Gaga"
+        ],
+        "albumName": "The Fame Monster (Deluxe Edition)",
+        "playedAt": "2026-06-28T08:34:09.823Z",
+        "url": "https://open.spotify.com/track/0SiywuOBRcynK0uKGWdCnn",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2735c9890c0456a3719eeecd8aa"
+      },
       {
         "name": "Break from Toronto",
         "artistNames": [
@@ -46,26 +56,9 @@
         "playedAt": "2026-06-27T02:29:09.605Z",
         "url": "https://open.spotify.com/track/6NMtzpDQBTOfJwMzgMX0zl",
         "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273daec894c14c0ca42d76eeb32"
-      },
-      {
-        "name": "Treasure",
-        "artistNames": [
-          "Bruno Mars"
-        ],
-        "albumName": "Unorthodox Jukebox",
-        "playedAt": "2026-06-26T23:54:34.410Z",
-        "url": "https://open.spotify.com/track/55h7vJchibLdUkxdlX3fK7",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273926f43e7cce571e62720fd46"
       }
     ],
     "topTracks": [
-      {
-        "name": "Bad - 2012 Remaster",
-        "artistNames": [
-          "Michael Jackson"
-        ],
-        "url": "https://open.spotify.com/track/2gSNBigeWMVtY3QBIvPAEc"
-      },
       {
         "name": "90210 (feat. Kacy Hill)",
         "artistNames": [
@@ -75,6 +68,13 @@
         "url": "https://open.spotify.com/track/51EC3I1nQXpec4gDk0mQyP"
       },
       {
+        "name": "Bad - 2012 Remaster",
+        "artistNames": [
+          "Michael Jackson"
+        ],
+        "url": "https://open.spotify.com/track/2gSNBigeWMVtY3QBIvPAEc"
+      },
+      {
         "name": "Can't Tell Me Nothing",
         "artistNames": [
           "Kanye West"
@@ -82,18 +82,18 @@
         "url": "https://open.spotify.com/track/0mEdbdeRFQwBhN4xfyIeUM"
       },
       {
-        "name": "Thriller",
-        "artistNames": [
-          "Michael Jackson"
-        ],
-        "url": "https://open.spotify.com/track/2LlQb7Uoj1kKyGhlkBf9aC"
-      },
-      {
         "name": "Headlines",
         "artistNames": [
           "Drake"
         ],
         "url": "https://open.spotify.com/track/6LxSe8YmdPxy095Ux6znaQ"
+      },
+      {
+        "name": "Thriller",
+        "artistNames": [
+          "Michael Jackson"
+        ],
+        "url": "https://open.spotify.com/track/2LlQb7Uoj1kKyGhlkBf9aC"
       }
     ],
     "topArtists": [
@@ -113,14 +113,14 @@
         "url": "https://open.spotify.com/artist/5INjqkS1o8h1imAzPqGZBb"
       },
       {
-        "name": "Drake",
-        "genres": [],
-        "url": "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4"
-      },
-      {
         "name": "Travis Scott",
         "genres": [],
         "url": "https://open.spotify.com/artist/0Y5tJX1MQlPlqiwlOH1tJY"
+      },
+      {
+        "name": "Drake",
+        "genres": [],
+        "url": "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4"
       }
     ]
   }
