@@ -106,6 +106,15 @@ A local-first workspace for multi-agent coding sessions and runtime control.
 
 Evidence: [GitHub](https://github.com/LuxenAI/agent-tree)
 
+### School Pulse AI
+
+An edge-AI school operations suite combining leak detection, compost sorting, and resource forecasting in one dashboard.
+
+- Built the Pulse Agent backend to combine water, waste, energy, and event signals into ranked action cards.
+- Added multilingual voice controls and live telemetry wiring for the hackathon dashboard experience.
+
+Evidence: [GitHub](https://github.com/IshaanAyaan/SchoolPulse-AI), [live dashboard](https://school-pulse-ai.vercel.app/), and [Devpost](https://devpost.com/software/schoolprint-ai)
+
 ### YConstruction
 
 A voice-first iPhone application for construction defect reporting, built for the YC x Google DeepMind Gemma Voice Agents Hackathon.
