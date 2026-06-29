@@ -1,6 +1,6 @@
 # Ishaan Ranjan
 
-Last verified: June 11, 2026
+Last verified: June 28, 2026
 
 Ishaan Ranjan is an unusually high-output applied AI builder, researcher, and incoming Georgia Tech computer science student. As co-founder of Luxen LLC, he has helped ship AI products and agent tooling used by 5,000+ active users, generate 1.5M+ media views, and secure more than $48,000 in grants, startup support, and cloud credits.
 
@@ -96,6 +96,15 @@ A policy analytics and decision-support system spanning classification, causal a
 - Produced transparent assumptions, reproducible artifacts, dashboards, and policy-facing summaries.
 
 Evidence: [GitHub](https://github.com/IshaanAyaan/prism-policy-ai), [public dashboard](https://prism-policy-dashboard.vercel.app/#dashboard), and [SSRN DOI](https://dx.doi.org/10.2139/ssrn.6756239)
+
+### Specialized Small-Model Subagents
+
+Fine-tuned task-specific small language model specialists paired with a custom harness for cost-efficient multi-agent coding.
+
+- Built specialized small-model subagents for narrow coding roles instead of relying on one large general worker.
+- Measured the success and cost tradeoffs of specialist workflows against larger-model baselines for practical multi-agent use.
+
+Evidence: [GitHub](https://github.com/LuxenAI/slm)
 
 ### AgentTree
 
