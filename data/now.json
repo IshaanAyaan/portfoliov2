@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-28T22:01:59+00:00",
+  "updatedAt": "2026-06-29T09:25:51+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -7,6 +7,17 @@
   "spotify": {
     "topTimeRange": "short_term",
     "recentTracks": [
+      {
+        "name": "The Sweetest Symphony - Naava Remix Edit",
+        "artistNames": [
+          "Amfree",
+          "Naava"
+        ],
+        "albumName": "The Sweetest Symphony",
+        "playedAt": "2026-06-29T08:20:52.912Z",
+        "url": "https://open.spotify.com/track/0iBs7MxD0WlyPqTuxh8ds4",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273e372aea6e601ab6c8d6bff9f"
+      },
       {
         "name": "Stick Talk",
         "artistNames": [
@@ -46,16 +57,6 @@
         "playedAt": "2026-06-27T03:24:56.237Z",
         "url": "https://open.spotify.com/track/5fEB6ZmVkg63GZg9qO86jh",
         "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273090b1f9557a6d23c0817bd88"
-      },
-      {
-        "name": "Softcore",
-        "artistNames": [
-          "The Neighbourhood"
-        ],
-        "albumName": "Hard To Imagine The Neighbourhood Ever Changing",
-        "playedAt": "2026-06-27T03:24:56.237Z",
-        "url": "https://open.spotify.com/track/2K7xn816oNHJZ0aVqdQsha",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2739b6ac98a52f62d5cb473da40"
       }
     ],
     "topTracks": [
