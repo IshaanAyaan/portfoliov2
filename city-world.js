@@ -74,6 +74,23 @@ export const CITY_DISTRICTS = [
       { label: "Luxen", href: "https://luxenai.org" },
     ],
     items: ["Luxen LLC", "YC Startup School 2026", "KEYS Research Intern", "5K+ users and 1.5M+ views"],
+    details: [
+      {
+        title: "Y Combinator Startup School 2026",
+        meta: "Incoming Founder · Summer 2026",
+        body: "Selected for YC Startup School founder programming. Using customer discovery and rapid prototyping to test AI product strategy and go-to-market assumptions.",
+      },
+      {
+        title: "Luxen LLC",
+        meta: "Co-Founder",
+        body: "Built and shipped AI products and agent tooling, took products from prototype to deployment, raised $48K+ in support and cloud credits, and scaled products to 5K+ active users and 1.5M+ media views.",
+      },
+      {
+        title: "KEYS Research Intern",
+        meta: "Precision Aging Network Lab · University of Arizona",
+        body: "Analyzed vitamin D, omega-3, and exercise interventions in R and Python. Built reproducible notebooks and plots, then presented a poster talk to 800+ attendees.",
+      },
+    ],
   }
 ];
 
