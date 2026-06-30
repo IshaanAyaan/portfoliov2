@@ -6,6 +6,7 @@ const DESTINATION_ORDER = [
   "experience",
   "projects",
   "events",
+  "papers",
 ];
 
 export const CITY_DISTRICTS = [
@@ -174,6 +175,20 @@ export const CITY_DISTRICTS = [
         body: "Participated in a conference environment focused on technology, institutions, and applied work.",
       },
     ],
+  },
+{
+    id: "papers",
+    label: "Research Observatory",
+    sectionId: "papers",
+    type: "observatory",
+    position: { x: -46, y: 0, z: -26 },
+    accent: "#a4b8ff",
+    summary: "Papers and research live in an observatory/archive district with data terminals.",
+    links: [
+      { label: "Papers", href: "#papers" },
+      { label: "KEYS abstract", href: "KEYS%20Abstract.pdf" },
+    ],
+    items: ["PRISM Alcohol Policy Impact Atlas", "Criminal Tribes Act", "SABER", "KEYS @ PAN"],
   }
 ];
 
