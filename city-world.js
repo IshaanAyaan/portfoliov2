@@ -14,7 +14,7 @@ const DESTINATION_ORDER = [
 ];
 
 export const CITY_DISTRICTS = [
-{
+  {
     id: "center",
     label: "Ishaan Tower",
     sectionId: "about",
@@ -45,7 +45,7 @@ export const CITY_DISTRICTS = [
       },
     ],
   },
-{
+  {
     id: "education",
     label: "Campus District",
     sectionId: "education",
@@ -68,7 +68,7 @@ export const CITY_DISTRICTS = [
       },
     ],
   },
-{
+  {
     id: "experience",
     label: "Startup Skyline",
     sectionId: "experience",
@@ -99,7 +99,7 @@ export const CITY_DISTRICTS = [
       },
     ],
   },
-{
+  {
     id: "projects",
     label: "Maker District",
     sectionId: "projects",
@@ -147,7 +147,7 @@ export const CITY_DISTRICTS = [
       },
     ],
   },
-{
+  {
     id: "events",
     label: "Founders Stadium",
     sectionId: "events",
@@ -180,7 +180,7 @@ export const CITY_DISTRICTS = [
       },
     ],
   },
-{
+  {
     id: "papers",
     label: "Research Observatory",
     sectionId: "papers",
@@ -216,7 +216,7 @@ export const CITY_DISTRICTS = [
       },
     ],
   },
-{
+  {
     id: "distinctions",
     label: "Awards Museum",
     sectionId: "distinctions",
@@ -237,7 +237,7 @@ export const CITY_DISTRICTS = [
       { title: "AZSEF Grand Award", meta: "SABER", body: "Science and engineering fair recognition." },
     ],
   },
-{
+  {
     id: "now",
     label: "Now Radio",
     sectionId: "now",
@@ -252,7 +252,7 @@ export const CITY_DISTRICTS = [
       { title: "Current book", meta: "Reading", body: "Current reading appears alongside the music snapshot." },
     ],
   },
-{
+  {
     id: "resume",
     label: "Resume Terminal",
     sectionId: "resume",
@@ -270,7 +270,7 @@ export const CITY_DISTRICTS = [
       { title: "Machine-readable profile", meta: "Markdown", body: "Professional profile available as profile.md." },
     ],
   },
-{
+  {
     id: "contact",
     label: "Contact Skyport",
     sectionId: "contact",
@@ -291,7 +291,7 @@ export const CITY_DISTRICTS = [
       { title: "Instagram", meta: "Social", body: "@ish.ran15" },
       { title: "X", meta: "Social", body: "@ishaanranjan15" },
     ],
-  }
+  },
 ];
 
 const DISTRICT_BY_ID = new Map(CITY_DISTRICTS.map((district) => [district.id, district]));
