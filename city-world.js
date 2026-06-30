@@ -47,6 +47,18 @@ export const CITY_DISTRICTS = [
     summary: "Georgia Tech computer science, BASIS Peoria, and the academic foundation behind the work.",
     links: [{ label: "Open education", href: "#education" }],
     items: ["Georgia Tech CS", "Threads: Intelligence and Theory", "BASIS Peoria", "SAT 1540 / ACT 35"],
+    details: [
+      {
+        title: "Georgia Institute of Technology",
+        meta: "B.S. Computer Science · Incoming Fall 2026",
+        body: "Expected graduation: December 2028. Threads: Intelligence and Theory.",
+      },
+      {
+        title: "BASIS Peoria",
+        meta: "GPA 3.99 UW / 4.87 W",
+        body: "SAT 1540, ACT 35, BASIS Ventures Scholarship recipient, Research Club President, Debate Captain, and SciOly Engineering Lead.",
+      },
+    ],
   }
 ];
 
