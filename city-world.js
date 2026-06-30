@@ -18,6 +18,23 @@ export const CITY_DISTRICTS = [
       { label: "Resume", href: "Ishaan_Ranjan_Job_Resume.pdf" },
     ],
     items: ["Georgia Tech CS", "Luxen LLC", "Agent systems", "Policy and health research"],
+    details: [
+      {
+        title: "Applied AI builder",
+        meta: "Systems, agents, automation",
+        body: "Building applied AI systems across developer tooling, policy, automation, and research.",
+      },
+      {
+        title: "Luxen co-founder",
+        meta: "Products and agent tooling",
+        body: "Shipped AI products, scaled prototypes, and worked across product, engineering, and research.",
+      },
+      {
+        title: "Georgia Tech CS",
+        meta: "Incoming Fall 2026",
+        body: "Computer science with threads in Intelligence and Theory.",
+      },
+    ],
   }
 ];
 
