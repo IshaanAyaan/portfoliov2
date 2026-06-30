@@ -1108,6 +1108,7 @@ function createCityScene(root, reducedMotionMedia) {
   const pointer = new THREE.Vector2();
   const clickableGroups = [];
   const billboardGroups = [];
+  const landingPads = [];
 
   CITY_DISTRICTS.forEach((district) => {
     const group = createLandmark(district);
@@ -1138,6 +1139,10 @@ function createCityScene(root, reducedMotionMedia) {
     );
     pad.rotation.x = -Math.PI / 2;
     pad.position.set(district.position.x, 0.2, district.position.z);
+    pad.userData.baseOpacity = id === "center" ? 0.42 : 0.24;
+    pad.userData.destination = id;
+    pad.userData.phase = routeIndex(id) * 0.72;
+    landingPads.push(pad);
     scene.add(pad);
   });
 
@@ -1348,6 +1353,21 @@ function createCityScene(root, reducedMotionMedia) {
     traffic.points.geometry.attributes.position.needsUpdate = true;
   }
 
+  function updateLandingPads(time) {
+    if (reducedMotion()) {
+      return;
+    }
+
+    const seconds = time * 0.001;
+    landingPads.forEach((pad) => {
+      const pulse = (Math.sin(seconds * 2.1 + pad.userData.phase) + 1) * 0.5;
+      const active = pad.userData.destination === state.activeId;
+      const scale = active ? 1.05 + pulse * 0.06 : 1 + pulse * 0.025;
+      pad.scale.set(scale, scale, scale);
+      pad.material.opacity = pad.userData.baseOpacity + pulse * (active ? 0.18 : 0.075);
+    });
+  }
+
   function updateRoute(delta) {
     if (reducedMotion()) {
       state.directFlight = null;
@@ -1508,6 +1528,7 @@ function createCityScene(root, reducedMotionMedia) {
     updateCraft(delta);
     updateContrail(delta);
     updateTraffic(delta);
+    updateLandingPads(time);
     updateCamera(delta);
     renderer.render(scene, camera);
   }
