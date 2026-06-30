@@ -991,6 +991,7 @@ function renderPanel(root, district) {
   const links = root.querySelector("[data-city-panel-links]");
   const dockKicker = root.querySelector("[data-city-dock-kicker]");
   const dockTitle = root.querySelector("[data-city-dock-title]");
+  const status = root.querySelector("[data-city-status]");
 
   if (kicker) {
     kicker.textContent = district.type === "hub" ? "Center hub" : district.label;
@@ -1006,6 +1007,9 @@ function renderPanel(root, district) {
   }
   if (summary) {
     summary.textContent = district.summary;
+  }
+  if (status) {
+    status.textContent = district.label + " selected. Open the building terminal for details or choose another city destination.";
   }
   if (items) {
     const detailItems = district.details && district.details.length
