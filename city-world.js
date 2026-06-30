@@ -8,6 +8,7 @@ const DESTINATION_ORDER = [
   "events",
   "papers",
   "distinctions",
+  "now",
 ];
 
 export const CITY_DISTRICTS = [
@@ -233,6 +234,17 @@ export const CITY_DISTRICTS = [
       { title: "SSRN paper ranked #1", meta: "Downloads", body: "Research paper ranked first in downloads." },
       { title: "AZSEF Grand Award", meta: "SABER", body: "Science and engineering fair recognition." },
     ],
+  },
+{
+    id: "now",
+    label: "Now Radio",
+    sectionId: "now",
+    type: "radio",
+    position: { x: 0, y: 0, z: 70 },
+    accent: "#38e86f",
+    summary: "A rooftop radio tower for music, reading, and current obsessions.",
+    links: [{ label: "Now", href: "#now" }],
+    items: ["Spotify snapshot", "Current book", "Recently played", "Top tracks and artists"],
   }
 ];
 
