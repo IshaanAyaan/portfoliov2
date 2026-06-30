@@ -245,6 +245,10 @@ export const CITY_DISTRICTS = [
     summary: "A rooftop radio tower for music, reading, and current obsessions.",
     links: [{ label: "Now", href: "#now" }],
     items: ["Spotify snapshot", "Current book", "Recently played", "Top tracks and artists"],
+    details: [
+      { title: "Spotify snapshot", meta: "Now", body: "Recently played, top tracks, and top artists sync into the Now section." },
+      { title: "Current book", meta: "Reading", body: "Current reading appears alongside the music snapshot." },
+    ],
   }
 ];
 
