@@ -600,6 +600,12 @@ function createLabelTexture(title, subtitle, accent) {
 }
 
 const FACADE_TEXTURES = new Map();
+const ROOFTOP_BEACON_GEOMETRY = new THREE.SphereGeometry(0.12, 8, 6);
+const ROOFTOP_BEACON_MATERIAL = new THREE.MeshBasicMaterial({
+  color: "#ff6b5f",
+  transparent: true,
+  opacity: 0.84,
+});
 
 function createFacadeTexture(accent, columns, rows) {
   const safeColumns = Math.max(3, Math.round(columns));
@@ -775,6 +781,15 @@ function createBuilding(width, height, depth, color, accent) {
     roofLine.position.y = height + 0.68;
     roofLine.position.z = depth * 0.18;
     group.add(roofLine);
+
+    if (height > 10) {
+      const beaconOffsets = height > 18 ? [[-0.34, -0.34], [0.34, 0.34]] : [[0.34, -0.34]];
+      beaconOffsets.forEach(([x, z]) => {
+        const beacon = new THREE.Mesh(ROOFTOP_BEACON_GEOMETRY, ROOFTOP_BEACON_MATERIAL);
+        beacon.position.set(width * x, height + 0.86, depth * z);
+        group.add(beacon);
+      });
+    }
 
     const cornerHeight = height * 0.78;
     const cornerGeometry = new THREE.BoxGeometry(0.055, cornerHeight, 0.055);
