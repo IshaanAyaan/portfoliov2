@@ -2,6 +2,7 @@ import * as THREE from "./vendor/three-0.160.0/build/three.module.js";
 
 const DESTINATION_ORDER = [
   "center",
+  "education",
 ];
 
 export const CITY_DISTRICTS = [
@@ -35,6 +36,17 @@ export const CITY_DISTRICTS = [
         body: "Computer science with threads in Intelligence and Theory.",
       },
     ],
+  },
+{
+    id: "education",
+    label: "Campus District",
+    sectionId: "education",
+    type: "campus",
+    position: { x: 0, y: 0, z: -48 },
+    accent: "#78ffc8",
+    summary: "Georgia Tech computer science, BASIS Peoria, and the academic foundation behind the work.",
+    links: [{ label: "Open education", href: "#education" }],
+    items: ["Georgia Tech CS", "Threads: Intelligence and Theory", "BASIS Peoria", "SAT 1540 / ACT 35"],
   }
 ];
 
