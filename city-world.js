@@ -283,6 +283,14 @@ export const CITY_DISTRICTS = [
       { label: "Contact section", href: "#contact" },
     ],
     items: ["ishaanranjan15@gmail.com", "GitHub", "LinkedIn", "Luxen", "Instagram", "X"],
+    details: [
+      { title: "Email", meta: "Primary", body: "ishaanranjan15@gmail.com" },
+      { title: "GitHub", meta: "Code", body: "github.com/ishaanayaan" },
+      { title: "LinkedIn", meta: "Professional", body: "ishaan-ranjan-86a41a217" },
+      { title: "Luxen", meta: "Company", body: "luxenai.org" },
+      { title: "Instagram", meta: "Social", body: "@ish.ran15" },
+      { title: "X", meta: "Social", body: "@ishaanranjan15" },
+    ],
   }
 ];
 
