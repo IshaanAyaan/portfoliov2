@@ -1645,7 +1645,7 @@ function createCityScene(root, reducedMotionMedia) {
         event.preventDefault();
       }
     } else if (event.key === "Escape") {
-      setDestination("center");
+      setDestination("center", { direct: true });
     }
   });
 
