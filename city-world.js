@@ -5,6 +5,7 @@ const DESTINATION_ORDER = [
   "education",
   "experience",
   "projects",
+  "events",
 ];
 
 export const CITY_DISTRICTS = [
@@ -140,6 +141,17 @@ export const CITY_DISTRICTS = [
         body: "Debate-oriented product work connected to research, speaking, and argument workflows.",
       },
     ],
+  },
+{
+    id: "events",
+    label: "Founders Stadium",
+    sectionId: "events",
+    type: "stadium",
+    position: { x: -8, y: 0, z: 54 },
+    accent: "#ffd36b",
+    summary: "Events, founder rooms, hackathons, and conferences collected in an arena district.",
+    links: [{ label: "Events", href: "#events" }],
+    items: ["MIT Blueprint", "YC x Google DeepMind", "High School Palantir Conference", "Startup School"],
   }
 ];
 
