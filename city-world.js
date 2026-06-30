@@ -189,6 +189,28 @@ export const CITY_DISTRICTS = [
       { label: "KEYS abstract", href: "KEYS%20Abstract.pdf" },
     ],
     items: ["PRISM Alcohol Policy Impact Atlas", "Criminal Tribes Act", "SABER", "KEYS @ PAN"],
+    details: [
+      {
+        title: "PRISM Alcohol Policy Impact Atlas",
+        meta: "Policy benchmark",
+        body: "Policy AI work around classification, causal audit, and crash-risk forecasting.",
+      },
+      {
+        title: "Criminal Tribes Act and social exclusion",
+        meta: "Public policy research",
+        body: "Research examining social exclusion, historical policy, and institutional effects.",
+      },
+      {
+        title: "SABER",
+        meta: "Environmental engineering",
+        body: "Science and engineering research recognized with an AZSEF Grand Award.",
+      },
+      {
+        title: "KEYS @ Precision Aging Network",
+        meta: "Health research",
+        body: "Research internship work analyzing vitamin D, omega-3, and exercise interventions.",
+      },
+    ],
   }
 ];
 
