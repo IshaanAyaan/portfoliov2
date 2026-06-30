@@ -3,6 +3,7 @@ import * as THREE from "./vendor/three-0.160.0/build/three.module.js";
 const DESTINATION_ORDER = [
   "center",
   "education",
+  "experience",
 ];
 
 export const CITY_DISTRICTS = [
@@ -59,6 +60,20 @@ export const CITY_DISTRICTS = [
         body: "SAT 1540, ACT 35, BASIS Ventures Scholarship recipient, Research Club President, Debate Captain, and SciOly Engineering Lead.",
       },
     ],
+  },
+{
+    id: "experience",
+    label: "Startup Skyline",
+    sectionId: "experience",
+    type: "skyline",
+    position: { x: 50, y: 0, z: -24 },
+    accent: "#ffb86b",
+    summary: "Luxen, YC Startup School, and KEYS research work represented as a founder skyline.",
+    links: [
+      { label: "Experience", href: "#experience" },
+      { label: "Luxen", href: "https://luxenai.org" },
+    ],
+    items: ["Luxen LLC", "YC Startup School 2026", "KEYS Research Intern", "5K+ users and 1.5M+ views"],
   }
 ];
 
