@@ -223,6 +223,16 @@ export const CITY_DISTRICTS = [
     summary: "A museum facade for grants, debate wins, scholarships, rankings, and science awards.",
     links: [{ label: "Distinctions", href: "#distinctions" }],
     items: ["1517 Fund Medici Grantee", "Z Fellows Finalist 2x", "Top 5 Nationally in BQ Debate", "AZSEF Grand Award"],
+    details: [
+      { title: "1517 Fund Medici Grantee", meta: "Grant", body: "Recognized with support for building and research work." },
+      { title: "Over $48K in grants and credits", meta: "Support", body: "Raised meaningful support across grants and cloud credits." },
+      { title: "BASIS Ventures Scholarship", meta: "$5,000 USD", body: "Scholarship recipient." },
+      { title: "Z Fellows Finalist", meta: "2x", body: "Finalist twice." },
+      { title: "Top 5 Nationally in BQ Debate", meta: "Debate", body: "National debate distinction." },
+      { title: "Arizona State Champion", meta: "Speech and Debate", body: "State champion and NSDA Nationals qualifier." },
+      { title: "SSRN paper ranked #1", meta: "Downloads", body: "Research paper ranked first in downloads." },
+      { title: "AZSEF Grand Award", meta: "SABER", body: "Science and engineering fair recognition." },
+    ],
   }
 ];
 
