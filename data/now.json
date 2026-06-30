@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-29T22:07:48+00:00",
+  "updatedAt": "2026-06-30T08:30:04+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -7,6 +7,16 @@
   "spotify": {
     "topTimeRange": "short_term",
     "recentTracks": [
+      {
+        "name": "Don\u2019t Smile",
+        "artistNames": [
+          "Sabrina Carpenter"
+        ],
+        "albumName": "Short n' Sweet",
+        "playedAt": "2026-06-29T08:22:12.077Z",
+        "url": "https://open.spotify.com/track/09LrGvT9KsACH66RHYMDyR",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273fd8d7a8d96871e791cb1f626"
+      },
       {
         "name": "The Sweetest Symphony - Naava Remix Edit",
         "artistNames": [
@@ -47,16 +57,6 @@
         "playedAt": "2026-06-28T08:34:09.823Z",
         "url": "https://open.spotify.com/track/0SiywuOBRcynK0uKGWdCnn",
         "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2735c9890c0456a3719eeecd8aa"
-      },
-      {
-        "name": "Break from Toronto",
-        "artistNames": [
-          "PARTYNEXTDOOR"
-        ],
-        "albumName": "PARTYNEXTDOOR",
-        "playedAt": "2026-06-27T03:24:56.237Z",
-        "url": "https://open.spotify.com/track/5fEB6ZmVkg63GZg9qO86jh",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273090b1f9557a6d23c0817bd88"
       }
     ],
     "topTracks": [
