@@ -9,6 +9,7 @@ const DESTINATION_ORDER = [
   "papers",
   "distinctions",
   "now",
+  "resume",
 ];
 
 export const CITY_DISTRICTS = [
@@ -249,6 +250,20 @@ export const CITY_DISTRICTS = [
       { title: "Spotify snapshot", meta: "Now", body: "Recently played, top tracks, and top artists sync into the Now section." },
       { title: "Current book", meta: "Reading", body: "Current reading appears alongside the music snapshot." },
     ],
+  },
+{
+    id: "resume",
+    label: "Resume Terminal",
+    sectionId: "resume",
+    type: "terminal",
+    position: { x: 66, y: 0, z: 4 },
+    accent: "#ffffff",
+    summary: "A skyport terminal for the PDF resume and machine-readable profile.",
+    links: [
+      { label: "Resume PDF", href: "Ishaan_Ranjan_Job_Resume.pdf" },
+      { label: "Profile markdown", href: "profile.md" },
+    ],
+    items: ["Current internship resume", "Machine-readable profile", "PDF download"],
   }
 ];
 
