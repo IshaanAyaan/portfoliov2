@@ -4,6 +4,7 @@ const DESTINATION_ORDER = [
   "center",
   "education",
   "experience",
+  "projects",
 ];
 
 export const CITY_DISTRICTS = [
@@ -91,6 +92,17 @@ export const CITY_DISTRICTS = [
         body: "Analyzed vitamin D, omega-3, and exercise interventions in R and Python. Built reproducible notebooks and plots, then presented a poster talk to 800+ attendees.",
       },
     ],
+  },
+{
+    id: "projects",
+    label: "Maker District",
+    sectionId: "projects",
+    type: "maker",
+    position: { x: 46, y: 0, z: 34 },
+    accent: "#ff6b5f",
+    summary: "A neon build district for AI products, agent tooling, policy systems, and hackathon prototypes.",
+    links: [{ label: "Projects", href: "#projects" }],
+    items: ["PRISM", "AgentTree", "School Pulse AI", "YConstruction", "GreenhouseAgent", "Debatica", "SLM Subagents"],
   }
 ];
 
