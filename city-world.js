@@ -7,6 +7,7 @@ const DESTINATION_ORDER = [
   "projects",
   "events",
   "papers",
+  "distinctions",
 ];
 
 export const CITY_DISTRICTS = [
@@ -211,6 +212,17 @@ export const CITY_DISTRICTS = [
         body: "Research internship work analyzing vitamin D, omega-3, and exercise interventions.",
       },
     ],
+  },
+{
+    id: "distinctions",
+    label: "Awards Museum",
+    sectionId: "distinctions",
+    type: "museum",
+    position: { x: -52, y: 0, z: 28 },
+    accent: "#f7f0a2",
+    summary: "A museum facade for grants, debate wins, scholarships, rankings, and science awards.",
+    links: [{ label: "Distinctions", href: "#distinctions" }],
+    items: ["1517 Fund Medici Grantee", "Z Fellows Finalist 2x", "Top 5 Nationally in BQ Debate", "AZSEF Grand Award"],
   }
 ];
 
