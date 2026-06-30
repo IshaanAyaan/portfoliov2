@@ -234,6 +234,24 @@
     });
   }
 
+  function initCityWorld() {
+    const world = document.querySelector("[data-city-world]");
+    if (!world) {
+      return;
+    }
+
+    import("./city-world.js")
+      .then((module) => {
+        module.initCityWorld({
+          root: world,
+          reducedMotionMedia: prefersReducedMotion,
+        });
+      })
+      .catch(() => {
+        world.classList.add("city-world--fallback");
+      });
+  }
+
   function escapeHtml(value) {
     return String(value)
       .replace(/&/g, "&amp;")
@@ -552,12 +570,14 @@
   }
 
   window.Portfolio = {
+    initCityWorld,
     init(options) {
       const settings = options || {};
       setTheme(loadTheme());
       initThemeButtons();
       initBackgrounds();
       initBlogToggle();
+      initCityWorld();
       initNowWidget();
 
       if (settings.scrollSpy) {
