@@ -307,6 +307,11 @@ function supportsWebGL(canvas) {
   }
 }
 
+function renderPixelRatio() {
+  const compactViewport = window.matchMedia("(max-width: 720px)").matches;
+  return Math.min(window.devicePixelRatio || 1, compactViewport ? 1.35 : 1.6);
+}
+
 function makeColor(value) {
   return new THREE.Color(value);
 }
@@ -1098,7 +1103,7 @@ function createCityScene(root, reducedMotionMedia) {
     powerPreference: "high-performance",
   });
   renderer.outputColorSpace = THREE.SRGBColorSpace;
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.6));
+  renderer.setPixelRatio(renderPixelRatio());
 
   scene.add(new THREE.HemisphereLight("#d4f6ff", "#0a111a", 1.85));
   const sun = new THREE.DirectionalLight("#ffffff", 1.7);
@@ -1503,9 +1508,20 @@ function createCityScene(root, reducedMotionMedia) {
     const height = Math.max(520, rect.height);
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.6));
+    renderer.setPixelRatio(renderPixelRatio());
     renderer.setSize(width, height, false);
     renderer.render(scene, camera);
+  }
+
+  let resizeRaf = 0;
+  function queueResize() {
+    if (resizeRaf) {
+      window.cancelAnimationFrame(resizeRaf);
+    }
+    resizeRaf = window.requestAnimationFrame(() => {
+      resizeRaf = 0;
+      resize();
+    });
   }
 
   function pickDestination(event) {
@@ -1646,7 +1662,7 @@ function createCityScene(root, reducedMotionMedia) {
     });
   }
 
-  window.addEventListener("resize", resize);
+  window.addEventListener("resize", queueResize);
   resize();
   setDestination("center", { instant: true });
   state.raf = window.requestAnimationFrame(animate);
@@ -1654,6 +1670,10 @@ function createCityScene(root, reducedMotionMedia) {
   return {
     destroy() {
       window.cancelAnimationFrame(state.raf);
+      window.removeEventListener("resize", queueResize);
+      if (resizeRaf) {
+        window.cancelAnimationFrame(resizeRaf);
+      }
       renderer.dispose();
     },
   };
