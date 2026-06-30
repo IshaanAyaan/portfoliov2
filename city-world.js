@@ -264,6 +264,10 @@ export const CITY_DISTRICTS = [
       { label: "Profile markdown", href: "profile.md" },
     ],
     items: ["Current internship resume", "Machine-readable profile", "PDF download"],
+    details: [
+      { title: "Current internship resume", meta: "PDF", body: "Current resume in PDF format." },
+      { title: "Machine-readable profile", meta: "Markdown", body: "Professional profile available as profile.md." },
+    ],
   }
 ];
 
