@@ -103,6 +103,43 @@ export const CITY_DISTRICTS = [
     summary: "A neon build district for AI products, agent tooling, policy systems, and hackathon prototypes.",
     links: [{ label: "Projects", href: "#projects" }],
     items: ["PRISM", "AgentTree", "School Pulse AI", "YConstruction", "GreenhouseAgent", "Debatica", "SLM Subagents"],
+    details: [
+      {
+        title: "PRISM",
+        meta: "Policy AI benchmark",
+        body: "Policy benchmark for classification, causal audit, and crash-risk forecasting.",
+      },
+      {
+        title: "Specialized Small-Model Subagents",
+        meta: "Fine-tuned coding specialists",
+        body: "Small-model specialists and a custom harness for cost-efficient multi-agent coding workflows.",
+      },
+      {
+        title: "AgentTree",
+        meta: "Multi-agent coding workspace",
+        body: "Workspace for multi-agent coding sessions and runtime control.",
+      },
+      {
+        title: "School Pulse AI",
+        meta: "Edge-AI operations suite",
+        body: "School operations suite for leak detection, compost sorting, and resource forecasting in one dashboard.",
+      },
+      {
+        title: "YConstruction",
+        meta: "Voice-first iPhone app",
+        body: "Construction defect reporting app with on-device AI, pitched at the YC x Google DeepMind hackathon.",
+      },
+      {
+        title: "GreenhouseAgent",
+        meta: "Automation + environment",
+        body: "Agentic greenhouse monitoring and automation project.",
+      },
+      {
+        title: "Debatica",
+        meta: "Debate tooling",
+        body: "Debate-oriented product work connected to research, speaking, and argument workflows.",
+      },
+    ],
   }
 ];
 
