@@ -10,6 +10,7 @@ const DESTINATION_ORDER = [
   "distinctions",
   "now",
   "resume",
+  "contact",
 ];
 
 export const CITY_DISTRICTS = [
@@ -268,6 +269,20 @@ export const CITY_DISTRICTS = [
       { title: "Current internship resume", meta: "PDF", body: "Current resume in PDF format." },
       { title: "Machine-readable profile", meta: "Markdown", body: "Professional profile available as profile.md." },
     ],
+  },
+{
+    id: "contact",
+    label: "Contact Skyport",
+    sectionId: "contact",
+    type: "skyport",
+    position: { x: -66, y: 0, z: 4 },
+    accent: "#8ee8ff",
+    summary: "The landing dock for email, GitHub, LinkedIn, Luxen, Instagram, and X.",
+    links: [
+      { label: "Email", href: "mailto:ishaanranjan15@gmail.com" },
+      { label: "Contact section", href: "#contact" },
+    ],
+    items: ["ishaanranjan15@gmail.com", "GitHub", "LinkedIn", "Luxen", "Instagram", "X"],
   }
 ];
 
