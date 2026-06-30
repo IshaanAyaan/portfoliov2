@@ -152,6 +152,28 @@ export const CITY_DISTRICTS = [
     summary: "Events, founder rooms, hackathons, and conferences collected in an arena district.",
     links: [{ label: "Events", href: "#events" }],
     items: ["MIT Blueprint", "YC x Google DeepMind", "High School Palantir Conference", "Startup School"],
+    details: [
+      {
+        title: "Y Combinator Startup School 2026",
+        meta: "Founder programming",
+        body: "Selected for YC Startup School 2026 founder programming.",
+      },
+      {
+        title: "MIT Blueprint",
+        meta: "Builder event",
+        body: "Participated in MIT Blueprint and connected startup work with fast technical prototyping.",
+      },
+      {
+        title: "YC x Google DeepMind Gemma Voice Agents Hackathon",
+        meta: "Voice agents and local AI",
+        body: "Attended the hackathon, heard from a YC General Partner, and talked with founders/builders about on-device inference and developer ergonomics.",
+      },
+      {
+        title: "High School Palantir Conference",
+        meta: "Technology and policy",
+        body: "Participated in a conference environment focused on technology, institutions, and applied work.",
+      },
+    ],
   }
 ];
 
