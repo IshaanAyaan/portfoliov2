@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-01T15:41:55+00:00",
+  "updatedAt": "2026-07-01T22:17:07+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -7,6 +7,16 @@
   "spotify": {
     "topTimeRange": "short_term",
     "recentTracks": [
+      {
+        "name": "Sacrifice",
+        "artistNames": [
+          "The Weeknd"
+        ],
+        "albumName": "Dawn FM",
+        "playedAt": "2026-06-30T18:51:36.889Z",
+        "url": "https://open.spotify.com/track/1nH2PkJL1XoUq8oE6tBZoU",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2734ab2520c2c77a1d66b9ee21d"
+      },
       {
         "name": "Ric Flair Drip (with Metro Boomin)",
         "artistNames": [
@@ -48,17 +58,6 @@
         "playedAt": "2026-06-30T18:09:47.764Z",
         "url": "https://open.spotify.com/track/2PpruBYCo4H7WOBJ7Q2EwM",
         "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2736e88eb6508fd94cd1b745ce2"
-      },
-      {
-        "name": "Ni**as In Paris",
-        "artistNames": [
-          "JA\u0178-Z",
-          "Kanye West"
-        ],
-        "albumName": "Watch The Throne",
-        "playedAt": "2026-06-30T18:05:01.275Z",
-        "url": "https://open.spotify.com/track/1auxYwYrFRqZP7t3s7w4um",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27352e61456aa4995ba48d94e30"
       }
     ],
     "topTracks": [
