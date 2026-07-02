@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-01T22:17:07+00:00",
+  "updatedAt": "2026-07-02T08:11:07+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -7,6 +7,37 @@
   "spotify": {
     "topTimeRange": "short_term",
     "recentTracks": [
+      {
+        "name": "Mirrors",
+        "artistNames": [
+          "Justin Timberlake"
+        ],
+        "albumName": "The 20/20 Experience (Deluxe Version)",
+        "playedAt": "2026-07-02T05:17:42.687Z",
+        "url": "https://open.spotify.com/track/4rHZZAmHpZrA3iH5zx8frV",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27356d5fb0cc9cec001d8ae0c8c"
+      },
+      {
+        "name": "Mirrors",
+        "artistNames": [
+          "Justin Timberlake"
+        ],
+        "albumName": "The 20/20 Experience (Deluxe Version)",
+        "playedAt": "2026-07-02T04:14:24.119Z",
+        "url": "https://open.spotify.com/track/4rHZZAmHpZrA3iH5zx8frV",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27356d5fb0cc9cec001d8ae0c8c"
+      },
+      {
+        "name": "Cinderella (feat. Ty Dolla $ign)",
+        "artistNames": [
+          "Mac Miller",
+          "Ty Dolla $ign"
+        ],
+        "albumName": "The Divine Feminine",
+        "playedAt": "2026-07-01T23:23:42.896Z",
+        "url": "https://open.spotify.com/track/2lpygKqzPFtItQ4ss3cgfb",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2732e92f776279eaf45d14a33fd"
+      },
       {
         "name": "Sacrifice",
         "artistNames": [
@@ -27,37 +58,6 @@
         "playedAt": "2026-06-30T18:41:00.836Z",
         "url": "https://open.spotify.com/track/7sO5G9EABYOXQKNPNiE9NR",
         "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2730db43130a9aaa7bae56967ed"
-      },
-      {
-        "name": "Good Looking",
-        "artistNames": [
-          "Suki Waterhouse"
-        ],
-        "albumName": "Good Looking",
-        "playedAt": "2026-06-30T18:36:53.115Z",
-        "url": "https://open.spotify.com/track/026wpXkLAjImiWOzzcJBHj",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27310542e1524cbfe41bdb82ad3"
-      },
-      {
-        "name": "I Was Never There",
-        "artistNames": [
-          "The Weeknd",
-          "Gesaffelstein"
-        ],
-        "albumName": "My Dear Melancholy,",
-        "playedAt": "2026-06-30T18:13:42.778Z",
-        "url": "https://open.spotify.com/track/1cKHdTo9u0ZymJdPGSh6nq",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2731f6a2a40bb692936879db730"
-      },
-      {
-        "name": "Hey Ya!",
-        "artistNames": [
-          "Outkast"
-        ],
-        "albumName": "Speakerboxxx/The Love Below",
-        "playedAt": "2026-06-30T18:09:47.764Z",
-        "url": "https://open.spotify.com/track/2PpruBYCo4H7WOBJ7Q2EwM",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2736e88eb6508fd94cd1b745ce2"
       }
     ],
     "topTracks": [
