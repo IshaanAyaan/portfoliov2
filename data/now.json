@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-03T15:11:31+00:00",
+  "updatedAt": "2026-07-03T22:04:04+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -8,24 +8,37 @@
     "topTimeRange": "short_term",
     "recentTracks": [
       {
-        "name": "Mirrors",
+        "name": "Sunflower - Spider-Man: Into the Spider-Verse",
         "artistNames": [
-          "Justin Timberlake"
+          "Post Malone",
+          "Swae Lee"
         ],
-        "albumName": "The 20/20 Experience (Deluxe Version)",
-        "playedAt": "2026-07-02T05:17:42.687Z",
-        "url": "https://open.spotify.com/track/4rHZZAmHpZrA3iH5zx8frV",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27356d5fb0cc9cec001d8ae0c8c"
+        "albumName": "Spider-Man: Into the Spider-Verse (Soundtrack From & Inspired by the Motion Picture)",
+        "playedAt": "2026-07-03T20:46:27.110Z",
+        "url": "https://open.spotify.com/track/3KkXRkHbMCARz0aVfEt68P",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273e2e352d89826aef6dbd5ff8f"
       },
       {
-        "name": "Mirrors",
+        "name": "Don't Copy My Flow",
         "artistNames": [
-          "Justin Timberlake"
+          "\u0444\u0440\u043e\u0437\u0438",
+          "Mwizz",
+          "George Kipa"
         ],
-        "albumName": "The 20/20 Experience (Deluxe Version)",
-        "playedAt": "2026-07-02T04:14:24.119Z",
-        "url": "https://open.spotify.com/track/4rHZZAmHpZrA3iH5zx8frV",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27356d5fb0cc9cec001d8ae0c8c"
+        "albumName": "Don't Copy My Flow",
+        "playedAt": "2026-07-03T20:40:28.462Z",
+        "url": "https://open.spotify.com/track/44HTE9IdjUk01DEAp54amH",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2734f6bc9895cd6a42ada48ecee"
+      },
+      {
+        "name": "Attention",
+        "artistNames": [
+          "Charlie Puth"
+        ],
+        "albumName": "Voicenotes",
+        "playedAt": "2026-07-03T20:37:38.162Z",
+        "url": "https://open.spotify.com/track/5cF0dROlMOK5uNZtivgu50",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273897f73256b9128a9d70eaf66"
       },
       {
         "name": "Cinderella (feat. Ty Dolla $ign)",
@@ -34,30 +47,19 @@
           "Ty Dolla $ign"
         ],
         "albumName": "The Divine Feminine",
-        "playedAt": "2026-07-01T23:23:42.896Z",
+        "playedAt": "2026-07-03T20:27:54.197Z",
         "url": "https://open.spotify.com/track/2lpygKqzPFtItQ4ss3cgfb",
         "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2732e92f776279eaf45d14a33fd"
       },
       {
-        "name": "Sacrifice",
+        "name": "(I Just) Died In Your Arms",
         "artistNames": [
-          "The Weeknd"
+          "Cutting Crew"
         ],
-        "albumName": "Dawn FM",
-        "playedAt": "2026-06-30T18:51:36.889Z",
-        "url": "https://open.spotify.com/track/1nH2PkJL1XoUq8oE6tBZoU",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2734ab2520c2c77a1d66b9ee21d"
-      },
-      {
-        "name": "Ric Flair Drip (with Metro Boomin)",
-        "artistNames": [
-          "Offset",
-          "Metro Boomin"
-        ],
-        "albumName": "Without Warning",
-        "playedAt": "2026-06-30T18:41:00.836Z",
-        "url": "https://open.spotify.com/track/7sO5G9EABYOXQKNPNiE9NR",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2730db43130a9aaa7bae56967ed"
+        "albumName": "Broadcast",
+        "playedAt": "2026-07-03T20:18:23.697Z",
+        "url": "https://open.spotify.com/track/4ByEFOBuLXpCqvO1kw8Wdm",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273fb2faa3ed46d1d0124ca325e"
       }
     ],
     "topTracks": [
@@ -77,18 +79,18 @@
         "url": "https://open.spotify.com/track/0mEdbdeRFQwBhN4xfyIeUM"
       },
       {
-        "name": "Headlines",
-        "artistNames": [
-          "Drake"
-        ],
-        "url": "https://open.spotify.com/track/6LxSe8YmdPxy095Ux6znaQ"
-      },
-      {
         "name": "Bad - 2012 Remaster",
         "artistNames": [
           "Michael Jackson"
         ],
         "url": "https://open.spotify.com/track/2gSNBigeWMVtY3QBIvPAEc"
+      },
+      {
+        "name": "Headlines",
+        "artistNames": [
+          "Drake"
+        ],
+        "url": "https://open.spotify.com/track/6LxSe8YmdPxy095Ux6znaQ"
       },
       {
         "name": "Thriller",
@@ -110,14 +112,14 @@
         "url": "https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm"
       },
       {
+        "name": "Don Toliver",
+        "genres": [],
+        "url": "https://open.spotify.com/artist/4Gso3d4CscCijv0lmajZWs"
+      },
+      {
         "name": "Tame Impala",
         "genres": [],
         "url": "https://open.spotify.com/artist/5INjqkS1o8h1imAzPqGZBb"
-      },
-      {
-        "name": "Travis Scott",
-        "genres": [],
-        "url": "https://open.spotify.com/artist/0Y5tJX1MQlPlqiwlOH1tJY"
       },
       {
         "name": "Drake",
