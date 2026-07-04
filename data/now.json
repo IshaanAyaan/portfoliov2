@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-03T22:04:04+00:00",
+  "updatedAt": "2026-07-04T07:45:54+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -8,58 +8,55 @@
     "topTimeRange": "short_term",
     "recentTracks": [
       {
-        "name": "Sunflower - Spider-Man: Into the Spider-Verse",
+        "name": "Neverender",
         "artistNames": [
-          "Post Malone",
-          "Swae Lee"
+          "Justice",
+          "Tame Impala"
         ],
-        "albumName": "Spider-Man: Into the Spider-Verse (Soundtrack From & Inspired by the Motion Picture)",
-        "playedAt": "2026-07-03T20:46:27.110Z",
-        "url": "https://open.spotify.com/track/3KkXRkHbMCARz0aVfEt68P",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273e2e352d89826aef6dbd5ff8f"
+        "albumName": "Hyperdrama",
+        "playedAt": "2026-07-04T04:00:48.965Z",
+        "url": "https://open.spotify.com/track/3aQ9MHkMeL7Yu7jpyF62xn",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273730e327760fe592ad69bf18e"
       },
       {
-        "name": "Don't Copy My Flow",
+        "name": "Tiramisu",
         "artistNames": [
-          "\u0444\u0440\u043e\u0437\u0438",
-          "Mwizz",
-          "George Kipa"
+          "Don Toliver"
         ],
-        "albumName": "Don't Copy My Flow",
-        "playedAt": "2026-07-03T20:40:28.462Z",
-        "url": "https://open.spotify.com/track/44HTE9IdjUk01DEAp54amH",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2734f6bc9895cd6a42ada48ecee"
+        "albumName": "OCTANE",
+        "playedAt": "2026-07-03T23:29:50.548Z",
+        "url": "https://open.spotify.com/track/2GHKo6nrSjruvBEQbzD7Fw",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27325c28f3c9fbdbab1a88dd619"
       },
       {
-        "name": "Attention",
+        "name": "FOREVER AGAIN",
         "artistNames": [
-          "Charlie Puth"
+          "Yeat"
         ],
-        "albumName": "Voicenotes",
-        "playedAt": "2026-07-03T20:37:38.162Z",
-        "url": "https://open.spotify.com/track/5cF0dROlMOK5uNZtivgu50",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273897f73256b9128a9d70eaf66"
+        "albumName": "LYFESTYLE",
+        "playedAt": "2026-07-03T23:24:31.222Z",
+        "url": "https://open.spotify.com/track/2ph0vvxsYbMZXN5rjfRRWf",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2738fd4ee592690d0a94caa0045"
       },
       {
-        "name": "Cinderella (feat. Ty Dolla $ign)",
+        "name": "Borderline",
         "artistNames": [
-          "Mac Miller",
-          "Ty Dolla $ign"
+          "Tame Impala"
         ],
-        "albumName": "The Divine Feminine",
-        "playedAt": "2026-07-03T20:27:54.197Z",
-        "url": "https://open.spotify.com/track/2lpygKqzPFtItQ4ss3cgfb",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2732e92f776279eaf45d14a33fd"
+        "albumName": "The Slow Rush",
+        "playedAt": "2026-07-03T23:08:10.396Z",
+        "url": "https://open.spotify.com/track/5hM5arv9KDbCHS0k9uqwjr",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27358267bd34420a00d5cf83a49"
       },
       {
-        "name": "(I Just) Died In Your Arms",
+        "name": "Dynamite",
         "artistNames": [
-          "Cutting Crew"
+          "Taio Cruz"
         ],
-        "albumName": "Broadcast",
-        "playedAt": "2026-07-03T20:18:23.697Z",
-        "url": "https://open.spotify.com/track/4ByEFOBuLXpCqvO1kw8Wdm",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273fb2faa3ed46d1d0124ca325e"
+        "albumName": "Rokstarr",
+        "playedAt": "2026-07-03T23:04:18.610Z",
+        "url": "https://open.spotify.com/track/1DqdF42leyFIzqNDv9CjId",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273a9006ae892a2255a865c0f7a"
       }
     ],
     "topTracks": [
@@ -122,9 +119,9 @@
         "url": "https://open.spotify.com/artist/5INjqkS1o8h1imAzPqGZBb"
       },
       {
-        "name": "Drake",
+        "name": "Travis Scott",
         "genres": [],
-        "url": "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4"
+        "url": "https://open.spotify.com/artist/0Y5tJX1MQlPlqiwlOH1tJY"
       }
     ]
   }
