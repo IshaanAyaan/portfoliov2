@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-05T14:43:14+00:00",
+  "updatedAt": "2026-07-05T22:01:36+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -7,6 +7,49 @@
   "spotify": {
     "topTimeRange": "short_term",
     "recentTracks": [
+      {
+        "name": "Sunflower - Spider-Man: Into the Spider-Verse",
+        "artistNames": [
+          "Post Malone",
+          "Swae Lee"
+        ],
+        "albumName": "Spider-Man: Into the Spider-Verse (Soundtrack From & Inspired by the Motion Picture)",
+        "playedAt": "2026-07-05T21:28:03.579Z",
+        "url": "https://open.spotify.com/track/3KkXRkHbMCARz0aVfEt68P",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273e2e352d89826aef6dbd5ff8f"
+      },
+      {
+        "name": "Don't Copy My Flow",
+        "artistNames": [
+          "\u0444\u0440\u043e\u0437\u0438",
+          "Mwizz",
+          "George Kipa"
+        ],
+        "albumName": "Don't Copy My Flow",
+        "playedAt": "2026-07-05T21:17:11.268Z",
+        "url": "https://open.spotify.com/track/44HTE9IdjUk01DEAp54amH",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2734f6bc9895cd6a42ada48ecee"
+      },
+      {
+        "name": "Ransom",
+        "artistNames": [
+          "Lil Tecca"
+        ],
+        "albumName": "We Love You Tecca",
+        "playedAt": "2026-07-05T21:13:30.892Z",
+        "url": "https://open.spotify.com/track/1lOe9qE0vR9zwWQAOk6CoO",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273bd69bbde4aeee723d6d08058"
+      },
+      {
+        "name": "Dracula",
+        "artistNames": [
+          "Tame Impala"
+        ],
+        "albumName": "Dracula",
+        "playedAt": "2026-07-05T21:11:19.564Z",
+        "url": "https://open.spotify.com/track/709ZIqPHyFOpx2QdjmeWAM",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2734806a1c10aa685b1b936158b"
+      },
       {
         "name": "Neverender",
         "artistNames": [
@@ -17,46 +60,6 @@
         "playedAt": "2026-07-04T04:00:48.965Z",
         "url": "https://open.spotify.com/track/3aQ9MHkMeL7Yu7jpyF62xn",
         "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273730e327760fe592ad69bf18e"
-      },
-      {
-        "name": "Tiramisu",
-        "artistNames": [
-          "Don Toliver"
-        ],
-        "albumName": "OCTANE",
-        "playedAt": "2026-07-03T23:29:50.548Z",
-        "url": "https://open.spotify.com/track/2GHKo6nrSjruvBEQbzD7Fw",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27325c28f3c9fbdbab1a88dd619"
-      },
-      {
-        "name": "FOREVER AGAIN",
-        "artistNames": [
-          "Yeat"
-        ],
-        "albumName": "LYFESTYLE",
-        "playedAt": "2026-07-03T23:24:31.222Z",
-        "url": "https://open.spotify.com/track/2ph0vvxsYbMZXN5rjfRRWf",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2738fd4ee592690d0a94caa0045"
-      },
-      {
-        "name": "Borderline",
-        "artistNames": [
-          "Tame Impala"
-        ],
-        "albumName": "The Slow Rush",
-        "playedAt": "2026-07-03T23:08:10.396Z",
-        "url": "https://open.spotify.com/track/5hM5arv9KDbCHS0k9uqwjr",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27358267bd34420a00d5cf83a49"
-      },
-      {
-        "name": "Dynamite",
-        "artistNames": [
-          "Taio Cruz"
-        ],
-        "albumName": "Rokstarr",
-        "playedAt": "2026-07-03T23:04:18.610Z",
-        "url": "https://open.spotify.com/track/1DqdF42leyFIzqNDv9CjId",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273a9006ae892a2255a865c0f7a"
       }
     ],
     "topTracks": [
