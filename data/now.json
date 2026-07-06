@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-05T22:01:36+00:00",
+  "updatedAt": "2026-07-06T09:00:00+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -8,58 +8,55 @@
     "topTimeRange": "short_term",
     "recentTracks": [
       {
-        "name": "Sunflower - Spider-Man: Into the Spider-Verse",
+        "name": "See You Again (feat. Kali Uchis)",
         "artistNames": [
-          "Post Malone",
-          "Swae Lee"
+          "Tyler, The Creator",
+          "Kali Uchis"
         ],
-        "albumName": "Spider-Man: Into the Spider-Verse (Soundtrack From & Inspired by the Motion Picture)",
-        "playedAt": "2026-07-05T21:28:03.579Z",
-        "url": "https://open.spotify.com/track/3KkXRkHbMCARz0aVfEt68P",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273e2e352d89826aef6dbd5ff8f"
+        "albumName": "Flower Boy",
+        "playedAt": "2026-07-05T23:07:04.608Z",
+        "url": "https://open.spotify.com/track/7KA4W4McWYRpgf0fWsJZWB",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2738940ac99f49e44f59e6f7fb3"
       },
       {
-        "name": "Don't Copy My Flow",
+        "name": "EVIL J0RDAN",
         "artistNames": [
-          "\u0444\u0440\u043e\u0437\u0438",
-          "Mwizz",
-          "George Kipa"
+          "Playboi Carti"
         ],
-        "albumName": "Don't Copy My Flow",
-        "playedAt": "2026-07-05T21:17:11.268Z",
-        "url": "https://open.spotify.com/track/44HTE9IdjUk01DEAp54amH",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2734f6bc9895cd6a42ada48ecee"
+        "albumName": "MUSIC",
+        "playedAt": "2026-07-05T23:04:10.212Z",
+        "url": "https://open.spotify.com/track/6iycYUk3oB0NPMdaDUrN1w",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2736b219c8d8462bfe254a20469"
       },
       {
-        "name": "Ransom",
+        "name": "Don't Stop The Music",
         "artistNames": [
-          "Lil Tecca"
+          "Rihanna"
         ],
-        "albumName": "We Love You Tecca",
-        "playedAt": "2026-07-05T21:13:30.892Z",
-        "url": "https://open.spotify.com/track/1lOe9qE0vR9zwWQAOk6CoO",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273bd69bbde4aeee723d6d08058"
+        "albumName": "Good Girl Gone Bad",
+        "playedAt": "2026-07-05T23:01:12.212Z",
+        "url": "https://open.spotify.com/track/1Jo0Zg7XlrA6z0mFTZVdkn",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273b9ff0a5f40d3406aed5e5e3b"
       },
       {
-        "name": "Dracula",
+        "name": "Sundress",
         "artistNames": [
-          "Tame Impala"
+          "A$AP Rocky"
         ],
-        "albumName": "Dracula",
-        "playedAt": "2026-07-05T21:11:19.564Z",
-        "url": "https://open.spotify.com/track/709ZIqPHyFOpx2QdjmeWAM",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2734806a1c10aa685b1b936158b"
+        "albumName": "Sundress",
+        "playedAt": "2026-07-05T22:56:51.202Z",
+        "url": "https://open.spotify.com/track/2aPTvyE09vUCRwVvj0I8WK",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2731ae967e4a02c7a39eb3c189b"
       },
       {
-        "name": "Neverender",
+        "name": "Cheerleader - Felix Jaehn Remix Radio Edit",
         "artistNames": [
-          "Justice",
-          "Tame Impala"
+          "OMI"
         ],
-        "albumName": "Hyperdrama",
-        "playedAt": "2026-07-04T04:00:48.965Z",
-        "url": "https://open.spotify.com/track/3aQ9MHkMeL7Yu7jpyF62xn",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273730e327760fe592ad69bf18e"
+        "albumName": "Me 4 U",
+        "playedAt": "2026-07-05T22:54:18.991Z",
+        "url": "https://open.spotify.com/track/023OVLNzXhX0j7CxswUt6D",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2731c61cec78c70409b783d1480"
       }
     ],
     "topTracks": [
@@ -79,13 +76,6 @@
         "url": "https://open.spotify.com/track/0mEdbdeRFQwBhN4xfyIeUM"
       },
       {
-        "name": "Bad - 2012 Remaster",
-        "artistNames": [
-          "Michael Jackson"
-        ],
-        "url": "https://open.spotify.com/track/2gSNBigeWMVtY3QBIvPAEc"
-      },
-      {
         "name": "Headlines",
         "artistNames": [
           "Drake"
@@ -93,11 +83,18 @@
         "url": "https://open.spotify.com/track/6LxSe8YmdPxy095Ux6znaQ"
       },
       {
-        "name": "Thriller",
+        "name": "Bad - 2012 Remaster",
         "artistNames": [
           "Michael Jackson"
         ],
-        "url": "https://open.spotify.com/track/2LlQb7Uoj1kKyGhlkBf9aC"
+        "url": "https://open.spotify.com/track/2gSNBigeWMVtY3QBIvPAEc"
+      },
+      {
+        "name": "DNA.",
+        "artistNames": [
+          "Kendrick Lamar"
+        ],
+        "url": "https://open.spotify.com/track/6HZILIRieu8S0iqY8kIKhj"
       }
     ],
     "topArtists": [
@@ -112,19 +109,19 @@
         "url": "https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm"
       },
       {
-        "name": "Don Toliver",
-        "genres": [],
-        "url": "https://open.spotify.com/artist/4Gso3d4CscCijv0lmajZWs"
-      },
-      {
         "name": "Tame Impala",
         "genres": [],
         "url": "https://open.spotify.com/artist/5INjqkS1o8h1imAzPqGZBb"
       },
       {
-        "name": "Travis Scott",
+        "name": "Don Toliver",
         "genres": [],
-        "url": "https://open.spotify.com/artist/0Y5tJX1MQlPlqiwlOH1tJY"
+        "url": "https://open.spotify.com/artist/4Gso3d4CscCijv0lmajZWs"
+      },
+      {
+        "name": "Drake",
+        "genres": [],
+        "url": "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4"
       }
     ]
   }
