@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-06T16:20:26+00:00",
+  "updatedAt": "2026-07-06T22:13:21+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -7,6 +7,47 @@
   "spotify": {
     "topTimeRange": "short_term",
     "recentTracks": [
+      {
+        "name": "(I Just) Died In Your Arms",
+        "artistNames": [
+          "Cutting Crew"
+        ],
+        "albumName": "Broadcast",
+        "playedAt": "2026-07-06T18:05:00.161Z",
+        "url": "https://open.spotify.com/track/4ByEFOBuLXpCqvO1kw8Wdm",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273fb2faa3ed46d1d0124ca325e"
+      },
+      {
+        "name": "Him & I (with Halsey)",
+        "artistNames": [
+          "G-Eazy",
+          "Halsey"
+        ],
+        "albumName": "The Beautiful & Damned",
+        "playedAt": "2026-07-06T17:51:58.901Z",
+        "url": "https://open.spotify.com/track/5k38wzpLb15YgncyWdTZE4",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273046527a9c176f7c2916f3530"
+      },
+      {
+        "name": "House Of Balloons / Glass Table Girls",
+        "artistNames": [
+          "The Weeknd"
+        ],
+        "albumName": "House Of Balloons (Original)",
+        "playedAt": "2026-07-06T16:52:56.058Z",
+        "url": "https://open.spotify.com/track/2r7BPog74oaTG5shNYiUnV",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273274b406a7e18acebcf743079"
+      },
+      {
+        "name": "House Of Balloons / Glass Table Girls",
+        "artistNames": [
+          "The Weeknd"
+        ],
+        "albumName": "House Of Balloons (Original)",
+        "playedAt": "2026-07-06T16:50:32.271Z",
+        "url": "https://open.spotify.com/track/2r7BPog74oaTG5shNYiUnV",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273274b406a7e18acebcf743079"
+      },
       {
         "name": "See You Again (feat. Kali Uchis)",
         "artistNames": [
@@ -17,46 +58,6 @@
         "playedAt": "2026-07-05T23:07:04.608Z",
         "url": "https://open.spotify.com/track/7KA4W4McWYRpgf0fWsJZWB",
         "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2738940ac99f49e44f59e6f7fb3"
-      },
-      {
-        "name": "EVIL J0RDAN",
-        "artistNames": [
-          "Playboi Carti"
-        ],
-        "albumName": "MUSIC",
-        "playedAt": "2026-07-05T23:04:10.212Z",
-        "url": "https://open.spotify.com/track/6iycYUk3oB0NPMdaDUrN1w",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2736b219c8d8462bfe254a20469"
-      },
-      {
-        "name": "Don't Stop The Music",
-        "artistNames": [
-          "Rihanna"
-        ],
-        "albumName": "Good Girl Gone Bad",
-        "playedAt": "2026-07-05T23:01:12.212Z",
-        "url": "https://open.spotify.com/track/1Jo0Zg7XlrA6z0mFTZVdkn",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273b9ff0a5f40d3406aed5e5e3b"
-      },
-      {
-        "name": "Sundress",
-        "artistNames": [
-          "A$AP Rocky"
-        ],
-        "albumName": "Sundress",
-        "playedAt": "2026-07-05T22:56:51.202Z",
-        "url": "https://open.spotify.com/track/2aPTvyE09vUCRwVvj0I8WK",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2731ae967e4a02c7a39eb3c189b"
-      },
-      {
-        "name": "Cheerleader - Felix Jaehn Remix Radio Edit",
-        "artistNames": [
-          "OMI"
-        ],
-        "albumName": "Me 4 U",
-        "playedAt": "2026-07-05T22:54:18.991Z",
-        "url": "https://open.spotify.com/track/023OVLNzXhX0j7CxswUt6D",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2731c61cec78c70409b783d1480"
       }
     ],
     "topTracks": [
@@ -83,18 +84,19 @@
         "url": "https://open.spotify.com/track/6LxSe8YmdPxy095Ux6znaQ"
       },
       {
-        "name": "Bad - 2012 Remaster",
-        "artistNames": [
-          "Michael Jackson"
-        ],
-        "url": "https://open.spotify.com/track/2gSNBigeWMVtY3QBIvPAEc"
-      },
-      {
         "name": "DNA.",
         "artistNames": [
           "Kendrick Lamar"
         ],
         "url": "https://open.spotify.com/track/6HZILIRieu8S0iqY8kIKhj"
+      },
+      {
+        "name": "DJ Got Us Fallin' In Love (feat. Pitbull)",
+        "artistNames": [
+          "USHER",
+          "Pitbull"
+        ],
+        "url": "https://open.spotify.com/track/4356Typ82hUiFAynbLYbPn"
       }
     ],
     "topArtists": [
@@ -109,9 +111,9 @@
         "url": "https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm"
       },
       {
-        "name": "Tame Impala",
+        "name": "The Weeknd",
         "genres": [],
-        "url": "https://open.spotify.com/artist/5INjqkS1o8h1imAzPqGZBb"
+        "url": "https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ"
       },
       {
         "name": "Don Toliver",
