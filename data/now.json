@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-06T22:13:21+00:00",
+  "updatedAt": "2026-07-07T08:22:54+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -7,6 +7,16 @@
   "spotify": {
     "topTimeRange": "short_term",
     "recentTracks": [
+      {
+        "name": "Copacabana (At the Copa) - Short Version",
+        "artistNames": [
+          "Barry Manilow"
+        ],
+        "albumName": "Dance Vault Mixes - Copacabana (At The Copa)",
+        "playedAt": "2026-07-06T22:53:58Z",
+        "url": "https://open.spotify.com/track/5FMXrphygZ4z3gVDHGWxgl",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273668d9bd8f9a446d3d9e5e4a1"
+      },
       {
         "name": "(I Just) Died In Your Arms",
         "artistNames": [
@@ -47,17 +57,6 @@
         "playedAt": "2026-07-06T16:50:32.271Z",
         "url": "https://open.spotify.com/track/2r7BPog74oaTG5shNYiUnV",
         "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273274b406a7e18acebcf743079"
-      },
-      {
-        "name": "See You Again (feat. Kali Uchis)",
-        "artistNames": [
-          "Tyler, The Creator",
-          "Kali Uchis"
-        ],
-        "albumName": "Flower Boy",
-        "playedAt": "2026-07-05T23:07:04.608Z",
-        "url": "https://open.spotify.com/track/7KA4W4McWYRpgf0fWsJZWB",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2738940ac99f49e44f59e6f7fb3"
       }
     ],
     "topTracks": [
