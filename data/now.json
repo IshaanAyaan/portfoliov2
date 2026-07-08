@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-07T22:10:39+00:00",
+  "updatedAt": "2026-07-08T07:28:47+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -7,6 +7,36 @@
   "spotify": {
     "topTimeRange": "short_term",
     "recentTracks": [
+      {
+        "name": "I'm Still Standing",
+        "artistNames": [
+          "Elton John"
+        ],
+        "albumName": "Too Low For Zero",
+        "playedAt": "2026-07-08T02:14:49.441Z",
+        "url": "https://open.spotify.com/track/1jDJFeK9x3OZboIAHsY9k2",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273eb11e2abccdca41f39ad3b89"
+      },
+      {
+        "name": "Smooth Operator - Single Version",
+        "artistNames": [
+          "Sade"
+        ],
+        "albumName": "The Best of Sade",
+        "playedAt": "2026-07-08T01:56:54.225Z",
+        "url": "https://open.spotify.com/track/1Hv1VTm8zeOeybub15mA2R",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2735e25e034e25258b356774c79"
+      },
+      {
+        "name": "Copacabana (At the Copa) - Short Version",
+        "artistNames": [
+          "Barry Manilow"
+        ],
+        "albumName": "Dance Vault Mixes - Copacabana (At The Copa)",
+        "playedAt": "2026-07-08T01:30:20.433Z",
+        "url": "https://open.spotify.com/track/5FMXrphygZ4z3gVDHGWxgl",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273668d9bd8f9a446d3d9e5e4a1"
+      },
       {
         "name": "Copacabana (At the Copa) - Short Version",
         "artistNames": [
@@ -26,37 +56,6 @@
         "playedAt": "2026-07-06T18:05:00.161Z",
         "url": "https://open.spotify.com/track/4ByEFOBuLXpCqvO1kw8Wdm",
         "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273fb2faa3ed46d1d0124ca325e"
-      },
-      {
-        "name": "Him & I (with Halsey)",
-        "artistNames": [
-          "G-Eazy",
-          "Halsey"
-        ],
-        "albumName": "The Beautiful & Damned",
-        "playedAt": "2026-07-06T17:51:58.901Z",
-        "url": "https://open.spotify.com/track/5k38wzpLb15YgncyWdTZE4",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273046527a9c176f7c2916f3530"
-      },
-      {
-        "name": "House Of Balloons / Glass Table Girls",
-        "artistNames": [
-          "The Weeknd"
-        ],
-        "albumName": "House Of Balloons (Original)",
-        "playedAt": "2026-07-06T16:52:56.058Z",
-        "url": "https://open.spotify.com/track/2r7BPog74oaTG5shNYiUnV",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273274b406a7e18acebcf743079"
-      },
-      {
-        "name": "House Of Balloons / Glass Table Girls",
-        "artistNames": [
-          "The Weeknd"
-        ],
-        "albumName": "House Of Balloons (Original)",
-        "playedAt": "2026-07-06T16:50:32.271Z",
-        "url": "https://open.spotify.com/track/2r7BPog74oaTG5shNYiUnV",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273274b406a7e18acebcf743079"
       }
     ],
     "topTracks": [
