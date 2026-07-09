@@ -2,7 +2,8 @@ name: Update Now Widget
 
 on:
   schedule:
-    - cron: "0 5,13,21 * * *"
+    - cron: "*/15 15-23 * * *"
+    - cron: "*/15 0-4 * * *"
   workflow_dispatch:
 
 permissions:
@@ -23,7 +24,14 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Pick daytime update slot
+        id: update-slot
+        env:
+          SPOTIFY_UPDATE_RANDOM_SEED: ${{ secrets.SPOTIFY_UPDATE_RANDOM_SEED }}
+        run: python3 scripts/should_update_now.py
+
       - name: Refresh Spotify data
+        if: steps.update-slot.outputs.should_run == 'true'
         env:
           SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
           SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
@@ -32,6 +40,7 @@ jobs:
         run: python3 scripts/update_now.py
 
       - name: Commit updated data
+        if: steps.update-slot.outputs.should_run == 'true'
         run: |
           if git diff --quiet; then
             echo "No changes to commit."
