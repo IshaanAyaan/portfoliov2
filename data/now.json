@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-09T19:06:23+00:00",
+  "updatedAt": "2026-07-11T05:11:01+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -8,54 +8,55 @@
     "topTimeRange": "short_term",
     "recentTracks": [
       {
-        "name": "Lay All Your Love On Me",
+        "name": "poster boy",
         "artistNames": [
-          "ABBA"
+          "2hollis"
         ],
-        "albumName": "Super Trouper",
-        "playedAt": "2026-07-09T02:38:07.410Z",
-        "url": "https://open.spotify.com/track/4euAGZTszWPrriggYK0HG9",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2734d08fc99eff4ed52dfce91fa"
+        "albumName": "2",
+        "playedAt": "2026-07-10T17:26:25.185Z",
+        "url": "https://open.spotify.com/track/0Gz4Q1Bmyef5yA0G6LIIQZ",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273057d046c6dfb348e0215567c"
       },
       {
-        "name": "The Winner Takes It All",
+        "name": "Hotline Bling",
         "artistNames": [
-          "ABBA"
+          "Drake"
         ],
-        "albumName": "Super Trouper",
-        "playedAt": "2026-07-09T02:32:12.581Z",
-        "url": "https://open.spotify.com/track/3oEkrIfXfSh9zGnE7eBzSV",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2734d08fc99eff4ed52dfce91fa"
+        "albumName": "Views",
+        "playedAt": "2026-07-10T17:21:49.288Z",
+        "url": "https://open.spotify.com/track/0wwPcA6wtMf6HUMpIRdeP7",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2739416ed64daf84936d89e671c"
       },
       {
-        "name": "Gimme! Gimme! Gimme! (A Man After Midnight)",
+        "name": "On Sight",
         "artistNames": [
-          "ABBA"
+          "Kanye West"
         ],
-        "albumName": "Voulez-Vous",
-        "playedAt": "2026-07-09T02:26:13.760Z",
-        "url": "https://open.spotify.com/track/3vkQ5DAB1qQMYO4Mr9zJN6",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273aa22899360d8ba6704732dec"
+        "albumName": "Yeezus",
+        "playedAt": "2026-07-10T16:13:14.452Z",
+        "url": "https://open.spotify.com/track/1gqkRc9WtOpnGIqxf2Hvzr",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2731dacfbc31cc873d132958af9"
       },
       {
-        "name": "Can't Take My Eyes off You",
+        "name": "Low Life (feat. The Weeknd)",
         "artistNames": [
-          "Frankie Valli"
+          "Future",
+          "The Weeknd"
         ],
-        "albumName": "Solo",
-        "playedAt": "2026-07-09T02:21:21.915Z",
-        "url": "https://open.spotify.com/track/0bfvHnWWOeU1U5XeKyVLbW",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273328ba1034774366865d78ac1"
+        "albumName": "EVOL",
+        "playedAt": "2026-07-10T16:05:16.118Z",
+        "url": "https://open.spotify.com/track/7EiZI6JVHllARrX9PUvAdX",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2732f62a05cc754995b544ec1f6"
       },
       {
-        "name": "Rock Your Body",
+        "name": "Where Have You Been",
         "artistNames": [
-          "Justin Timberlake"
+          "Rihanna"
         ],
-        "albumName": "Justified",
-        "playedAt": "2026-07-09T02:17:51.485Z",
-        "url": "https://open.spotify.com/track/1AWQoqb9bSvzTjaLralEkT",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273346a5742374ab4cf9ed32dee"
+        "albumName": "Talk That Talk",
+        "playedAt": "2026-07-10T02:59:36.765Z",
+        "url": "https://open.spotify.com/track/5WQQIDU3HRaMyPkob8mpFb",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273bef074de9ca825bddaeb9f46"
       }
     ],
     "topTracks": [
@@ -104,24 +105,24 @@
         "url": "https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x"
       },
       {
-        "name": "Michael Jackson",
-        "genres": [],
-        "url": "https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm"
-      },
-      {
         "name": "The Weeknd",
         "genres": [],
         "url": "https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ"
       },
       {
-        "name": "Don Toliver",
+        "name": "Michael Jackson",
         "genres": [],
-        "url": "https://open.spotify.com/artist/4Gso3d4CscCijv0lmajZWs"
+        "url": "https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm"
       },
       {
         "name": "Drake",
         "genres": [],
         "url": "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4"
+      },
+      {
+        "name": "Don Toliver",
+        "genres": [],
+        "url": "https://open.spotify.com/artist/4Gso3d4CscCijv0lmajZWs"
       }
     ]
   }
