@@ -9,6 +9,9 @@ on:
 permissions:
   contents: write
 
+env:
+  TZ: America/Phoenix
+
 jobs:
   update-now:
     runs-on: ubuntu-latest
