@@ -4,6 +4,33 @@ This is my portfolio site.
 
 Check it out at [ishaanranjan.com](https://ishaanranjan.com)
 
+## Site architecture
+
+The site remains a framework-free static deployment. `index.html` is the semantic
+source of truth for the portfolio. `site.js` reads its annotated portfolio items
+to populate the Explore universe, so project and experience details are not
+maintained in a second content list.
+
+- `#explore` opens the universe overview.
+- `#cluster/build`, `#cluster/research`, `#cluster/ideas`, `#cluster/trajectory`,
+  and `#cluster/now` open shareable field details.
+- `#portfolio` opens the document view.
+
+Canvas is purely atmospheric; all controls and content are regular HTML. If
+JavaScript or canvas is unavailable, the Portfolio remains readable and linked.
+
+### Local preview
+
+Run this from the repository root:
+
+```sh
+python3 -m http.server 4173
+```
+
+Then open `http://127.0.0.1:4173`. The site has no build step. Deploy by pushing
+the static files to the branch configured for the existing GitHub Pages site;
+keep `CNAME` in the repository root.
+
 ## Spotify Now widget
 
 This site includes a small "Now" panel that reads from [`data/now.json`](./data/now.json).
