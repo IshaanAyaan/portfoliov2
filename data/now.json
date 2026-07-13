@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-13T03:37:38+00:00",
+  "updatedAt": "2026-07-13T17:09:38+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -7,6 +7,16 @@
   "spotify": {
     "topTimeRange": "short_term",
     "recentTracks": [
+      {
+        "name": "NIGHTS LIKE THIS",
+        "artistNames": [
+          "The Kid LAROI"
+        ],
+        "albumName": "THE FIRST TIME",
+        "playedAt": "2026-07-13T03:43:23.954Z",
+        "url": "https://open.spotify.com/track/3UDpwoxz9SUvVE0e1mnsxx",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273f1c781567b8ba35f5312e2cd"
+      },
       {
         "name": "That Should Be Me",
         "artistNames": [
@@ -47,19 +57,6 @@
         "playedAt": "2026-07-12T16:11:23.518Z",
         "url": "https://open.spotify.com/track/3hxIUxnT27p5WcmjGUXNwx",
         "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273350ab7a839c04bfd5225a9f5"
-      },
-      {
-        "name": "SARAVIA FUNK - Ultra Slowed",
-        "artistNames": [
-          "RD12",
-          "Dj Funks",
-          "DJ DYLANFK",
-          "0to8"
-        ],
-        "albumName": "SARAVIA FUNK",
-        "playedAt": "2026-07-12T16:07:14.832Z",
-        "url": "https://open.spotify.com/track/1XzGRimMhfS0mNppq862w9",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273cb5be5844780928dfbbe07d6"
       }
     ],
     "topTracks": [
