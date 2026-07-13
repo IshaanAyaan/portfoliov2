@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-11T18:52:13+00:00",
+  "updatedAt": "2026-07-13T03:37:38+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -8,55 +8,58 @@
     "topTimeRange": "short_term",
     "recentTracks": [
       {
-        "name": "poster boy",
+        "name": "That Should Be Me",
         "artistNames": [
-          "2hollis"
+          "Justin Bieber"
         ],
-        "albumName": "2",
-        "playedAt": "2026-07-10T17:26:25.185Z",
-        "url": "https://open.spotify.com/track/0Gz4Q1Bmyef5yA0G6LIIQZ",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273057d046c6dfb348e0215567c"
+        "albumName": "My World 2.0",
+        "playedAt": "2026-07-12T23:18:19.919Z",
+        "url": "https://open.spotify.com/track/0aPZbnkMoWJaJ5CNVLCj8S",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273629dc9e2e3bc20bbd7d92e4a"
       },
       {
-        "name": "Hotline Bling",
+        "name": "Umbrella",
         "artistNames": [
-          "Drake"
+          "Rihanna",
+          "JA\u0178-Z"
         ],
-        "albumName": "Views",
-        "playedAt": "2026-07-10T17:21:49.288Z",
-        "url": "https://open.spotify.com/track/0wwPcA6wtMf6HUMpIRdeP7",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2739416ed64daf84936d89e671c"
+        "albumName": "Good Girl Gone Bad",
+        "playedAt": "2026-07-12T17:55:58.323Z",
+        "url": "https://open.spotify.com/track/2yPoXCs7BSIUrucMdK5PzV",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273b9ff0a5f40d3406aed5e5e3b"
       },
       {
-        "name": "On Sight",
+        "name": "Killshot - Slowed + Reverb",
         "artistNames": [
-          "Kanye West"
+          "Magdalena Bay"
         ],
-        "albumName": "Yeezus",
-        "playedAt": "2026-07-10T16:13:14.452Z",
-        "url": "https://open.spotify.com/track/1gqkRc9WtOpnGIqxf2Hvzr",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2731dacfbc31cc873d132958af9"
+        "albumName": "Killshot (Slowed + Reverb)",
+        "playedAt": "2026-07-12T16:16:04.742Z",
+        "url": "https://open.spotify.com/track/6pdyvJQkPkwo2WoDH7tFHO",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27368b647e4976494925778007f"
       },
       {
-        "name": "Low Life (feat. The Weeknd)",
+        "name": "Shut up My Moms Calling",
         "artistNames": [
-          "Future",
-          "The Weeknd"
+          "Hotel Ugly"
         ],
-        "albumName": "EVOL",
-        "playedAt": "2026-07-10T16:05:16.118Z",
-        "url": "https://open.spotify.com/track/7EiZI6JVHllARrX9PUvAdX",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2732f62a05cc754995b544ec1f6"
+        "albumName": "Shut up My Moms Calling",
+        "playedAt": "2026-07-12T16:11:23.518Z",
+        "url": "https://open.spotify.com/track/3hxIUxnT27p5WcmjGUXNwx",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273350ab7a839c04bfd5225a9f5"
       },
       {
-        "name": "Where Have You Been",
+        "name": "SARAVIA FUNK - Ultra Slowed",
         "artistNames": [
-          "Rihanna"
+          "RD12",
+          "Dj Funks",
+          "DJ DYLANFK",
+          "0to8"
         ],
-        "albumName": "Talk That Talk",
-        "playedAt": "2026-07-10T02:59:36.765Z",
-        "url": "https://open.spotify.com/track/5WQQIDU3HRaMyPkob8mpFb",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273bef074de9ca825bddaeb9f46"
+        "albumName": "SARAVIA FUNK",
+        "playedAt": "2026-07-12T16:07:14.832Z",
+        "url": "https://open.spotify.com/track/1XzGRimMhfS0mNppq862w9",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273cb5be5844780928dfbbe07d6"
       }
     ],
     "topTracks": [
@@ -67,13 +70,6 @@
           "Kacy Hill"
         ],
         "url": "https://open.spotify.com/track/51EC3I1nQXpec4gDk0mQyP"
-      },
-      {
-        "name": "Can't Tell Me Nothing",
-        "artistNames": [
-          "Kanye West"
-        ],
-        "url": "https://open.spotify.com/track/0mEdbdeRFQwBhN4xfyIeUM"
       },
       {
         "name": "Headlines",
@@ -96,6 +92,13 @@
           "Pitbull"
         ],
         "url": "https://open.spotify.com/track/4356Typ82hUiFAynbLYbPn"
+      },
+      {
+        "name": "Smooth Criminal - 2012 Remaster",
+        "artistNames": [
+          "Michael Jackson"
+        ],
+        "url": "https://open.spotify.com/track/5T7ywazdGIydr6JCW6t02j"
       }
     ],
     "topArtists": [
