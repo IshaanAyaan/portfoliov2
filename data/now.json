@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-14T05:42:06+00:00",
+  "updatedAt": "2026-07-14T18:46:01+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -8,55 +8,58 @@
     "topTimeRange": "short_term",
     "recentTracks": [
       {
-        "name": "NIGHTS LIKE THIS",
+        "name": "SexyBack (feat. Timbaland)",
         "artistNames": [
-          "The Kid LAROI"
+          "Justin Timberlake",
+          "Timbaland"
         ],
-        "albumName": "THE FIRST TIME",
-        "playedAt": "2026-07-13T03:43:23.954Z",
-        "url": "https://open.spotify.com/track/3UDpwoxz9SUvVE0e1mnsxx",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273f1c781567b8ba35f5312e2cd"
+        "albumName": "FutureSex/LoveSounds",
+        "playedAt": "2026-07-14T17:56:38.443Z",
+        "url": "https://open.spotify.com/track/0O45fw2L5vsWpdsOdXwNAR",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273c6ba98fd3f3b396a6c6f7091"
       },
       {
-        "name": "That Should Be Me",
+        "name": "Babydoll",
         "artistNames": [
-          "Justin Bieber"
+          "Dominic Fike"
         ],
-        "albumName": "My World 2.0",
-        "playedAt": "2026-07-12T23:18:19.919Z",
-        "url": "https://open.spotify.com/track/0aPZbnkMoWJaJ5CNVLCj8S",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273629dc9e2e3bc20bbd7d92e4a"
+        "albumName": "Don't Forget About Me, Demos",
+        "playedAt": "2026-07-14T17:52:24.132Z",
+        "url": "https://open.spotify.com/track/7yNf9YjeO5JXUE3JEBgnYc",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2737b1b6f41c1645af9757d5616"
       },
       {
-        "name": "Umbrella",
+        "name": "That Go! (feat. T-Shyne)",
         "artistNames": [
-          "Rihanna",
-          "JA\u0178-Z"
+          "Young Stoner Life",
+          "Young Thug",
+          "Meek Mill",
+          "T-Shyne"
         ],
-        "albumName": "Good Girl Gone Bad",
-        "playedAt": "2026-07-12T17:55:58.323Z",
-        "url": "https://open.spotify.com/track/2yPoXCs7BSIUrucMdK5PzV",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273b9ff0a5f40d3406aed5e5e3b"
+        "albumName": "Slime Language 2",
+        "playedAt": "2026-07-14T17:50:34.421Z",
+        "url": "https://open.spotify.com/track/6rUmUJ2drFemHTH73bFAKQ",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273f60bfdd72c27eee42bf73d54"
       },
       {
-        "name": "Killshot - Slowed + Reverb",
+        "name": "Play Date",
         "artistNames": [
-          "Magdalena Bay"
+          "Melanie Martinez"
         ],
-        "albumName": "Killshot (Slowed + Reverb)",
-        "playedAt": "2026-07-12T16:16:04.742Z",
-        "url": "https://open.spotify.com/track/6pdyvJQkPkwo2WoDH7tFHO",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27368b647e4976494925778007f"
+        "albumName": "Cry Baby (Deluxe Edition)",
+        "playedAt": "2026-07-14T16:27:44.460Z",
+        "url": "https://open.spotify.com/track/4DpNNXFMMxQEKl7r0ykkWA",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2733899712512f50a8d9e01e951"
       },
       {
-        "name": "Shut up My Moms Calling",
+        "name": "Daddy Issues",
         "artistNames": [
-          "Hotel Ugly"
+          "The Neighbourhood"
         ],
-        "albumName": "Shut up My Moms Calling",
-        "playedAt": "2026-07-12T16:11:23.518Z",
-        "url": "https://open.spotify.com/track/3hxIUxnT27p5WcmjGUXNwx",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273350ab7a839c04bfd5225a9f5"
+        "albumName": "Wiped Out!",
+        "playedAt": "2026-07-14T16:20:15.800Z",
+        "url": "https://open.spotify.com/track/5E30LdtzQTGqRvNd7l6kG5",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2735260c62db020e5861a51556d"
       }
     ],
     "topTracks": [
@@ -91,28 +94,18 @@
         "url": "https://open.spotify.com/track/4356Typ82hUiFAynbLYbPn"
       },
       {
-        "name": "Smooth Criminal - 2012 Remaster",
+        "name": "Hotel California - 2013 Remaster",
         "artistNames": [
-          "Michael Jackson"
+          "Eagles"
         ],
-        "url": "https://open.spotify.com/track/5T7ywazdGIydr6JCW6t02j"
+        "url": "https://open.spotify.com/track/02rMAu7hazKhd64yb6zgKU"
       }
     ],
     "topArtists": [
       {
-        "name": "Kanye West",
-        "genres": [],
-        "url": "https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x"
-      },
-      {
         "name": "The Weeknd",
         "genres": [],
         "url": "https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ"
-      },
-      {
-        "name": "Michael Jackson",
-        "genres": [],
-        "url": "https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm"
       },
       {
         "name": "Drake",
@@ -123,6 +116,16 @@
         "name": "Don Toliver",
         "genres": [],
         "url": "https://open.spotify.com/artist/4Gso3d4CscCijv0lmajZWs"
+      },
+      {
+        "name": "Michael Jackson",
+        "genres": [],
+        "url": "https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm"
+      },
+      {
+        "name": "Kanye West",
+        "genres": [],
+        "url": "https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x"
       }
     ]
   }
