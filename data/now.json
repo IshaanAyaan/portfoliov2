@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-15T02:56:58+00:00",
+  "updatedAt": "2026-07-15T18:46:49+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -8,58 +8,54 @@
     "topTimeRange": "short_term",
     "recentTracks": [
       {
-        "name": "SexyBack (feat. Timbaland)",
+        "name": "That's What I Like",
         "artistNames": [
-          "Justin Timberlake",
-          "Timbaland"
+          "Bruno Mars"
         ],
-        "albumName": "FutureSex/LoveSounds",
-        "playedAt": "2026-07-14T17:56:38.443Z",
-        "url": "https://open.spotify.com/track/0O45fw2L5vsWpdsOdXwNAR",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273c6ba98fd3f3b396a6c6f7091"
+        "albumName": "24K Magic",
+        "playedAt": "2026-07-15T04:27:18.052Z",
+        "url": "https://open.spotify.com/track/0KKkJNfGyhkQ5aFogxQAPU",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273232711f7d66a1e19e89e28c5"
       },
       {
-        "name": "Babydoll",
-        "artistNames": [
-          "Dominic Fike"
-        ],
-        "albumName": "Don't Forget About Me, Demos",
-        "playedAt": "2026-07-14T17:52:24.132Z",
-        "url": "https://open.spotify.com/track/7yNf9YjeO5JXUE3JEBgnYc",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2737b1b6f41c1645af9757d5616"
-      },
-      {
-        "name": "That Go! (feat. T-Shyne)",
-        "artistNames": [
-          "Young Stoner Life",
-          "Young Thug",
-          "Meek Mill",
-          "T-Shyne"
-        ],
-        "albumName": "Slime Language 2",
-        "playedAt": "2026-07-14T17:50:34.421Z",
-        "url": "https://open.spotify.com/track/6rUmUJ2drFemHTH73bFAKQ",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273f60bfdd72c27eee42bf73d54"
-      },
-      {
-        "name": "Play Date",
-        "artistNames": [
-          "Melanie Martinez"
-        ],
-        "albumName": "Cry Baby (Deluxe Edition)",
-        "playedAt": "2026-07-14T16:27:44.460Z",
-        "url": "https://open.spotify.com/track/4DpNNXFMMxQEKl7r0ykkWA",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2733899712512f50a8d9e01e951"
-      },
-      {
-        "name": "Daddy Issues",
+        "name": "You Get Me So High",
         "artistNames": [
           "The Neighbourhood"
         ],
-        "albumName": "Wiped Out!",
-        "playedAt": "2026-07-14T16:20:15.800Z",
-        "url": "https://open.spotify.com/track/5E30LdtzQTGqRvNd7l6kG5",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2735260c62db020e5861a51556d"
+        "albumName": "Hard To Imagine The Neighbourhood Ever Changing",
+        "playedAt": "2026-07-15T04:22:58.564Z",
+        "url": "https://open.spotify.com/track/7zwn1eykZtZ5LODrf7c0tS",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2739b6ac98a52f62d5cb473da40"
+      },
+      {
+        "name": "Jane!",
+        "artistNames": [
+          "The Long Faces"
+        ],
+        "albumName": "Jane!",
+        "playedAt": "2026-07-15T04:17:30.429Z",
+        "url": "https://open.spotify.com/track/0IjdXwCEhZR7JIwq6Za8j5",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2736685599bd4bafe725e532e2f"
+      },
+      {
+        "name": "Smooth Operator - Single Version",
+        "artistNames": [
+          "Sade"
+        ],
+        "albumName": "The Best of Sade",
+        "playedAt": "2026-07-15T04:14:29.426Z",
+        "url": "https://open.spotify.com/track/1Hv1VTm8zeOeybub15mA2R",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2735e25e034e25258b356774c79"
+      },
+      {
+        "name": "Hey Jude",
+        "artistNames": [
+          "The Beatles"
+        ],
+        "albumName": "Love",
+        "playedAt": "2026-07-15T04:07:28.375Z",
+        "url": "https://open.spotify.com/track/1eT2CjXwFXNx6oY5ydvzKU",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27330503dbc30e621c96913379b"
       }
     ],
     "topTracks": [
@@ -79,19 +75,19 @@
         "url": "https://open.spotify.com/track/6LxSe8YmdPxy095Ux6znaQ"
       },
       {
-        "name": "DNA.",
-        "artistNames": [
-          "Kendrick Lamar"
-        ],
-        "url": "https://open.spotify.com/track/6HZILIRieu8S0iqY8kIKhj"
-      },
-      {
         "name": "DJ Got Us Fallin' In Love (feat. Pitbull)",
         "artistNames": [
           "USHER",
           "Pitbull"
         ],
         "url": "https://open.spotify.com/track/4356Typ82hUiFAynbLYbPn"
+      },
+      {
+        "name": "DNA.",
+        "artistNames": [
+          "Kendrick Lamar"
+        ],
+        "url": "https://open.spotify.com/track/6HZILIRieu8S0iqY8kIKhj"
       },
       {
         "name": "Hotel California - 2013 Remaster",
@@ -103,11 +99,6 @@
     ],
     "topArtists": [
       {
-        "name": "The Weeknd",
-        "genres": [],
-        "url": "https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ"
-      },
-      {
         "name": "Michael Jackson",
         "genres": [],
         "url": "https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm"
@@ -116,6 +107,11 @@
         "name": "Don Toliver",
         "genres": [],
         "url": "https://open.spotify.com/artist/4Gso3d4CscCijv0lmajZWs"
+      },
+      {
+        "name": "The Weeknd",
+        "genres": [],
+        "url": "https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ"
       },
       {
         "name": "Drake",
