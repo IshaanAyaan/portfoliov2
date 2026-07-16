@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-11T18:52:13+00:00",
+  "updatedAt": "2026-07-16T19:57:49+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -8,55 +8,56 @@
     "topTimeRange": "short_term",
     "recentTracks": [
       {
-        "name": "poster boy",
+        "name": "HIGHEST IN THE ROOM",
         "artistNames": [
-          "2hollis"
+          "Travis Scott"
         ],
-        "albumName": "2",
-        "playedAt": "2026-07-10T17:26:25.185Z",
-        "url": "https://open.spotify.com/track/0Gz4Q1Bmyef5yA0G6LIIQZ",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273057d046c6dfb348e0215567c"
+        "albumName": "HIGHEST IN THE ROOM",
+        "playedAt": "2026-07-16T18:23:20.538Z",
+        "url": "https://open.spotify.com/track/3eekarcy7kvN4yt5ZFzltW",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273cc7bfe087a97a09f54c92b28"
       },
       {
-        "name": "Hotline Bling",
+        "name": "Big Poppa - 2005 Remaster",
         "artistNames": [
-          "Drake"
+          "The Notorious B.I.G."
         ],
-        "albumName": "Views",
-        "playedAt": "2026-07-10T17:21:49.288Z",
-        "url": "https://open.spotify.com/track/0wwPcA6wtMf6HUMpIRdeP7",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2739416ed64daf84936d89e671c"
+        "albumName": "Ready to Die (The Remaster)",
+        "playedAt": "2026-07-16T18:17:11.146Z",
+        "url": "https://open.spotify.com/track/2g8HN35AnVGIk7B8yMucww",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2730f51e29700232d57fe8a0830"
       },
       {
-        "name": "On Sight",
+        "name": "If We Being R\u00ebal",
         "artistNames": [
-          "Kanye West"
+          "Yeat"
         ],
-        "albumName": "Yeezus",
-        "playedAt": "2026-07-10T16:13:14.452Z",
-        "url": "https://open.spotify.com/track/1gqkRc9WtOpnGIqxf2Hvzr",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2731dacfbc31cc873d132958af9"
+        "albumName": "2093",
+        "playedAt": "2026-07-16T16:28:43.058Z",
+        "url": "https://open.spotify.com/track/0YThXX1dqUpYBLyJNAsF9N",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2739567b80f50a5b9f0178ae993"
       },
       {
-        "name": "Low Life (feat. The Weeknd)",
+        "name": "Am I Dreaming (Metro Boomin & A$AP Rocky, Roisee)",
         "artistNames": [
-          "Future",
-          "The Weeknd"
+          "Metro Boomin",
+          "A$AP Rocky",
+          "Roisee"
         ],
-        "albumName": "EVOL",
-        "playedAt": "2026-07-10T16:05:16.118Z",
-        "url": "https://open.spotify.com/track/7EiZI6JVHllARrX9PUvAdX",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2732f62a05cc754995b544ec1f6"
+        "albumName": "METRO BOOMIN PRESENTS SPIDER-MAN: ACROSS THE SPIDER-VERSE (SOUNDTRACK FROM AND INSPIRED BY THE MOTION PICTURE)",
+        "playedAt": "2026-07-16T16:23:38.416Z",
+        "url": "https://open.spotify.com/track/6Ec5LeRzkisa5KJtwLfOoW",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2736ed9aef791159496b286179f"
       },
       {
-        "name": "Where Have You Been",
+        "name": "That's What I Like",
         "artistNames": [
-          "Rihanna"
+          "Bruno Mars"
         ],
-        "albumName": "Talk That Talk",
-        "playedAt": "2026-07-10T02:59:36.765Z",
-        "url": "https://open.spotify.com/track/5WQQIDU3HRaMyPkob8mpFb",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273bef074de9ca825bddaeb9f46"
+        "albumName": "24K Magic",
+        "playedAt": "2026-07-15T04:27:18.052Z",
+        "url": "https://open.spotify.com/track/0KKkJNfGyhkQ5aFogxQAPU",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273232711f7d66a1e19e89e28c5"
       }
     ],
     "topTracks": [
@@ -69,18 +70,19 @@
         "url": "https://open.spotify.com/track/51EC3I1nQXpec4gDk0mQyP"
       },
       {
-        "name": "Can't Tell Me Nothing",
-        "artistNames": [
-          "Kanye West"
-        ],
-        "url": "https://open.spotify.com/track/0mEdbdeRFQwBhN4xfyIeUM"
-      },
-      {
         "name": "Headlines",
         "artistNames": [
           "Drake"
         ],
         "url": "https://open.spotify.com/track/6LxSe8YmdPxy095Ux6znaQ"
+      },
+      {
+        "name": "DJ Got Us Fallin' In Love (feat. Pitbull)",
+        "artistNames": [
+          "USHER",
+          "Pitbull"
+        ],
+        "url": "https://open.spotify.com/track/4356Typ82hUiFAynbLYbPn"
       },
       {
         "name": "DNA.",
@@ -90,19 +92,23 @@
         "url": "https://open.spotify.com/track/6HZILIRieu8S0iqY8kIKhj"
       },
       {
-        "name": "DJ Got Us Fallin' In Love (feat. Pitbull)",
+        "name": "Hotel California - 2013 Remaster",
         "artistNames": [
-          "USHER",
-          "Pitbull"
+          "Eagles"
         ],
-        "url": "https://open.spotify.com/track/4356Typ82hUiFAynbLYbPn"
+        "url": "https://open.spotify.com/track/02rMAu7hazKhd64yb6zgKU"
       }
     ],
     "topArtists": [
       {
-        "name": "Kanye West",
+        "name": "Michael Jackson",
         "genres": [],
-        "url": "https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x"
+        "url": "https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm"
+      },
+      {
+        "name": "Don Toliver",
+        "genres": [],
+        "url": "https://open.spotify.com/artist/4Gso3d4CscCijv0lmajZWs"
       },
       {
         "name": "The Weeknd",
@@ -110,19 +116,14 @@
         "url": "https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ"
       },
       {
-        "name": "Michael Jackson",
-        "genres": [],
-        "url": "https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm"
-      },
-      {
         "name": "Drake",
         "genres": [],
         "url": "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4"
       },
       {
-        "name": "Don Toliver",
+        "name": "Kanye West",
         "genres": [],
-        "url": "https://open.spotify.com/artist/4Gso3d4CscCijv0lmajZWs"
+        "url": "https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x"
       }
     ]
   }
