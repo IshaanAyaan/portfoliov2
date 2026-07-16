@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-16T16:13:16+00:00",
+  "updatedAt": "2026-07-16T19:57:49+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -7,6 +7,48 @@
   "spotify": {
     "topTimeRange": "short_term",
     "recentTracks": [
+      {
+        "name": "HIGHEST IN THE ROOM",
+        "artistNames": [
+          "Travis Scott"
+        ],
+        "albumName": "HIGHEST IN THE ROOM",
+        "playedAt": "2026-07-16T18:23:20.538Z",
+        "url": "https://open.spotify.com/track/3eekarcy7kvN4yt5ZFzltW",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273cc7bfe087a97a09f54c92b28"
+      },
+      {
+        "name": "Big Poppa - 2005 Remaster",
+        "artistNames": [
+          "The Notorious B.I.G."
+        ],
+        "albumName": "Ready to Die (The Remaster)",
+        "playedAt": "2026-07-16T18:17:11.146Z",
+        "url": "https://open.spotify.com/track/2g8HN35AnVGIk7B8yMucww",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2730f51e29700232d57fe8a0830"
+      },
+      {
+        "name": "If We Being R\u00ebal",
+        "artistNames": [
+          "Yeat"
+        ],
+        "albumName": "2093",
+        "playedAt": "2026-07-16T16:28:43.058Z",
+        "url": "https://open.spotify.com/track/0YThXX1dqUpYBLyJNAsF9N",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2739567b80f50a5b9f0178ae993"
+      },
+      {
+        "name": "Am I Dreaming (Metro Boomin & A$AP Rocky, Roisee)",
+        "artistNames": [
+          "Metro Boomin",
+          "A$AP Rocky",
+          "Roisee"
+        ],
+        "albumName": "METRO BOOMIN PRESENTS SPIDER-MAN: ACROSS THE SPIDER-VERSE (SOUNDTRACK FROM AND INSPIRED BY THE MOTION PICTURE)",
+        "playedAt": "2026-07-16T16:23:38.416Z",
+        "url": "https://open.spotify.com/track/6Ec5LeRzkisa5KJtwLfOoW",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2736ed9aef791159496b286179f"
+      },
       {
         "name": "That's What I Like",
         "artistNames": [
@@ -16,46 +58,6 @@
         "playedAt": "2026-07-15T04:27:18.052Z",
         "url": "https://open.spotify.com/track/0KKkJNfGyhkQ5aFogxQAPU",
         "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273232711f7d66a1e19e89e28c5"
-      },
-      {
-        "name": "You Get Me So High",
-        "artistNames": [
-          "The Neighbourhood"
-        ],
-        "albumName": "Hard To Imagine The Neighbourhood Ever Changing",
-        "playedAt": "2026-07-15T04:22:58.564Z",
-        "url": "https://open.spotify.com/track/7zwn1eykZtZ5LODrf7c0tS",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2739b6ac98a52f62d5cb473da40"
-      },
-      {
-        "name": "Jane!",
-        "artistNames": [
-          "The Long Faces"
-        ],
-        "albumName": "Jane!",
-        "playedAt": "2026-07-15T04:17:30.429Z",
-        "url": "https://open.spotify.com/track/0IjdXwCEhZR7JIwq6Za8j5",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2736685599bd4bafe725e532e2f"
-      },
-      {
-        "name": "Smooth Operator - Single Version",
-        "artistNames": [
-          "Sade"
-        ],
-        "albumName": "The Best of Sade",
-        "playedAt": "2026-07-15T04:14:29.426Z",
-        "url": "https://open.spotify.com/track/1Hv1VTm8zeOeybub15mA2R",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2735e25e034e25258b356774c79"
-      },
-      {
-        "name": "Hey Jude",
-        "artistNames": [
-          "The Beatles"
-        ],
-        "albumName": "Love",
-        "playedAt": "2026-07-15T04:07:28.375Z",
-        "url": "https://open.spotify.com/track/1eT2CjXwFXNx6oY5ydvzKU",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27330503dbc30e621c96913379b"
       }
     ],
     "topTracks": [
