@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-17T06:00:41+00:00",
+  "updatedAt": "2026-07-17T17:29:11+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -7,6 +7,39 @@
   "spotify": {
     "topTimeRange": "short_term",
     "recentTracks": [
+      {
+        "name": "Ric Flair Drip (with Metro Boomin)",
+        "artistNames": [
+          "Offset",
+          "Metro Boomin"
+        ],
+        "albumName": "Without Warning",
+        "playedAt": "2026-07-17T16:29:06.141Z",
+        "url": "https://open.spotify.com/track/7sO5G9EABYOXQKNPNiE9NR",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2730db43130a9aaa7bae56967ed"
+      },
+      {
+        "name": "Confident",
+        "artistNames": [
+          "Justin Bieber",
+          "Chance the Rapper"
+        ],
+        "albumName": "Journals",
+        "playedAt": "2026-07-17T16:26:07.012Z",
+        "url": "https://open.spotify.com/track/3JsydWaf2Ev4ehaLUjj3SY",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27358ae8fddecbd2630005409c9"
+      },
+      {
+        "name": "Confident",
+        "artistNames": [
+          "Justin Bieber",
+          "Chance the Rapper"
+        ],
+        "albumName": "Journals",
+        "playedAt": "2026-07-17T16:21:52.143Z",
+        "url": "https://open.spotify.com/track/3JsydWaf2Ev4ehaLUjj3SY",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27358ae8fddecbd2630005409c9"
+      },
       {
         "name": "HIGHEST IN THE ROOM",
         "artistNames": [
@@ -26,38 +59,6 @@
         "playedAt": "2026-07-16T18:17:11.146Z",
         "url": "https://open.spotify.com/track/2g8HN35AnVGIk7B8yMucww",
         "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2730f51e29700232d57fe8a0830"
-      },
-      {
-        "name": "If We Being R\u00ebal",
-        "artistNames": [
-          "Yeat"
-        ],
-        "albumName": "2093",
-        "playedAt": "2026-07-16T16:28:43.058Z",
-        "url": "https://open.spotify.com/track/0YThXX1dqUpYBLyJNAsF9N",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2739567b80f50a5b9f0178ae993"
-      },
-      {
-        "name": "Am I Dreaming (Metro Boomin & A$AP Rocky, Roisee)",
-        "artistNames": [
-          "Metro Boomin",
-          "A$AP Rocky",
-          "Roisee"
-        ],
-        "albumName": "METRO BOOMIN PRESENTS SPIDER-MAN: ACROSS THE SPIDER-VERSE (SOUNDTRACK FROM AND INSPIRED BY THE MOTION PICTURE)",
-        "playedAt": "2026-07-16T16:23:38.416Z",
-        "url": "https://open.spotify.com/track/6Ec5LeRzkisa5KJtwLfOoW",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2736ed9aef791159496b286179f"
-      },
-      {
-        "name": "That's What I Like",
-        "artistNames": [
-          "Bruno Mars"
-        ],
-        "albumName": "24K Magic",
-        "playedAt": "2026-07-15T04:27:18.052Z",
-        "url": "https://open.spotify.com/track/0KKkJNfGyhkQ5aFogxQAPU",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273232711f7d66a1e19e89e28c5"
       }
     ],
     "topTracks": [
