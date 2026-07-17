@@ -22,6 +22,12 @@ test("game controls drive the runner and persist preferences", async ({ page }) 
   await expect.poll(() => page.evaluate(() => window.TrexRunner?.activated)).toBe(true);
   await expect(page.locator("[data-game-prompt]")).toBeHidden();
 
+  const duck = page.locator('[data-game-action="duck"]');
+  await duck.dispatchEvent("pointerdown");
+  await expect.poll(() => page.evaluate(() => window.TrexRunner?.tRex?.ducking)).toBe(true);
+  await duck.dispatchEvent("pointerup");
+  await expect.poll(() => page.evaluate(() => window.TrexRunner?.tRex?.ducking)).toBe(false);
+
   const pause = page.locator('[data-game-action="pause"]');
   await pause.click();
   await expect(pause).toHaveAttribute("aria-pressed", "true");
@@ -36,6 +42,40 @@ test("game controls drive the runner and persist preferences", async ({ page }) 
 
   await expect.poll(() => page.evaluate(() => JSON.parse(localStorage.getItem("ishaan.cosmicRun.v1"))?.settings)).toEqual({ theme: "dark", sound: false });
   await expect(errors).toEqual([]);
+});
+
+test("signals update score, biome, transmissions, and persistent progress", async ({ page }) => {
+  await page.goto("/offline.html");
+  await page.getByRole("button", { name: /jump/i }).click();
+  await expect.poll(() => page.evaluate(() => window.TrexRunner?.activated)).toBe(true);
+  await expect(page.locator("[data-game-prompt]")).toBeHidden();
+  await page.locator('[data-game-action="pause"]').click();
+  await expect.poll(() => page.evaluate(() => window.TrexRunner?.paused)).toBe(true);
+  const scoreBeforeSignal = Number(await page.locator("[data-score]").innerText());
+
+  const game = page.locator(".trex-game");
+  await game.dispatchEvent("cosmicrun:signalcollect");
+  await expect(page.locator("[data-score]")).toHaveText(String(scoreBeforeSignal + 100).padStart(5, "0"));
+  await expect(page.locator("[data-signals]")).toHaveText("1");
+  await expect(page.locator("[data-multiplier]")).toHaveText("2×");
+  await expect(page.getByRole("link", { name: "Build signal" })).toBeVisible();
+
+  await game.evaluate((element) => element.dispatchEvent(new CustomEvent("cosmicrun:score", {
+    detail: { score: 500 }
+  })));
+  await expect(page.locator("[data-biome]")).toHaveText("Debris Field");
+  await expect.poll(() => page.evaluate(() => {
+    const progress = JSON.parse(localStorage.getItem("ishaan.cosmicRun.v1"));
+    return {
+      signals: progress?.totalSignals,
+      highScore: progress?.highScore,
+      transmissions: progress?.unlockedTransmissions
+    };
+  })).toEqual({ signals: 1, highScore: 600, transmissions: ["build"] });
+
+  await page.reload();
+  await expect(page.locator("[data-high-score]")).toHaveText("00600");
+  await expect(page.getByRole("link", { name: "Build signal" })).toBeVisible();
 });
 
 test("game recovers from corrupt progress and presents accessible game-over state", async ({ page }) => {

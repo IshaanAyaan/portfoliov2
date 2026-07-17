@@ -9,7 +9,8 @@
     "test:unit": "node --test tests/unit/*.test.js",
     "test:e2e": "playwright test",
     "test:e2e:update": "playwright test --update-snapshots",
-    "check:js": "node --check site.js && node --check universe-core.js && node --check game.js && node --check trex-runner.js",
+    "screenshots:review": "node scripts/capture-review.mjs",
+    "check:js": "node --check analytics.js && node --check site.js && node --check universe-core.js && node --check game.js && node --check game-state.js && node --check game-mechanics.js && node --check trex-runner.js && node --check scripts/capture-review.mjs",
     "check": "pnpm check:js && pnpm test"
   },
   "devDependencies": {

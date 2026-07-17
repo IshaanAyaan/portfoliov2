@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
-import { readFile } from "node:fs/promises";
+import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
 test("portfolio and game routes retain their canonical entry points", async () => {
@@ -56,4 +56,19 @@ test("automation dependencies are pinned and narrowly authorized", async () => {
   assert.match(workflow, /github-actions\[bot\]/);
   assert.match(dependabot, /package-ecosystem: github-actions/);
   assert.match(dependabot, /package-ecosystem: npm/);
+});
+
+test("same-origin page assets and links resolve locally", async () => {
+  for (const pageName of ["index.html", "offline.html"]) {
+    const pageURL = new URL(`../../${pageName}`, import.meta.url);
+    const markup = await readFile(pageURL, "utf8");
+    const targets = [...markup.matchAll(/\b(?:href|src)="([^"]+)"/g)].map(([, target]) => target);
+
+    for (const target of targets) {
+      if (/^(?:[a-z]+:|#|\/\/)/i.test(target)) continue;
+      const path = decodeURIComponent(target.split(/[?#]/)[0]);
+      if (!path) continue;
+      await assert.doesNotReject(access(new URL(path, pageURL)), `${pageName}: ${target}`);
+    }
+  }
 });
