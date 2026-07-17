@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-17T17:29:11+00:00",
+  "updatedAt": "2026-07-17T18:35:06+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -7,6 +7,46 @@
   "spotify": {
     "topTimeRange": "short_term",
     "recentTracks": [
+      {
+        "name": "Mon\u00eby so big",
+        "artistNames": [
+          "Yeat"
+        ],
+        "albumName": "Up 2 M\u00eb",
+        "playedAt": "2026-07-17T18:10:49.987Z",
+        "url": "https://open.spotify.com/track/4Se3fXoHJkcraQzJXo2IYn",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2737f18c4658caa4a3d47f2d978"
+      },
+      {
+        "name": "I KNOW ?",
+        "artistNames": [
+          "Travis Scott"
+        ],
+        "albumName": "UTOPIA",
+        "playedAt": "2026-07-17T18:05:46.676Z",
+        "url": "https://open.spotify.com/track/6wsqVwoiVH2kde4k4KKAFU",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27304481c826dd292e5e4983b3f"
+      },
+      {
+        "name": "LIL DEMON",
+        "artistNames": [
+          "Future"
+        ],
+        "albumName": "MIXTAPE PLUTO",
+        "playedAt": "2026-07-17T18:02:09.050Z",
+        "url": "https://open.spotify.com/track/3aCPResPDNae3pXTocGpYe",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273962ae887d37699fdaa788dac"
+      },
+      {
+        "name": "LIL DEMON",
+        "artistNames": [
+          "Future"
+        ],
+        "albumName": "MIXTAPE PLUTO",
+        "playedAt": "2026-07-17T18:00:52.987Z",
+        "url": "https://open.spotify.com/track/3aCPResPDNae3pXTocGpYe",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273962ae887d37699fdaa788dac"
+      },
       {
         "name": "Ric Flair Drip (with Metro Boomin)",
         "artistNames": [
@@ -17,59 +57,9 @@
         "playedAt": "2026-07-17T16:29:06.141Z",
         "url": "https://open.spotify.com/track/7sO5G9EABYOXQKNPNiE9NR",
         "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2730db43130a9aaa7bae56967ed"
-      },
-      {
-        "name": "Confident",
-        "artistNames": [
-          "Justin Bieber",
-          "Chance the Rapper"
-        ],
-        "albumName": "Journals",
-        "playedAt": "2026-07-17T16:26:07.012Z",
-        "url": "https://open.spotify.com/track/3JsydWaf2Ev4ehaLUjj3SY",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27358ae8fddecbd2630005409c9"
-      },
-      {
-        "name": "Confident",
-        "artistNames": [
-          "Justin Bieber",
-          "Chance the Rapper"
-        ],
-        "albumName": "Journals",
-        "playedAt": "2026-07-17T16:21:52.143Z",
-        "url": "https://open.spotify.com/track/3JsydWaf2Ev4ehaLUjj3SY",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27358ae8fddecbd2630005409c9"
-      },
-      {
-        "name": "HIGHEST IN THE ROOM",
-        "artistNames": [
-          "Travis Scott"
-        ],
-        "albumName": "HIGHEST IN THE ROOM",
-        "playedAt": "2026-07-16T18:23:20.538Z",
-        "url": "https://open.spotify.com/track/3eekarcy7kvN4yt5ZFzltW",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273cc7bfe087a97a09f54c92b28"
-      },
-      {
-        "name": "Big Poppa - 2005 Remaster",
-        "artistNames": [
-          "The Notorious B.I.G."
-        ],
-        "albumName": "Ready to Die (The Remaster)",
-        "playedAt": "2026-07-16T18:17:11.146Z",
-        "url": "https://open.spotify.com/track/2g8HN35AnVGIk7B8yMucww",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2730f51e29700232d57fe8a0830"
       }
     ],
     "topTracks": [
-      {
-        "name": "90210 (feat. Kacy Hill)",
-        "artistNames": [
-          "Travis Scott",
-          "Kacy Hill"
-        ],
-        "url": "https://open.spotify.com/track/51EC3I1nQXpec4gDk0mQyP"
-      },
       {
         "name": "Headlines",
         "artistNames": [
@@ -86,18 +76,26 @@
         "url": "https://open.spotify.com/track/4356Typ82hUiFAynbLYbPn"
       },
       {
-        "name": "DNA.",
-        "artistNames": [
-          "Kendrick Lamar"
-        ],
-        "url": "https://open.spotify.com/track/6HZILIRieu8S0iqY8kIKhj"
-      },
-      {
         "name": "Hotel California - 2013 Remaster",
         "artistNames": [
           "Eagles"
         ],
         "url": "https://open.spotify.com/track/02rMAu7hazKhd64yb6zgKU"
+      },
+      {
+        "name": "Sunflower - Spider-Man: Into the Spider-Verse",
+        "artistNames": [
+          "Post Malone",
+          "Swae Lee"
+        ],
+        "url": "https://open.spotify.com/track/0RiRZpuVRbi7oqRdSMwhQY"
+      },
+      {
+        "name": "DNA.",
+        "artistNames": [
+          "Kendrick Lamar"
+        ],
+        "url": "https://open.spotify.com/track/6HZILIRieu8S0iqY8kIKhj"
       }
     ],
     "topArtists": [
@@ -105,11 +103,6 @@
         "name": "Michael Jackson",
         "genres": [],
         "url": "https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm"
-      },
-      {
-        "name": "Don Toliver",
-        "genres": [],
-        "url": "https://open.spotify.com/artist/4Gso3d4CscCijv0lmajZWs"
       },
       {
         "name": "The Weeknd",
@@ -120,6 +113,11 @@
         "name": "Drake",
         "genres": [],
         "url": "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4"
+      },
+      {
+        "name": "Don Toliver",
+        "genres": [],
+        "url": "https://open.spotify.com/artist/4Gso3d4CscCijv0lmajZWs"
       },
       {
         "name": "Kanye West",
