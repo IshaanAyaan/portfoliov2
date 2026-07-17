@@ -121,12 +121,21 @@ function updateSettings(settings) {
 }
 
 function dispatchRunnerKey(type, keyCode) {
-  document.dispatchEvent(new KeyboardEvent(type, {
-    keyCode,
-    which: keyCode,
+  const names = {
+    32: { key: " ", code: "Space" },
+    38: { key: "ArrowUp", code: "ArrowUp" },
+    40: { key: "ArrowDown", code: "ArrowDown" }
+  };
+  const event = new KeyboardEvent(type, {
+    ...names[keyCode],
     bubbles: true,
     cancelable: true
-  }));
+  });
+  Object.defineProperties(event, {
+    keyCode: { get: () => keyCode },
+    which: { get: () => keyCode }
+  });
+  document.dispatchEvent(event);
 }
 
 function jump() {
@@ -137,8 +146,21 @@ function jump() {
 function togglePause() {
   const instance = runner();
   if (!instance || instance.crashed || !instance.activated) return;
-  if (instance.paused) instance.play();
-  else instance.stop();
+  if (instance.paused) {
+    instance.play();
+    renderPauseState(false);
+  } else {
+    instance.stop();
+    renderPauseState(true);
+  }
+}
+
+function renderPauseState(paused) {
+  if (!pauseButton) return;
+  pauseButton.innerHTML = paused
+    ? '<span aria-hidden="true">▶</span> Resume'
+    : '<span aria-hidden="true">Ⅱ</span> Pause';
+  pauseButton.setAttribute("aria-pressed", String(paused));
 }
 
 function restart() {
@@ -154,10 +176,7 @@ gameRoot?.addEventListener("cosmicrun:start", () => {
   renderPersistentState();
   announceNewAchievement(previous, gameState);
   if (promptElement) promptElement.hidden = true;
-  if (pauseButton) {
-    pauseButton.innerHTML = '<span aria-hidden="true">Ⅱ</span> Pause';
-    pauseButton.setAttribute("aria-pressed", "false");
-  }
+  renderPauseState(false);
   renderRunState();
 });
 
@@ -200,32 +219,28 @@ gameRoot?.addEventListener("cosmicrun:gameover", () => {
 });
 
 gameRoot?.addEventListener("cosmicrun:pause", () => {
-  if (pauseButton) {
-    pauseButton.innerHTML = '<span aria-hidden="true">▶</span> Resume';
-    pauseButton.setAttribute("aria-pressed", "true");
-  }
+  renderPauseState(true);
 });
 
 gameRoot?.addEventListener("cosmicrun:resume", () => {
-  if (pauseButton) {
-    pauseButton.innerHTML = '<span aria-hidden="true">Ⅱ</span> Pause';
-    pauseButton.setAttribute("aria-pressed", "false");
-  }
+  renderPauseState(false);
 });
 
-document.querySelectorAll("[data-game-action]").forEach((button) => {
-  const action = button.dataset.gameAction;
-  if (action === "jump") button.addEventListener("click", jump);
-  if (action === "pause") button.addEventListener("click", togglePause);
-  if (action === "duck") {
+document.querySelector(".game-controls")?.addEventListener("click", (event) => {
+  const button = event.target.closest("[data-game-action]");
+  if (!button) return;
+  if (button.dataset.gameAction === "jump") jump();
+  if (button.dataset.gameAction === "pause") togglePause();
+}, { capture: true });
+
+document.querySelectorAll('[data-game-action="duck"]').forEach((button) => {
     button.addEventListener("pointerdown", () => dispatchRunnerKey("keydown", 40));
     ["pointerup", "pointercancel", "pointerleave"].forEach((type) => {
       button.addEventListener(type, () => dispatchRunnerKey("keyup", 40));
     });
-  }
 });
 
-document.addEventListener("keydown", (event) => {
+window.addEventListener("keydown", (event) => {
   if (event.repeat) return;
   if (event.key.toLowerCase() === "p") { event.preventDefault(); togglePause(); }
   if (event.key.toLowerCase() === "r") { event.preventDefault(); restart(); }
@@ -233,7 +248,7 @@ document.addEventListener("keydown", (event) => {
     event.preventDefault();
     updateSettings({ sound: !gameState.settings.sound });
   }
-});
+}, { capture: true });
 
 soundButton?.addEventListener("click", () => updateSettings({ sound: !gameState.settings.sound }));
 themeButton?.addEventListener("click", () => {

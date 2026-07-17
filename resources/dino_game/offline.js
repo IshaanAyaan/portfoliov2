@@ -790,7 +790,10 @@ export class Runner {
     this.generatedSoundFx.background();
 
     if (Runner.audioCues) {
-      this.containerEl.setAttribute('title', getA11yString(A11Y_STRINGS.jump));
+      this.containerEl.setAttribute(
+        'title',
+        getA11yString(A11Y_STRINGS.jump) || 'Press Space or Up to jump.'
+      );
     }
 
     // Handle tabbing off the page. Pause the current game.
@@ -1196,6 +1199,10 @@ export class Runner {
    * @param {Event} e
    */
   onKeyDown(e) {
+    if (e.target?.closest?.('[data-game-action]')) {
+      return;
+    }
+
     // Prevent native page scrolling whilst tapping on mobile.
     if (IS_MOBILE && this.playing) {
       e.preventDefault();
@@ -1271,6 +1278,10 @@ export class Runner {
    * @param {Event} e
    */
   onKeyUp(e) {
+    if (e.target?.closest?.('[data-game-action]')) {
+      return;
+    }
+
     const keyCode = String(e.keyCode);
     const isjumpKey =
       Runner.keycodes.JUMP[keyCode] ||
