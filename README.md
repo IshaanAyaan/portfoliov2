@@ -77,5 +77,6 @@ Add these repository secrets before relying on the scheduled workflow:
 - `SPOTIFY_CLIENT_SECRET`
 - `SPOTIFY_REFRESH_TOKEN`
 - `SPOTIFY_UPDATE_RANDOM_SEED`
-- `GH_COMMIT_NAME`
-- `GH_COMMIT_EMAIL`
+
+The workflow commits as GitHub's fixed Actions bot identity, so commit-name and
+commit-email secrets are intentionally unnecessary.
