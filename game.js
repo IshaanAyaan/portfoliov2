@@ -6,6 +6,7 @@ import {
   recordScore,
   saveGameState
 } from "./game-state.js";
+import { getBiome } from "./game-mechanics.js";
 
 document.documentElement.classList.add("game-ready");
 
@@ -20,6 +21,8 @@ const soundButton = document.querySelector("[data-sound-toggle]");
 const soundLabel = document.querySelector("[data-sound-label]");
 const themeButton = document.querySelector("[data-theme-toggle]");
 const themeLabel = document.querySelector("[data-theme-label]");
+const gameFrame = document.querySelector("[data-game-frame]");
+const biomeElement = document.querySelector("[data-biome]");
 const formatScore = (score) => String(Math.max(0, Math.floor(score))).padStart(5, "0");
 const themeOrder = ["system", "dark", "light"];
 
@@ -96,6 +99,9 @@ gameRoot?.addEventListener("cosmicrun:start", () => {
 gameRoot?.addEventListener("cosmicrun:score", ({ detail }) => {
   currentScore = detail.score;
   if (scoreElement) scoreElement.textContent = formatScore(currentScore);
+  const biome = getBiome(currentScore);
+  if (gameFrame) gameFrame.dataset.biomeId = biome.id;
+  if (biomeElement) biomeElement.textContent = biome.label;
 });
 
 gameRoot?.addEventListener("cosmicrun:gameover", () => {

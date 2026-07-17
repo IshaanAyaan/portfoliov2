@@ -172,8 +172,24 @@ html[data-theme="light"] {
 
 .game-frame__scan { position: absolute; inset: 0; opacity: .14; background: repeating-linear-gradient(180deg, transparent 0 4px, rgba(255,255,255,.06) 5px); }
 .game-frame__planet { position: absolute; top: -13rem; right: -8rem; width: 30rem; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 34% 30%, rgba(193,220,229,.4), rgba(44,64,74,.15) 30%, rgba(2,4,7,.9) 70%); box-shadow: 0 0 80px rgba(147,196,210,.12); opacity: .85; }
+.game-frame__moon { position: absolute; z-index: 0; left: 12%; top: 14%; width: 2.8rem; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #f2f3e6, #77837a 42%, #10151b 76%); box-shadow: 0 0 28px rgba(214,231,218,.25); opacity: .7; transition: 1.2s ease; }
+.game-frame__debris { position: absolute; inset: 0; opacity: 0; transition: opacity 1s; }
+.game-frame__debris i { position: absolute; width: .55rem; aspect-ratio: 1; border-radius: 38% 62% 45% 55%; background: #929992; box-shadow: -.2rem .1rem .5rem rgba(0,0,0,.55); }
+.game-frame__debris i:nth-child(1) { left: 20%; top: 24%; transform: rotate(28deg) scale(.7); }
+.game-frame__debris i:nth-child(2) { left: 48%; top: 16%; transform: rotate(-13deg) scale(1.15); }
+.game-frame__debris i:nth-child(3) { left: 72%; top: 34%; transform: rotate(63deg) scale(.85); }
+.game-frame__debris i:nth-child(4) { left: 86%; top: 18%; transform: rotate(11deg) scale(.55); }
+.game-frame[data-biome-id="debris-field"] { background: radial-gradient(circle at 70% 20%, rgba(145,102,68,.16), transparent 33%), linear-gradient(180deg, rgba(23,15,14,.35), rgba(5,7,10,.85)); }
+.game-frame[data-biome-id="debris-field"] .game-frame__planet { transform: translate(5rem, 3rem) scale(.7); filter: sepia(.65); }
+.game-frame[data-biome-id="debris-field"] .game-frame__debris { opacity: .85; }
+.game-frame[data-biome-id="deep-space"] { background: radial-gradient(circle at 50% 30%, rgba(70,59,117,.25), transparent 40%), linear-gradient(180deg, rgba(7,5,18,.4), rgba(1,2,7,.95)); }
+.game-frame[data-biome-id="deep-space"] .game-frame__planet { opacity: .18; transform: translate(10rem, -2rem) scale(.55); filter: hue-rotate(95deg); }
+.game-frame[data-biome-id="deep-space"] .game-frame__moon { left: 70%; top: 8%; transform: scale(.55); background: radial-gradient(circle at 35% 30%, #d7c5f4, #51466d 45%, #080713 78%); }
+.game-frame[data-biome-id="deep-space"] .game-frame__debris { opacity: .4; filter: hue-rotate(90deg); }
 .trex-game { position: relative; z-index: 2; width: 100%; padding: 0 clamp(.75rem, 4vw, 3rem); }
 .runner-container { width: 100% !important; outline-offset: 8px; }
+.runner-container::before { content: ""; position: absolute; z-index: -1; left: .5rem; top: 56%; width: 5rem; height: .28rem; border-radius: 50%; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--game-accent), transparent 18%)); filter: blur(4px); opacity: .45; }
+.runner-container::after { content: ""; position: absolute; left: 1.45rem; top: calc(50% - .65rem); width: 1.1rem; aspect-ratio: 1; border: 1px solid color-mix(in srgb, var(--game-sky), transparent 18%); border-radius: 50%; box-shadow: inset .25rem -.2rem .35rem rgba(4,7,10,.55), 0 0 12px color-mix(in srgb, var(--game-sky), transparent 45%); opacity: .55; pointer-events: none; }
 .runner-canvas { display: block; width: 100% !important; height: auto !important; image-rendering: pixelated; filter: drop-shadow(0 0 8px rgba(201,241,154,.18)); }
 .game-prompt { position: absolute; z-index: 3; left: 50%; bottom: 2rem; transform: translateX(-50%); margin: 0; color: var(--game-muted); font: 500 .66rem var(--game-mono); letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; }
 
@@ -225,4 +241,5 @@ html[data-theme="light"] {
 @media (prefers-reduced-motion: reduce) {
   .game-space__stars { opacity: .25; }
   .game-frame__scan { display: none; }
+  .game-frame__planet, .game-frame__moon, .game-frame__debris { transition: none; }
 }
