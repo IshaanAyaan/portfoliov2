@@ -33,6 +33,11 @@ html[data-theme="light"] {
 .page-offline button,
 .page-offline a { color: inherit; }
 
+.page-offline :focus-visible {
+  outline: 3px solid var(--game-accent);
+  outline-offset: 4px;
+}
+
 .sr-only {
   position: absolute !important;
   width: 1px !important;
@@ -210,6 +215,7 @@ html[data-theme="light"] {
 .achievement-list { display: flex; flex-wrap: wrap; gap: .45rem; margin: 1rem 0 0; padding: 0; list-style: none; }
 .achievement-list li { padding: .35rem .55rem; border: 1px solid var(--game-line); border-radius: 99px; color: var(--game-muted); font: .55rem var(--game-mono); text-transform: uppercase; }
 .achievement-list li.is-unlocked { color: var(--game-bg); border-color: var(--game-accent); background: var(--game-accent); }
+.game-noscript { position: relative; z-index: 3; width: min(42rem, calc(100% - 2rem)); margin: 0 auto 3rem; padding: 1rem; border: 1px solid var(--game-warm); border-radius: .75rem; background: var(--game-panel); }
 
 @media (max-width: 760px) {
   .game-topbar { grid-template-columns: auto 1fr; padding: .8rem 1rem; }
@@ -252,4 +258,18 @@ html[data-theme="light"] {
   .game-space__stars { opacity: .25; }
   .game-frame__scan { display: none; }
   .game-frame__planet, .game-frame__moon, .game-frame__debris { transition: none; }
+  .runner-container::before { display: none; }
+}
+
+@media (forced-colors: active) {
+  .game-frame,
+  .escape-console,
+  .game-icon-button,
+  .game-back,
+  .game-controls button,
+  .transmission-grid li,
+  .achievement-list li { border: 1px solid CanvasText; }
+
+  .game-controls__jump,
+  .achievement-list li.is-unlocked { forced-color-adjust: none; background: Highlight !important; color: HighlightText !important; }
 }

@@ -108,7 +108,7 @@ function applySettings() {
   if (themeLabel) themeLabel.textContent = `Theme: ${theme}`;
   if (themeButton) themeButton.setAttribute("aria-label", `Color theme: ${theme}. Activate to switch.`);
   if (soundLabel) soundLabel.textContent = sound ? "Sound on" : "Sound off";
-  if (soundButton) soundButton.setAttribute("aria-pressed", String(!sound));
+  if (soundButton) soundButton.setAttribute("aria-pressed", String(sound));
 
   const context = runner()?.audioContext;
   if (context && !sound && context.state === "running") context.suspend();
@@ -154,7 +154,10 @@ gameRoot?.addEventListener("cosmicrun:start", () => {
   renderPersistentState();
   announceNewAchievement(previous, gameState);
   if (promptElement) promptElement.hidden = true;
-  if (pauseButton) pauseButton.innerHTML = '<span aria-hidden="true">Ⅱ</span> Pause';
+  if (pauseButton) {
+    pauseButton.innerHTML = '<span aria-hidden="true">Ⅱ</span> Pause';
+    pauseButton.setAttribute("aria-pressed", "false");
+  }
   renderRunState();
 });
 
@@ -197,11 +200,17 @@ gameRoot?.addEventListener("cosmicrun:gameover", () => {
 });
 
 gameRoot?.addEventListener("cosmicrun:pause", () => {
-  if (pauseButton) pauseButton.innerHTML = '<span aria-hidden="true">▶</span> Resume';
+  if (pauseButton) {
+    pauseButton.innerHTML = '<span aria-hidden="true">▶</span> Resume';
+    pauseButton.setAttribute("aria-pressed", "true");
+  }
 });
 
 gameRoot?.addEventListener("cosmicrun:resume", () => {
-  if (pauseButton) pauseButton.innerHTML = '<span aria-hidden="true">Ⅱ</span> Pause';
+  if (pauseButton) {
+    pauseButton.innerHTML = '<span aria-hidden="true">Ⅱ</span> Pause';
+    pauseButton.setAttribute("aria-pressed", "false");
+  }
 });
 
 document.querySelectorAll("[data-game-action]").forEach((button) => {

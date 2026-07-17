@@ -531,15 +531,19 @@ export class Runner {
     this.adjustDimensions();
     this.setSpeed();
 
-    const ariaLabel = getA11yString(A11Y_STRINGS.ariaLabel);
+    const ariaLabel =
+      getA11yString(A11Y_STRINGS.ariaLabel) ||
+      'Escape Velocity dinosaur runner';
+    const description =
+      getA11yString(A11Y_STRINGS.description) ||
+      'Press Space or Up to jump, Down to duck, P to pause, R to restart, and M to mute.';
     this.containerEl = document.createElement('div');
     this.containerEl.setAttribute('role', IS_MOBILE ? 'button' : 'application');
     this.containerEl.setAttribute('tabindex', '0');
-    this.containerEl.setAttribute(
-      'title',
-      getA11yString(A11Y_STRINGS.description)
-    );
+    this.containerEl.setAttribute('title', description);
     this.containerEl.setAttribute('aria-label', ariaLabel);
+    this.containerEl.setAttribute('aria-describedby', 'game-instructions');
+    this.containerEl.setAttribute('aria-keyshortcuts', 'Space ArrowUp ArrowDown P R M');
 
     this.containerEl.className = Runner.classes.CONTAINER;
 
@@ -553,7 +557,8 @@ export class Runner {
     // Live region for game status updates.
     this.a11yStatusEl = document.createElement('span');
     this.a11yStatusEl.className = 'offline-runner-live-region';
-    this.a11yStatusEl.setAttribute('aria-live', 'assertive');
+    this.a11yStatusEl.setAttribute('aria-live', 'polite');
+    this.a11yStatusEl.setAttribute('aria-atomic', 'true');
     this.a11yStatusEl.textContent = '';
     Runner.a11yStatusEl = this.a11yStatusEl;
 
