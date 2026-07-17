@@ -208,6 +208,7 @@ body.is-portfolio .resume-link:hover, body.is-over-portfolio .resume-link:hover 
 .education-grid { gap: 0; background: transparent; border: 0; }
 .education-grid article { padding: 1rem 1.4rem 1rem 0; border-top: 1px solid var(--portfolio-line); background: transparent; }
 .education-grid article:last-child { border-bottom: 1px solid var(--portfolio-line); }
+.school-ranking { display: inline-block; margin-left: .45rem; font: 500 .61rem var(--mono); letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; }
 .events-list { border-top: 1px solid var(--portfolio-line); }
 .events-list details { border-bottom: 1px solid var(--portfolio-line); }
 .events-list summary { display: grid; grid-template-columns: minmax(14rem,1fr) 1fr auto; align-items: center; gap: 1rem; padding: .9rem 0; cursor: pointer; list-style: none; }
@@ -242,6 +243,7 @@ body.is-portfolio .resume-link:hover, body.is-over-portfolio .resume-link:hover 
   .cluster-build { left: 1%; top: 34%; }.cluster-research { right: 1%; top: 10%; }.cluster-ideas { left: 2%; bottom: 5%; }.cluster-trajectory { right: 1%; bottom: 5%; }.cluster-now { right: 36%; top: 49%; }
   .top-actions { gap: 0; }.contact-constellation { display: flex; gap: .2rem; padding: 0; }.contact-constellation a { width: 1.45rem; height: 1.45rem; }.contact-constellation a:nth-child(n+4), .top-actions .resume-link { display: none; }
   .portfolio-hero { grid-template-columns: 6.5rem 1fr; gap: 1rem; }.portfolio-portrait { width: 6.5rem; }.portfolio-section { grid-template-columns: 1fr; gap: 1.1rem; }.section-label { position: static; }.project { grid-template-columns: 4.8rem 1fr; gap: .55rem 1rem; }.project-index { grid-column: 1; grid-row: 1 / span 4; }.project h3, .project-summary, .project-detail, .project .tags, .project > p:last-of-type, .project > a { grid-column: 2; }.project-summary { grid-row: auto; }.research-list article { grid-template-columns: 1fr; gap: .5rem; }.research-list p { font-size: .84rem; }.additional-work { grid-template-columns: 1fr; }.events-list summary { grid-template-columns: 1fr auto; }.events-list summary span { grid-template-columns: 1fr; gap: .15rem; }.events-list summary i { display: none; }.event-body { padding-left: 0; }
+  .school-ranking { display: block; width: fit-content; margin: .35rem 0 0; white-space: normal; }
 }
 
 @media (prefers-reduced-motion: reduce) {
