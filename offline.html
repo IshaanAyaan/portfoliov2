@@ -21,41 +21,70 @@
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="game.css">
 </head>
 
 <body class="page-body page-offline">
-  <div class="luxen-network" data-luxen-network aria-hidden="true">
-    <canvas class="luxen-network__canvas"></canvas>
-    <div class="luxen-network__glow luxen-network__glow--top"></div>
-    <div class="luxen-network__glow luxen-network__glow--bottom"></div>
+  <div class="game-space" aria-hidden="true">
+    <div class="game-space__stars"></div>
+    <div class="game-space__horizon"></div>
   </div>
 
-  <div class="offline-shell">
-    <header class="browser-shell browser-shell-compact">
-      <div class="browser-strip">
-        <div class="browser-window-controls" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="browser-tab">
-          <span class="browser-tab-icon" aria-hidden="true"></span>
-          <span class="browser-tab-title">Offline Mode</span>
-          <span class="browser-tab-close" aria-hidden="true">&times;</span>
-        </div>
-        <div class="browser-actions">
-          <button class="top-button" data-theme-toggle type="button" aria-label="Switch theme">Light</button>
-        </div>
+  <header class="game-topbar">
+    <a class="game-mark" href="index.html#explore" aria-label="Return to Ishaan Ranjan's universe">IR<span>.</span></a>
+    <p><span class="status-dot" aria-hidden="true"></span> Escape Velocity</p>
+    <div class="game-topbar__actions">
+      <button class="game-icon-button" data-sound-toggle type="button" aria-pressed="false">Sound on</button>
+      <button class="game-icon-button" data-theme-toggle type="button" aria-label="Switch color theme">Theme: system</button>
+      <a class="game-back" href="index.html">Portfolio <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main class="escape-main">
+    <header class="escape-intro">
+      <div>
+        <p class="game-kicker">Field experiment / 01</p>
+        <h1>ESCAPE<br>VELOCITY</h1>
+      </div>
+      <div class="escape-intro__copy">
+        <p>Guide a very determined dinosaur through the debris between ideas. Jump the hazards. Catch the signals. Keep moving.</p>
+        <p class="game-instructions" id="game-instructions">Press Space or Up to jump, Down to duck, P to pause, R to restart, and M to mute.</p>
       </div>
     </header>
 
-    <main class="offline-main">
-      <section class="surface game-shell">
-        <div class="trex-game" aria-label="Offline dinosaur game"></div>
-        <a class="quiet-link" href="index.html">Back to portfolio</a>
-      </section>
-    </main>
-  </div>
+    <section class="escape-console" aria-labelledby="game-console-title">
+      <h2 class="sr-only" id="game-console-title">Escape Velocity game console</h2>
+      <div class="game-hud" aria-label="Current run information">
+        <p><span>Score</span><strong data-score>00000</strong></p>
+        <p><span>High score</span><strong data-high-score>00000</strong></p>
+        <p><span>Signals</span><strong data-signals>0</strong></p>
+        <p><span>Multiplier</span><strong data-multiplier>1×</strong></p>
+        <p class="game-hud__biome"><span>Current field</span><strong data-biome>Near Orbit</strong></p>
+      </div>
+
+      <div class="game-frame" data-game-frame data-biome-id="near-orbit">
+        <div class="game-frame__scan" aria-hidden="true"></div>
+        <div class="game-frame__planet" aria-hidden="true"></div>
+        <div class="trex-game" aria-label="Escape Velocity dinosaur runner" aria-describedby="game-instructions"></div>
+        <p class="game-prompt" data-game-prompt>Press Space or tap Jump to launch</p>
+      </div>
+
+      <div class="game-controls" aria-label="Game controls">
+        <button type="button" data-game-action="duck"><span aria-hidden="true">↓</span> Duck</button>
+        <button class="game-controls__jump" type="button" data-game-action="jump"><span aria-hidden="true">↑</span> Jump</button>
+        <button type="button" data-game-action="pause"><span aria-hidden="true">Ⅱ</span> Pause</button>
+      </div>
+      <p class="game-announcement sr-only" data-game-announcement aria-live="polite"></p>
+    </section>
+
+    <section class="mission-log" aria-labelledby="mission-log-title">
+      <div>
+        <p class="game-kicker">Persistent signal log</p>
+        <h2 id="mission-log-title">Transmissions</h2>
+      </div>
+      <p data-latest-achievement>No transmissions recovered yet. Your progress stays in this browser.</p>
+    </section>
+  </main>
 
   <div id="offline-resources" style="display: none">
     <img id="offline-resources-1x" src="images/default_100_percent/100-offline-sprite.png">
