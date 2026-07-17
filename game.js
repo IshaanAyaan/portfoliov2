@@ -1,5 +1,3 @@
-(function () {
-  "use strict";
+import "./trex-runner.js";
 
-  document.documentElement.classList.add("game-ready");
-}());
+document.documentElement.classList.add("game-ready");
