@@ -4,9 +4,16 @@ import {
   loadGameState,
   recordRunStart,
   recordScore,
+  recordSignal,
   saveGameState
 } from "./game-state.js";
-import { getBiome } from "./game-mechanics.js";
+import {
+  applyDistanceScore,
+  collectSignal,
+  createRunState,
+  getBiome,
+  missSignal
+} from "./game-mechanics.js";
 
 document.documentElement.classList.add("game-ready");
 
@@ -23,11 +30,28 @@ const themeButton = document.querySelector("[data-theme-toggle]");
 const themeLabel = document.querySelector("[data-theme-label]");
 const gameFrame = document.querySelector("[data-game-frame]");
 const biomeElement = document.querySelector("[data-biome]");
+const signalsElement = document.querySelector("[data-signals]");
+const multiplierElement = document.querySelector("[data-multiplier]");
 const formatScore = (score) => String(Math.max(0, Math.floor(score))).padStart(5, "0");
 const themeOrder = ["system", "dark", "light"];
 
 let gameState = loadGameState();
-let currentScore = 0;
+let runState = createRunState();
+
+function announce(message) {
+  if (!announcementElement) return;
+  announcementElement.textContent = "";
+  window.requestAnimationFrame(() => { announcementElement.textContent = message; });
+}
+
+function renderRunState() {
+  if (scoreElement) scoreElement.textContent = formatScore(runState.totalScore);
+  if (signalsElement) signalsElement.textContent = String(runState.signals);
+  if (multiplierElement) multiplierElement.textContent = `${runState.combo}×`;
+  const biome = getBiome(runState.totalScore);
+  if (gameFrame) gameFrame.dataset.biomeId = biome.id;
+  if (biomeElement) biomeElement.textContent = biome.label;
+}
 
 function renderPersistentState() {
   if (highScoreElement) highScoreElement.textContent = formatScore(gameState.highScore);
@@ -89,29 +113,41 @@ function restart() {
 }
 
 gameRoot?.addEventListener("cosmicrun:start", () => {
-  currentScore = 0;
+  runState = createRunState();
   gameState = saveGameState(recordRunStart(gameState));
   renderPersistentState();
   if (promptElement) promptElement.hidden = true;
   if (pauseButton) pauseButton.innerHTML = '<span aria-hidden="true">Ⅱ</span> Pause';
+  renderRunState();
 });
 
 gameRoot?.addEventListener("cosmicrun:score", ({ detail }) => {
-  currentScore = detail.score;
-  if (scoreElement) scoreElement.textContent = formatScore(currentScore);
-  const biome = getBiome(currentScore);
-  if (gameFrame) gameFrame.dataset.biomeId = biome.id;
-  if (biomeElement) biomeElement.textContent = biome.label;
+  runState = applyDistanceScore(runState, detail.score);
+  renderRunState();
+});
+
+gameRoot?.addEventListener("cosmicrun:signalcollect", () => {
+  runState = collectSignal(runState);
+  gameState = saveGameState(recordSignal(gameState));
+  renderRunState();
+  renderPersistentState();
+  announce(`Signal recovered. Multiplier ${runState.combo} times.`);
+});
+
+gameRoot?.addEventListener("cosmicrun:signalmiss", () => {
+  if (runState.combo > 1) announce("Signal missed. Multiplier reset.");
+  runState = missSignal(runState);
+  renderRunState();
 });
 
 gameRoot?.addEventListener("cosmicrun:gameover", () => {
-  gameState = saveGameState(recordScore(gameState, currentScore));
+  gameState = saveGameState(recordScore(gameState, runState.totalScore));
   renderPersistentState();
   if (promptElement) {
     promptElement.hidden = false;
     promptElement.textContent = "Signal lost — press R or tap the runner to relaunch";
   }
-  if (announcementElement) announcementElement.textContent = `Game over. Score ${currentScore}. High score ${gameState.highScore}.`;
+  announce(`Game over. Score ${runState.totalScore}. High score ${gameState.highScore}.`);
 });
 
 gameRoot?.addEventListener("cosmicrun:pause", () => {
@@ -151,4 +187,5 @@ themeButton?.addEventListener("click", () => {
 });
 
 renderPersistentState();
+renderRunState();
 applySettings();
