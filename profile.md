@@ -105,15 +105,6 @@ An orchestration layer for small language models built for efficient, long-horiz
 
 Evidence: [GitHub](https://github.com/LuxenAI/regimen)
 
-### Specialized Small-Model Subagents
-
-Fine-tuned task-specific small language model specialists paired with a custom harness for cost-efficient multi-agent coding.
-
-- Built specialized small-model subagents for narrow coding roles instead of relying on one large general worker.
-- Measured the success and cost tradeoffs of specialist workflows against larger-model baselines for practical multi-agent use.
-
-Evidence: [GitHub](https://github.com/LuxenAI/slm)
-
 ### School Pulse AI
 
 An edge-AI school operations suite combining leak detection, compost sorting, and resource forecasting in one dashboard.
@@ -147,24 +138,6 @@ A debate evidence, research, and round-strategy platform used by 2,000+ debaters
 - Built web-crawling, source organization, and deduplication workflows to reduce research time and improve evidence quality.
 
 Evidence: [GitHub](https://github.com/IshaanAyaan/debaticav2)
-
-### School Pulse AI
-
-An edge-AI school operations suite combining leak detection, compost sorting, and resource forecasting in one dashboard.
-
-- Built the Pulse Agent backend to combine water, waste, energy, and event signals into ranked action cards.
-- Added multilingual voice controls and live telemetry wiring for the dashboard experience.
-
-Evidence: [GitHub](https://github.com/IshaanAyaan/SchoolPulse-AI), [live dashboard](https://school-pulse-ai.vercel.app/), and [Devpost](https://devpost.com/software/schoolprint-ai)
-
-### Specialized Small-Model Subagents
-
-Fine-tuned task-specific small language model specialists paired with a custom harness for cost-efficient multi-agent coding.
-
-- Built specialist subagents for narrow coding roles instead of relying on one large general worker.
-- Measured success and cost tradeoffs against larger-model baselines for practical multi-agent use.
-
-Evidence: [GitHub](https://github.com/IshaanAyaan/slm-agents)
 
 ### S.A.B.E.R. Bioreactor
 
