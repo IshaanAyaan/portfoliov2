@@ -124,11 +124,19 @@ function createUniverseController() {
   let state = createUniverseState(location.hash);
   let lastFocus = null;
   let field = null;
+  let panelHideTimer = 0;
 
   function render(previous = state, options = {}) {
     const isPortfolio = state.mode === "portfolio";
     const isOpen = Boolean(state.selected);
+    const wasOpen = Boolean(previous.selected);
     document.body.classList.toggle("is-portfolio", isPortfolio);
+    window.clearTimeout(panelHideTimer);
+    if (panel && isOpen && !wasOpen) {
+      panel.hidden = false;
+      setInert(panel, false);
+      panel.getBoundingClientRect();
+    }
     universe?.classList.toggle("is-open", isOpen);
     universe?.toggleAttribute("data-selected", isOpen);
     if (universe) universe.dataset.selectedCluster = state.selected || "";
@@ -143,8 +151,12 @@ function createUniverseController() {
     });
 
     if (panel) {
-      panel.hidden = !isOpen;
       setInert(panel, !isOpen);
+      if (!isOpen && wasOpen) {
+        panelHideTimer = window.setTimeout(() => {
+          if (!state.selected) panel.hidden = true;
+        }, reduceMotion.matches ? 0 : 420);
+      } else if (!isOpen) panel.hidden = true;
     }
     if (satelliteLayer) {
       satelliteLayer.hidden = !isOpen;
