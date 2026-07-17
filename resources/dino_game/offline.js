@@ -267,6 +267,7 @@ export class Runner {
 
     this.distanceMeter = null;
     this.distanceRan = 0;
+    this.lastEmittedScore = -1;
 
     this.highestScore = 0;
     this.syncHighestScore = false;
@@ -384,6 +385,17 @@ export class Runner {
           break;
       }
     }
+  }
+
+  /**
+   * Publish a stable page-level event without coupling the runner to its shell.
+   * @param {string} type
+   * @param {Object=} detail
+   */
+  emit(type, detail = {}) {
+    this.outerContainerEl.dispatchEvent(
+      new CustomEvent(`cosmicrun:${type}`, { detail })
+    );
   }
 
   /**
@@ -769,6 +781,7 @@ export class Runner {
     this.tRex.playingIntro = false;
     this.containerEl.style.webkitAnimation = '';
     this.playCount++;
+    this.emit('start', { playCount: this.playCount });
     this.generatedSoundFx.background();
 
     if (Runner.audioCues) {
@@ -948,6 +961,18 @@ export class Runner {
         deltaTime,
         Math.ceil(this.distanceRan)
       );
+
+      const visibleScore = this.distanceMeter.getActualDistance(
+        Math.ceil(this.distanceRan)
+      );
+      if (visibleScore !== this.lastEmittedScore) {
+        this.lastEmittedScore = visibleScore;
+        this.emit('score', {
+          score: visibleScore,
+          rawDistance: Math.ceil(this.distanceRan),
+          speed: this.currentSpeed
+        });
+      }
 
       if (!Runner.audioCues && playAchievementSound) {
         this.playSound(this.soundFx.SCORE);
@@ -1455,7 +1480,7 @@ export class Runner {
     this.playSound(this.soundFx.HIT);
     vibrate(200);
 
-    this.stop();
+    this.stop(false);
     this.crashed = true;
     this.distanceMeter.achievement = false;
 
@@ -1495,6 +1520,11 @@ export class Runner {
       this.saveHighScore(this.distanceRan);
     }
 
+    this.emit('gameover', {
+      score: this.distanceMeter.getActualDistance(this.distanceRan),
+      highScore: this.distanceMeter.getActualDistance(this.highestScore)
+    });
+
     // Reset the time clock.
     this.time = getTimeStamp();
 
@@ -1519,12 +1549,17 @@ export class Runner {
     this.disableSpeedToggle(false);
   }
 
-  stop() {
+  stop(emitPause = true) {
     this.setPlayStatus(false);
     this.paused = true;
     cancelAnimationFrame(this.raqId);
     this.raqId = 0;
     this.generatedSoundFx.stopAll();
+    if (emitPause && !this.crashed) {
+      this.emit('pause', {
+        score: this.distanceMeter.getActualDistance(this.distanceRan)
+      });
+    }
   }
 
   play() {
@@ -1535,6 +1570,9 @@ export class Runner {
       this.time = getTimeStamp();
       this.update();
       this.generatedSoundFx.background();
+      this.emit('resume', {
+        score: this.distanceMeter.getActualDistance(this.distanceRan)
+      });
     }
   }
 
@@ -1547,6 +1585,7 @@ export class Runner {
       this.paused = false;
       this.crashed = false;
       this.distanceRan = 0;
+      this.lastEmittedScore = -1;
       this.setSpeed(this.config.SPEED);
       this.time = getTimeStamp();
       this.containerEl.classList.remove(Runner.classes.CRASHED);
@@ -1562,6 +1601,7 @@ export class Runner {
       this.generatedSoundFx.background();
       this.containerEl.setAttribute('title', getA11yString(A11Y_STRINGS.jump));
       announcePhrase(getA11yString(A11Y_STRINGS.started));
+      this.emit('start', { playCount: this.playCount, restarted: true });
     }
   }
 
