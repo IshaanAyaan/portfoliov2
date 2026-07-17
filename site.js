@@ -1,568 +1,493 @@
-(function () {
-  const root = document.documentElement;
-  const themeMeta = document.querySelector('meta[name="theme-color"]');
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-  const backgrounds = [];
+import {
+  CLUSTER_IDS,
+  createUniverseState,
+  reduceUniverseState
+} from "./universe-core.js";
 
-  function currentTheme() {
-    return root.classList.contains("theme-light") ? "light" : "dark";
-  }
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const universe = document.querySelector(".universe");
+const portfolio = document.querySelector(".portfolio");
+const canvas = document.querySelector(".field-canvas");
+const clusterMap = document.querySelector(".cluster-map");
+const satelliteLayer = document.querySelector("[data-satellite-layer]");
+const buttons = [...document.querySelectorAll(".cluster[data-cluster]")];
+const panel = document.querySelector(".explore-panel");
+const panelTitle = document.querySelector("[data-panel-title]");
+const panelDescription = document.querySelector("[data-panel-description]");
+const panelNodes = document.querySelector("[data-panel-nodes]");
+const panelRoute = document.querySelector("[data-panel-route]");
+const closer = document.querySelector(".panel-close");
+let suppressClusterClick = false;
 
-  function setTheme(theme) {
-    const nextTheme = theme === "light" ? "light" : "dark";
-    root.classList.toggle("theme-light", nextTheme === "light");
+const clusterSections = {
+  build: "work",
+  research: "research",
+  ideas: "events",
+  trajectory: "experience",
+  now: "now"
+};
+const names = {
+  build: "BUILD",
+  research: "RESEARCH",
+  ideas: "IDEAS",
+  trajectory: "TRAJECTORY",
+  now: "NOW"
+};
+const descriptions = {
+  build: "Products, agents, and tools taken from strange idea to working system.",
+  research: "Experiments across intelligence, policy, health, security, and complex systems.",
+  ideas: "Debate, philosophy, explanation, and the questions behind the systems.",
+  trajectory: "Where I have been, what I have learned, and where I am heading.",
+  now: "What I am building, reading, testing, and thinking about today."
+};
 
-    try {
-      localStorage.setItem("portfolio-theme", nextTheme);
-    } catch (_) {
+function extractContent() {
+  const groups = Object.fromEntries(CLUSTER_IDS.map((id) => [id, []]));
+  document.querySelectorAll("[data-item]").forEach((element, index) => {
+    const cluster = element.dataset.cluster;
+    if (!groups[cluster]) return;
+    const title = element.querySelector("h3");
+    const summary = element.querySelector(".project-summary") || element.querySelector("p:not(.meta):not(.project-index)");
+    const titleText = title?.textContent.trim() || "Item";
+    const key = titleText.toLowerCase().replace(/\b20\d{2}\b/g, "").replace(/[^a-z0-9]+/g, " ").trim();
+    if (groups[cluster].some((item) => item.key === key)) return;
+    groups[cluster].push({
+      id: `item-${index}`,
+      key,
+      title: titleText,
+      summary: summary?.textContent.trim() || "",
+      source: element
+    });
+  });
+  groups.now.push({
+    id: "now-reading",
+    title: "Currently reading",
+    summary: document.querySelector("[data-now-book]")?.textContent.trim() || "Current reading and listening signals.",
+    source: document.querySelector("#now")
+  });
+  return groups;
+}
+
+const content = extractContent();
+
+function setInert(element, inert) {
+  if (!element) return;
+  element.inert = inert;
+  if (inert) element.setAttribute("inert", "");
+  else element.removeAttribute("inert");
+}
+
+function scrollTo(element, block = "start") {
+  element?.scrollIntoView({ behavior: reduceMotion.matches ? "auto" : "smooth", block });
+}
+
+function createPanelNode(item) {
+  const listItem = document.createElement("li");
+  const node = document.createElement("button");
+  node.type = "button";
+  node.className = "panel-node";
+  const copy = document.createElement("span");
+  copy.className = "panel-node-copy";
+  const title = document.createElement("strong");
+  title.textContent = item.title;
+  const summary = document.createElement("em");
+  summary.textContent = item.summary || "Explore this signal in the portfolio.";
+  const action = document.createElement("span");
+  action.className = "panel-node-action";
+  action.textContent = "View ↘";
+  copy.append(title, summary);
+  node.append(copy, action);
+  node.addEventListener("click", () => {
+    controller.setMode("portfolio", { hash: "#portfolio" });
+    window.setTimeout(() => scrollTo(item.source, "center"), 50);
+  });
+  listItem.append(node);
+  return listItem;
+}
+
+function createSatellite(item, index) {
+  const satellite = document.createElement("button");
+  satellite.type = "button";
+  satellite.className = "project-satellite";
+  satellite.style.setProperty("--satellite-index", index);
+  satellite.setAttribute("aria-label", `${item.title}. Open in portfolio.`);
+  const marker = document.createElement("i");
+  marker.setAttribute("aria-hidden", "true");
+  const label = document.createElement("span");
+  label.textContent = item.title;
+  satellite.append(marker, label);
+  satellite.addEventListener("click", () => {
+    controller.setMode("portfolio", { hash: "#portfolio" });
+    window.setTimeout(() => scrollTo(item.source, "center"), 50);
+  });
+  return satellite;
+}
+
+function createUniverseController() {
+  let state = createUniverseState(location.hash);
+  let lastFocus = null;
+  let field = null;
+  let panelHideTimer = 0;
+
+  function render(previous = state, options = {}) {
+    const isPortfolio = state.mode === "portfolio";
+    const isOpen = Boolean(state.selected);
+    const wasOpen = Boolean(previous.selected);
+    document.body.classList.toggle("is-portfolio", isPortfolio);
+    window.clearTimeout(panelHideTimer);
+    if (panel && isOpen && !wasOpen) {
+      panel.hidden = false;
+      setInert(panel, false);
+      panel.getBoundingClientRect();
     }
+    universe?.classList.toggle("is-open", isOpen);
+    universe?.toggleAttribute("data-selected", isOpen);
+    if (universe) universe.dataset.selectedCluster = state.selected || "";
 
-    if (themeMeta) {
-      themeMeta.setAttribute("content", nextTheme === "light" ? "#f6f4ee" : "#05070b");
-    }
-
-    document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
-      button.textContent = nextTheme === "light" ? "Dark" : "Light";
-      button.setAttribute(
-        "aria-label",
-        nextTheme === "light" ? "Switch to dark theme" : "Switch to light theme"
-      );
+    document.querySelectorAll("[data-mode]").forEach((link) => {
+      link.setAttribute("aria-current", String(link.dataset.mode === state.mode));
+    });
+    buttons.forEach((button) => {
+      const active = button.dataset.cluster === state.selected;
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-expanded", String(active));
     });
 
-    backgrounds.forEach((background) => background.refresh());
+    if (panel) {
+      setInert(panel, !isOpen);
+      if (!isOpen && wasOpen) {
+        panelHideTimer = window.setTimeout(() => {
+          if (!state.selected) panel.hidden = true;
+        }, reduceMotion.matches ? 0 : 420);
+      } else if (!isOpen) panel.hidden = true;
+    }
+    if (satelliteLayer) {
+      satelliteLayer.hidden = !isOpen;
+      setInert(satelliteLayer, !isOpen);
+    }
+    if (isOpen && state.selected !== previous.selected) {
+      const id = state.selected;
+      panelTitle.textContent = names[id];
+      panelDescription.textContent = descriptions[id];
+      panelNodes.replaceChildren(...content[id].slice(0, 5).map(createPanelNode));
+      satelliteLayer?.replaceChildren(...content[id].slice(0, 5).map(createSatellite));
+      panelRoute.href = `#${clusterSections[id]}`;
+      panelRoute.dataset.target = clusterSections[id];
+      if (options.moveFocus) panelTitle.focus({ preventScroll: true });
+    }
+    if (!isOpen && previous.selected && options.restoreFocus !== false) {
+      lastFocus?.focus?.({ preventScroll: true });
+    }
+    if (state.paused) field?.pause();
+    else field?.resume();
   }
 
-  function loadTheme() {
-    try {
-      const saved = localStorage.getItem("portfolio-theme");
-      return saved === "light" ? "light" : "dark";
-    } catch (_) {
-      return "dark";
-    }
+  function dispatch(action, options = {}) {
+    const previous = state;
+    state = reduceUniverseState(state, action);
+    render(previous, options);
+    return state;
   }
 
-  function themeColors() {
-    if (currentTheme() === "light") {
-      return {
-        dot: "rgba(0, 0, 0, 0.38)",
-        line: "rgba(0, 0, 0, 0.08)",
-      };
-    }
+  function select(id, options = {}) {
+    if (!CLUSTER_IDS.includes(id)) return state;
+    lastFocus = options.trigger || document.activeElement;
+    dispatch({ type: "select", id }, options);
+    if (options.writeHash !== false) history.pushState({}, "", `#cluster/${id}`);
+    return state;
+  }
 
-    return {
-      dot: "rgba(255, 255, 255, 0.34)",
-      line: "rgba(255, 255, 255, 0.10)",
+  function clear(options = {}) {
+    const next = dispatch({ type: "clear" }, options);
+    if (options.writeHash !== false && location.hash.startsWith("#cluster/")) {
+      history.pushState({}, "", "#explore");
+    }
+    return next;
+  }
+
+  function setMode(mode, options = {}) {
+    clear({ writeHash: false, restoreFocus: false });
+    dispatch({ type: "mode", mode }, options);
+    if (options.hash) history.pushState({}, "", options.hash);
+    return state;
+  }
+
+  function route(hash = location.hash) {
+    const previous = state;
+    state = reduceUniverseState(state, { type: "route", hash });
+    render(previous, { moveFocus: false, restoreFocus: false });
+  }
+
+  function attachField(nextField) {
+    field = nextField;
+    render(state);
+  }
+
+  function pause() { dispatch({ type: "pause" }); }
+  function resume() { dispatch({ type: "resume" }); }
+  function destroy() {
+    dispatch({ type: "destroy" });
+    field?.destroy();
+    field = null;
+  }
+
+  render({ ...state, selected: null }, { moveFocus: false, restoreFocus: false });
+  return { select, clear, setMode, route, pause, resume, destroy, attachField, getState: () => ({ ...state }) };
+}
+
+const controller = createUniverseController();
+window.__portfolioUniverse = controller;
+
+buttons.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    if (suppressClusterClick) {
+      event.preventDefault();
+      suppressClusterClick = false;
+      return;
+    }
+    controller.select(button.dataset.cluster, { trigger: button, moveFocus: true });
+  });
+});
+closer?.addEventListener("click", () => controller.clear({ restoreFocus: true }));
+universe?.addEventListener("click", (event) => {
+  if (event.target === universe || event.target === canvas) controller.clear({ restoreFocus: true });
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && controller.getState().selected) controller.clear({ restoreFocus: true });
+});
+panelRoute?.addEventListener("click", (event) => {
+  event.preventDefault();
+  const target = document.getElementById(panelRoute.dataset.target);
+  controller.setMode("portfolio", { hash: panelRoute.getAttribute("href") });
+  scrollTo(target);
+});
+window.addEventListener("popstate", () => controller.route());
+window.addEventListener("hashchange", () => controller.route());
+
+document.querySelectorAll("[data-mode]").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    const mode = link.dataset.mode;
+    controller.setMode(mode, { hash: mode === "portfolio" ? "#portfolio" : "#explore" });
+    scrollTo(mode === "portfolio" ? portfolio : universe);
+  });
+});
+
+document.querySelectorAll('a[href^="#"]:not([data-mode])').forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const id = link.getAttribute("href").slice(1);
+    if (!id || id.startsWith("cluster/")) return;
+    const target = document.getElementById(id);
+    if (!target) return;
+    event.preventDefault();
+    controller.setMode(id === "explore" ? "explore" : "portfolio", { hash: `#${id}` });
+    scrollTo(target);
+  });
+});
+
+function initNow() {
+  const root = document.querySelector("[data-now-widget]");
+  if (!root) return;
+  const format = (value) => {
+    const date = new Date(value);
+    return Number.isNaN(date.valueOf())
+      ? "Current snapshot unavailable"
+      : `Updated ${date.toLocaleString(undefined, { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })}`;
+  };
+  const renderList = (element, items, type) => {
+    if (!element) return;
+    element.replaceChildren(...(items || []).slice(0, 5).map((item) => {
+      const row = document.createElement("li");
+      const label = item.name || (type === "artist" ? "Unknown artist" : "Unknown track");
+      if (item.url) {
+        const link = document.createElement("a");
+        link.href = item.url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = label;
+        row.append(link);
+      } else row.textContent = label;
+      return row;
+    }));
+    if (!element.children.length) element.append(Object.assign(document.createElement("li"), { textContent: "No snapshot available yet." }));
+  };
+  fetch("data/now.json", { cache: "no-store" })
+    .then((response) => {
+      if (!response.ok) throw new Error("Now snapshot unavailable");
+      return response.json();
+    })
+    .then((data) => {
+      const book = data.book || {};
+      const track = data.spotify?.recentTracks?.[0];
+      root.querySelector("[data-now-book]").textContent = `${book.title || "No current book set"}${book.author ? ` by ${book.author}` : ""}`;
+      if (track) {
+        root.querySelector("[data-now-track]").textContent = track.name || "Unknown track";
+        root.querySelector("[data-now-artist]").textContent = track.artistNames?.join(", ") || "Unknown artist";
+        if (track.url) root.querySelector("[data-now-link]").href = track.url;
+      }
+      renderList(root.querySelector("[data-now-top-tracks]"), data.spotify?.topTracks, "track");
+      renderList(root.querySelector("[data-now-top-artists]"), data.spotify?.topArtists, "artist");
+      root.querySelector("[data-now-updated]").textContent = format(data.updatedAt);
+    })
+    .catch(() => {
+      root.querySelector("[data-now-updated]").textContent = "Spotify snapshot unavailable — showing the current book.";
+    });
+}
+
+function createFieldController() {
+  if (!canvas?.getContext) return { pause() {}, resume() {}, destroy() {} };
+  const context = canvas.getContext("2d");
+  let particles = [];
+  let frame = 0;
+  let running = false;
+  let requested = false;
+  let visible = true;
+  let width = 0;
+  let height = 0;
+  let rotation = 0;
+  let angularVelocity = 0;
+  let gesture = null;
+
+  function resize() {
+    const rect = universe.getBoundingClientRect();
+    const dpr = Math.min(devicePixelRatio || 1, 1.5);
+    width = Math.max(1, rect.width);
+    height = Math.max(1, rect.height);
+    canvas.width = Math.floor(width * dpr);
+    canvas.height = Math.floor(height * dpr);
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+    context.setTransform(dpr, 0, 0, dpr, 0, 0);
+    particles = Array.from({ length: width < 700 ? 48 : 110 }, (_, index) => ({
+      angle: Math.random() * Math.PI * 2,
+      radius: 70 + Math.pow(Math.random(), 1.5) * Math.min(width * .43, 500),
+      size: .35 + Math.random() * 1.5,
+      speed: .000018 + (index % 7) * .000002,
+      alpha: .12 + (index % 5) * .035
+    }));
+  }
+
+  function draw(time = 0) {
+    context.clearRect(0, 0, width, height);
+    if (!gesture?.active && Math.abs(angularVelocity) > .001) {
+      rotation += angularVelocity;
+      angularVelocity *= .94;
+    }
+    clusterMap?.style.setProperty("--field-rotation", `${rotation.toFixed(3)}deg`);
+    clusterMap?.style.setProperty("--counter-rotation", `${(-rotation).toFixed(3)}deg`);
+    const centerX = width * .52;
+    const centerY = height * .69;
+    particles.forEach((particle) => {
+      const angle = particle.angle + time * particle.speed;
+      const x = centerX + Math.cos(angle) * particle.radius * 1.25;
+      const y = centerY + Math.sin(angle) * particle.radius * .55;
+      context.beginPath();
+      context.arc(x, y, particle.size, 0, Math.PI * 2);
+      context.fillStyle = `rgba(213, 224, 213, ${particle.alpha})`;
+      context.fill();
+    });
+    if (running) frame = requestAnimationFrame(draw);
+  }
+
+  function sync() {
+    const shouldRun = requested && visible && !document.hidden && !reduceMotion.matches;
+    if (shouldRun && !running) {
+      running = true;
+      frame = requestAnimationFrame(draw);
+    } else if (!shouldRun && running) {
+      running = false;
+      cancelAnimationFrame(frame);
+    }
+    if (reduceMotion.matches) draw(0);
+  }
+
+  function onPointerDown(event) {
+    if (reduceMotion.matches || event.button > 0 || controller.getState().selected) return;
+    gesture = {
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startY: event.clientY,
+      previousX: event.clientX,
+      active: false,
+      moved: false
     };
   }
 
-  function createLuxenBackground(element) {
-    const canvas = element.querySelector(".luxen-network__canvas");
-    const context = canvas && canvas.getContext("2d");
-    const baseSpeed = 0.3;
-    const connectionDistance = 120;
-
-    let animationFrame = 0;
-    let particles = [];
-    let width = 0;
-    let height = 0;
-    let reducedMotion = Boolean(prefersReducedMotion.matches);
-
-    if (!canvas || !context) {
-      return {
-        refresh() {
-        }
-      };
+  function onPointerMove(event) {
+    if (!gesture || event.pointerId !== gesture.pointerId) return;
+    const totalX = event.clientX - gesture.startX;
+    const totalY = event.clientY - gesture.startY;
+    if (!gesture.active && Math.abs(totalX) > 9 && Math.abs(totalX) > Math.abs(totalY) * 1.15) {
+      gesture.active = true;
+      clusterMap.classList.add("is-dragging");
+      try { clusterMap.setPointerCapture(event.pointerId); } catch (_) {}
     }
-
-    function resize() {
-      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-      width = window.innerWidth;
-      height = window.innerHeight;
-      canvas.width = Math.floor(width * dpr);
-      canvas.height = Math.floor(height * dpr);
-      canvas.style.width = width + "px";
-      canvas.style.height = height + "px";
-      context.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-      const count = width < 768 ? 30 : 60;
-      const speed = currentTheme() === "light" ? baseSpeed : baseSpeed * 0.85;
-
-      particles = Array.from({ length: count }, () => ({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * (reducedMotion ? 0 : speed),
-        vy: (Math.random() - 0.5) * (reducedMotion ? 0 : speed),
-        size: Math.random() * 1.5 + 0.5,
-      }));
-
-      if (reducedMotion) {
-        draw();
-      }
-    }
-
-    function draw() {
-      const colors = themeColors();
-      context.clearRect(0, 0, width, height);
-
-      for (let index = 0; index < particles.length; index += 1) {
-        const particle = particles[index];
-
-        if (!reducedMotion) {
-          particle.x += particle.vx;
-          particle.y += particle.vy;
-
-          if (particle.x < 0 || particle.x > width) {
-            particle.vx *= -1;
-          }
-
-          if (particle.y < 0 || particle.y > height) {
-            particle.vy *= -1;
-          }
-        }
-
-        context.beginPath();
-        context.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        context.fillStyle = colors.dot;
-        context.fill();
-
-        for (let inner = index + 1; inner < particles.length; inner += 1) {
-          const peer = particles[inner];
-          const dx = particle.x - peer.x;
-          const dy = particle.y - peer.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < connectionDistance) {
-            context.beginPath();
-            context.strokeStyle = colors.line;
-            context.lineWidth = 0.5;
-            context.moveTo(particle.x, particle.y);
-            context.lineTo(peer.x, peer.y);
-            context.stroke();
-          }
-        }
-      }
-    }
-
-    function tick() {
-      draw();
-
-      if (!reducedMotion) {
-        animationFrame = window.requestAnimationFrame(tick);
-      }
-    }
-
-    function refresh() {
-      window.cancelAnimationFrame(animationFrame);
-      draw();
-
-      if (!reducedMotion) {
-        animationFrame = window.requestAnimationFrame(tick);
-      }
-    }
-
-    function updateMotionPreference() {
-      reducedMotion = Boolean(prefersReducedMotion.matches);
-      resize();
-      refresh();
-    }
-
-    resize();
-    refresh();
-
-    window.addEventListener("resize", resize);
-
-    if (typeof prefersReducedMotion.addEventListener === "function") {
-      prefersReducedMotion.addEventListener("change", updateMotionPreference);
-    } else if (typeof prefersReducedMotion.addListener === "function") {
-      prefersReducedMotion.addListener(updateMotionPreference);
-    }
-
-    return { refresh };
+    if (!gesture.active) return;
+    event.preventDefault();
+    const deltaX = event.clientX - gesture.previousX;
+    gesture.previousX = event.clientX;
+    gesture.moved ||= Math.abs(totalX) > 12;
+    rotation += deltaX * .11;
+    angularVelocity = deltaX * .018;
+    clusterMap.style.setProperty("--field-rotation", `${rotation.toFixed(3)}deg`);
+    clusterMap.style.setProperty("--counter-rotation", `${(-rotation).toFixed(3)}deg`);
   }
 
-  function initThemeButtons() {
-    document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
-      button.addEventListener("click", () => {
-        setTheme(currentTheme() === "light" ? "dark" : "light");
-      });
-    });
+  function finishPointer(event) {
+    if (!gesture || event.pointerId !== gesture.pointerId) return;
+    if (gesture.moved) {
+      suppressClusterClick = true;
+      window.setTimeout(() => { suppressClusterClick = false; }, 0);
+    }
+    clusterMap.classList.remove("is-dragging");
+    if (clusterMap.hasPointerCapture?.(event.pointerId)) clusterMap.releasePointerCapture(event.pointerId);
+    gesture = null;
   }
 
-  function initScrollSpy() {
-    const links = Array.from(document.querySelectorAll(".site-nav a[data-section]"));
-    if (!links.length) {
-      return;
-    }
-
-    const sections = links
-      .map((link) => document.getElementById(link.dataset.section))
-      .filter(Boolean);
-
-    const observer = new IntersectionObserver((entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((left, right) => left.target.offsetTop - right.target.offsetTop);
-
-      if (!visible.length) {
-        return;
-      }
-
-      const activeId = visible[0].target.id;
-      links.forEach((link) => {
-        link.setAttribute("aria-current", link.dataset.section === activeId ? "page" : "false");
-      });
-    }, { rootMargin: "-28% 0px -58% 0px", threshold: [0.1, 0.45, 0.7] });
-
-    sections.forEach((section) => observer.observe(section));
-  }
-
-  function initBackgrounds() {
-    document.querySelectorAll("[data-luxen-network]").forEach((element) => {
-      backgrounds.push(createLuxenBackground(element));
-    });
-  }
-
-  function initBlogToggle() {
-    document.querySelectorAll("[data-blog-toggle]").forEach(function (card) {
-      card.addEventListener("click", function (event) {
-        if (event.target.closest("a")) {
-          return;
-        }
-        var isExpanded = card.classList.toggle("is-expanded");
-        card.setAttribute("aria-expanded", isExpanded ? "true" : "false");
-      });
-    });
-  }
-
-  function escapeHtml(value) {
-    return String(value)
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#39;");
-  }
-
-  function joinArtists(artists) {
-    return Array.isArray(artists) ? artists.filter(Boolean).join(", ") : "";
-  }
-
-  function formatUpdatedAt(value) {
-    if (!value) {
-      return "Waiting for sync";
-    }
-
-    const date = new Date(value);
-    if (Number.isNaN(date.getTime())) {
-      return "Waiting for sync";
-    }
-
-    return "Synced " + date.toLocaleString(undefined, {
-      month: "short",
-      day: "numeric",
-      hour: "numeric",
-      minute: "2-digit",
-    });
-  }
-
-  function formatPlayedAt(value) {
-    if (!value) {
-      return "No recent playback captured yet";
-    }
-
-    const date = new Date(value);
-    if (Number.isNaN(date.getTime())) {
-      return "No recent playback captured yet";
-    }
-
-    return "Played " + date.toLocaleString(undefined, {
-      month: "short",
-      day: "numeric",
-      hour: "numeric",
-      minute: "2-digit",
-    });
-  }
-
-  function placeholderArt() {
-    return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(
-      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">' +
-        '<defs>' +
-          '<linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">' +
-            '<stop offset="0%" stop-color="#1ed760"/>' +
-            '<stop offset="100%" stop-color="#06110a"/>' +
-          "</linearGradient>" +
-        "</defs>" +
-        '<rect width="600" height="600" fill="url(#g)"/>' +
-        '<circle cx="470" cy="130" r="120" fill="rgba(255,255,255,0.12)"/>' +
-        '<circle cx="150" cy="480" r="170" fill="rgba(255,255,255,0.08)"/>' +
-        '<path d="M252 175v180.4c-10.3-6.2-24.6-9.4-40.7-7.2-32.6 4.4-56.1 28.6-52.4 54 3.7 25.5 33.1 42.6 65.7 38.2 29.8-4 52.2-24.8 52.9-48.1V243.2L420 211v120.7c-10.3-6.2-24.6-9.4-40.7-7.2-32.6 4.4-56.1 28.6-52.4 54 3.7 25.5 33.1 42.6 65.7 38.2 29.8-4 52.2-24.8 52.9-48.1V137L252 175z" fill="rgba(255,255,255,0.9)"/>' +
-      "</svg>"
-    );
-  }
-
-  function renderRecentTracks(element, items) {
-    if (!element) {
-      return;
-    }
-
-    if (!Array.isArray(items) || !items.length) {
-      element.innerHTML = "<li>No recent songs yet.</li>";
-      return;
-    }
-
-    element.innerHTML = items.map(function (item) {
-      const name = escapeHtml(item && item.name ? item.name : "Unknown track");
-      const artists = escapeHtml(joinArtists(item && item.artistNames));
-      const url = item && item.url;
-      const title = url
-        ? '<a class="now-link" href="' + escapeHtml(url) + '" target="_blank" rel="noopener">' + name + "</a>"
-        : name;
-      const subtitle = artists ? '<span class="now-subtle">' + artists + "</span>" : "";
-      return "<li>" + title + subtitle + "</li>";
-    }).join("");
-  }
-
-  function renderTopTracks(element, items) {
-    if (!element) {
-      return;
-    }
-
-    if (!Array.isArray(items) || !items.length) {
-      element.innerHTML = "<li>No top tracks available yet.</li>";
-      return;
-    }
-
-    element.innerHTML = items.map(function (item) {
-      const name = escapeHtml(item && item.name ? item.name : "Unknown track");
-      const artists = escapeHtml(joinArtists(item && item.artistNames));
-      const url = item && item.url;
-      const title = url
-        ? '<a class="now-link" href="' + escapeHtml(url) + '" target="_blank" rel="noopener">' + name + "</a>"
-        : name;
-      const subtitle = artists ? '<span class="now-subtle">' + artists + "</span>" : "";
-      return "<li>" + title + subtitle + "</li>";
-    }).join("");
-  }
-
-  function renderTopArtists(element, items) {
-    if (!element) {
-      return;
-    }
-
-    if (!Array.isArray(items) || !items.length) {
-      element.innerHTML = "<li>No top artists available yet.</li>";
-      return;
-    }
-
-    element.innerHTML = items.map(function (item) {
-      const name = escapeHtml(item && item.name ? item.name : "Unknown artist");
-      const url = item && item.url;
-      const title = url
-        ? '<a class="now-link" href="' + escapeHtml(url) + '" target="_blank" rel="noopener">' + name + "</a>"
-        : name;
-      return "<li>" + title + "</li>";
-    }).join("");
-  }
-
-  function renderFeatureTrack(rootElement, item) {
-    if (!rootElement) {
-      return;
-    }
-
-    const artElement = rootElement.querySelector("[data-now-art]");
-    const titleElement = rootElement.querySelector("[data-now-feature-title]");
-    const artistElement = rootElement.querySelector("[data-now-feature-artist]");
-    const noteElement = rootElement.querySelector("[data-now-feature-note]");
-    const linkElement = rootElement.querySelector("[data-now-feature-link]");
-
-    if (!item) {
-      if (artElement) {
-        artElement.src = placeholderArt();
-        artElement.alt = "Spotify placeholder art";
-      }
-      if (titleElement) {
-        titleElement.textContent = "No recent song yet";
-      }
-      if (artistElement) {
-        artistElement.textContent = "Play something on Spotify and the card will update on the next sync.";
-      }
-      if (noteElement) {
-        noteElement.textContent = "Waiting for playback";
-      }
-      if (linkElement) {
-        linkElement.href = "https://open.spotify.com";
-      }
-      return;
-    }
-
-    const title = item.name || "Unknown track";
-    const artists = joinArtists(item.artistNames) || "Unknown artist";
-    const imageUrl = item.albumImageUrl || placeholderArt();
-    const trackUrl = item.url || "https://open.spotify.com";
-
-    if (artElement) {
-      artElement.src = imageUrl;
-      artElement.alt = "Album art for " + title;
-    }
-    if (titleElement) {
-      titleElement.innerHTML = '<a class="now-link" href="' + escapeHtml(trackUrl) + '" target="_blank" rel="noopener">' + escapeHtml(title) + "</a>";
-    }
-    if (artistElement) {
-      artistElement.textContent = artists;
-    }
-    if (noteElement) {
-      noteElement.textContent = formatPlayedAt(item.playedAt);
-    }
-    if (linkElement) {
-      linkElement.href = trackUrl;
-    }
-  }
-
-  function renderPreviewSummary(rootElement, spotify) {
-    if (!rootElement) {
-      return;
-    }
-
-    const topTrackTitle = rootElement.querySelector("[data-now-top-track-summary]");
-    const topTrackArtist = rootElement.querySelector("[data-now-top-track-artist]");
-    const topArtistTitle = rootElement.querySelector("[data-now-top-artist-summary]");
-    const topArtistNote = rootElement.querySelector("[data-now-top-artist-note]");
-
-    const topTrack = Array.isArray(spotify && spotify.topTracks) ? spotify.topTracks[0] : null;
-    const topArtist = Array.isArray(spotify && spotify.topArtists) ? spotify.topArtists[0] : null;
-
-    if (topTrackTitle) {
-      topTrackTitle.textContent = topTrack && topTrack.name ? topTrack.name : "No top track yet";
-    }
-
-    if (topTrackArtist) {
-      topTrackArtist.textContent = topTrack ? (joinArtists(topTrack.artistNames) || "Unknown artist") : "Spotify sync in progress.";
-    }
-
-    if (topArtistTitle) {
-      topArtistTitle.textContent = topArtist && topArtist.name ? topArtist.name : "No top artist yet";
-    }
-
-    if (topArtistNote) {
-      topArtistNote.textContent = topArtist ? "On Spotify" : "Daily snapshot";
-    }
-  }
-
-  function renderNowWidget(payload) {
-    const rootElement = document.querySelector("[data-now-widget]");
-    if (!rootElement || !payload) {
-      return;
-    }
-
-    const bookElement = rootElement.querySelector("[data-now-book]");
-    const updatedElement = rootElement.querySelector("[data-now-updated]");
-    const recentElement = rootElement.querySelector("[data-now-recent]");
-    const topTracksElement = rootElement.querySelector("[data-now-top-tracks]");
-    const topArtistsElement = rootElement.querySelector("[data-now-top-artists]");
-
-    if (bookElement) {
-      const book = payload.book || {};
-      const title = book.title || "No current book set";
-      const author = book.author ? " by " + book.author : "";
-      bookElement.textContent = title + author;
-    }
-
-    if (updatedElement) {
-      updatedElement.textContent = formatUpdatedAt(payload.updatedAt);
-    }
-
-    const spotify = payload.spotify || {};
-    renderPreviewSummary(rootElement, spotify);
-    renderFeatureTrack(rootElement, Array.isArray(spotify.recentTracks) ? spotify.recentTracks[0] : null);
-    renderRecentTracks(recentElement, spotify.recentTracks);
-    renderTopTracks(topTracksElement, spotify.topTracks);
-    renderTopArtists(topArtistsElement, spotify.topArtists);
-  }
-
-  function setNowWidgetExpanded(rootElement, expanded) {
-    if (!rootElement) {
-      return;
-    }
-
-    rootElement.classList.toggle("is-open", expanded);
-
-    const toggle = rootElement.querySelector("[data-now-toggle]");
-    const label = rootElement.querySelector("[data-now-toggle-label]");
-
-    if (toggle) {
-      toggle.setAttribute("aria-expanded", expanded ? "true" : "false");
-    }
-
-    if (label) {
-      label.textContent = expanded ? "Collapse" : "Expand";
-    }
-  }
-
-  function initNowWidgetToggle(rootElement) {
-    if (!rootElement) {
-      return;
-    }
-
-    const toggle = rootElement.querySelector("[data-now-toggle]");
-    if (!toggle) {
-      return;
-    }
-
-    setNowWidgetExpanded(rootElement, false);
-
-    toggle.addEventListener("click", function () {
-      const isExpanded = toggle.getAttribute("aria-expanded") === "true";
-      setNowWidgetExpanded(rootElement, !isExpanded);
-    });
-  }
-
-  async function initNowWidget() {
-    const rootElement = document.querySelector("[data-now-widget]");
-    if (!rootElement) {
-      return;
-    }
-
-    initNowWidgetToggle(rootElement);
-
-    try {
-      const response = await window.fetch("data/now.json?ts=" + Date.now(), {
-        cache: "no-store",
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to load now.json (" + response.status + ")");
-      }
-
-      const payload = await response.json();
-      renderNowWidget(payload);
-    } catch (_) {
-      renderNowWidget({
-        updatedAt: null,
-        book: {
-          title: "Genghis Khan and the Making of the Modern World",
-          author: "Jack Weatherford",
-        },
-        spotify: {
-          recentTracks: [],
-          topTracks: [],
-          topArtists: [],
-        },
-      });
-    }
-  }
-
-  window.Portfolio = {
-    init(options) {
-      const settings = options || {};
-      setTheme(loadTheme());
-      initThemeButtons();
-      initBackgrounds();
-      initBlogToggle();
-      initNowWidget();
-
-      if (settings.scrollSpy) {
-        initScrollSpy();
-      }
+  const onResize = () => { resize(); draw(); };
+  window.addEventListener("resize", onResize);
+  clusterMap?.addEventListener("pointerdown", onPointerDown);
+  clusterMap?.addEventListener("pointermove", onPointerMove, { passive: false });
+  clusterMap?.addEventListener("pointerup", finishPointer);
+  clusterMap?.addEventListener("pointercancel", finishPointer);
+  const observer = "IntersectionObserver" in window
+    ? new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting && entry.intersectionRatio > .01;
+      sync();
+    }, { threshold: [0, .01] })
+    : null;
+  observer?.observe(universe);
+  resize();
+  draw();
+  return {
+    pause() { requested = false; sync(); },
+    resume() {
+      requested = true;
+      sync();
     },
+    destroy() {
+      requested = false;
+      running = false;
+      cancelAnimationFrame(frame);
+      observer?.disconnect();
+      window.removeEventListener("resize", onResize);
+      clusterMap?.removeEventListener("pointerdown", onPointerDown);
+      clusterMap?.removeEventListener("pointermove", onPointerMove);
+      clusterMap?.removeEventListener("pointerup", finishPointer);
+      clusterMap?.removeEventListener("pointercancel", finishPointer);
+      context.clearRect(0, 0, width, height);
+    }
   };
-})();
+}
+
+controller.attachField(createFieldController());
+
+function updateTopbarContrast() {
+  if (!portfolio) return;
+  document.body.classList.toggle("is-over-portfolio", window.scrollY >= portfolio.offsetTop - 72);
+}
+window.addEventListener("scroll", updateTopbarContrast, { passive: true });
+document.addEventListener("visibilitychange", () => document.hidden ? controller.pause() : controller.resume());
+reduceMotion.addEventListener("change", () => controller.resume());
+initNow();
+updateTopbarContrast();

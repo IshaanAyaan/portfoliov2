@@ -58,7 +58,7 @@ December 2023 to present
 - Secured $48,000+ in grants, startup support, and cloud credits through programs including 1517 Fund, SoftBank, and BizWorld.
 - Scaled products to 5,000+ active users and 1.5M+ media views.
 
-Evidence: [Luxen](https://luxenai.org) and [AgentTree](https://github.com/LuxenAI/agent-tree)
+Evidence: [Luxen](https://luxenai.org) and [Regimen](https://github.com/LuxenAI/regimen)
 
 ### Y Combinator Startup School — Incoming Founder
 
@@ -95,7 +95,15 @@ A policy analytics and decision-support system spanning classification, causal a
 - Developed an event-study difference-in-differences workflow and automated more than 15 figures.
 - Produced transparent assumptions, reproducible artifacts, dashboards, and policy-facing summaries.
 
-Evidence: [GitHub](https://github.com/IshaanAyaan/prism-policy-ai), [public dashboard](https://prism-policy-dashboard.vercel.app/#dashboard), and [SSRN DOI](https://dx.doi.org/10.2139/ssrn.6756239)
+Evidence: [GitHub](https://github.com/IshaanAyaan/prism-policy-dashboard), [public dashboard](https://prism-policy-dashboard.vercel.app/#dashboard), and [SSRN DOI](https://dx.doi.org/10.2139/ssrn.6756239)
+
+### Regimen
+
+An orchestration layer for small language models built for efficient, long-horizon work.
+
+- Coordinates specialized SLM agents so complex tasks can be broken down, routed, and completed with practical runtime efficiency.
+
+Evidence: [GitHub](https://github.com/LuxenAI/regimen)
 
 ### Specialized Small-Model Subagents
 
@@ -105,15 +113,6 @@ Fine-tuned task-specific small language model specialists paired with a custom h
 - Measured the success and cost tradeoffs of specialist workflows against larger-model baselines for practical multi-agent use.
 
 Evidence: [GitHub](https://github.com/LuxenAI/slm)
-
-### AgentTree
-
-A local-first workspace for multi-agent coding sessions and runtime control.
-
-- Supports master and subagent sessions, shared context, live agent status, runtime model switching, and session control.
-- Designed for practical AI-assisted software development workflows.
-
-Evidence: [GitHub](https://github.com/LuxenAI/agent-tree)
 
 ### School Pulse AI
 
@@ -147,7 +146,25 @@ A debate evidence, research, and round-strategy platform used by 2,000+ debaters
 
 - Built web-crawling, source organization, and deduplication workflows to reduce research time and improve evidence quality.
 
-Evidence: [GitHub](https://github.com/IshaanAyaan/debaticav1) and [Debatica](https://www.debatica.org/)
+Evidence: [GitHub](https://github.com/IshaanAyaan/debaticav2)
+
+### School Pulse AI
+
+An edge-AI school operations suite combining leak detection, compost sorting, and resource forecasting in one dashboard.
+
+- Built the Pulse Agent backend to combine water, waste, energy, and event signals into ranked action cards.
+- Added multilingual voice controls and live telemetry wiring for the dashboard experience.
+
+Evidence: [GitHub](https://github.com/IshaanAyaan/SchoolPulse-AI), [live dashboard](https://school-pulse-ai.vercel.app/), and [Devpost](https://devpost.com/software/schoolprint-ai)
+
+### Specialized Small-Model Subagents
+
+Fine-tuned task-specific small language model specialists paired with a custom harness for cost-efficient multi-agent coding.
+
+- Built specialist subagents for narrow coding roles instead of relying on one large general worker.
+- Measured success and cost tradeoffs against larger-model baselines for practical multi-agent use.
+
+Evidence: [GitHub](https://github.com/IshaanAyaan/slm-agents)
 
 ### S.A.B.E.R. Bioreactor
 

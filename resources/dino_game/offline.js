@@ -267,6 +267,7 @@ export class Runner {
 
     this.distanceMeter = null;
     this.distanceRan = 0;
+    this.lastEmittedScore = -1;
 
     this.highestScore = 0;
     this.syncHighestScore = false;
@@ -384,6 +385,17 @@ export class Runner {
           break;
       }
     }
+  }
+
+  /**
+   * Publish a stable page-level event without coupling the runner to its shell.
+   * @param {string} type
+   * @param {Object=} detail
+   */
+  emit(type, detail = {}) {
+    this.outerContainerEl.dispatchEvent(
+      new CustomEvent(`cosmicrun:${type}`, { detail })
+    );
   }
 
   /**
@@ -519,15 +531,19 @@ export class Runner {
     this.adjustDimensions();
     this.setSpeed();
 
-    const ariaLabel = getA11yString(A11Y_STRINGS.ariaLabel);
+    const ariaLabel =
+      getA11yString(A11Y_STRINGS.ariaLabel) ||
+      'Escape Velocity dinosaur runner';
+    const description =
+      getA11yString(A11Y_STRINGS.description) ||
+      'Press Space or Up to jump, Down to duck, P to pause, R to restart, and M to mute.';
     this.containerEl = document.createElement('div');
     this.containerEl.setAttribute('role', IS_MOBILE ? 'button' : 'application');
     this.containerEl.setAttribute('tabindex', '0');
-    this.containerEl.setAttribute(
-      'title',
-      getA11yString(A11Y_STRINGS.description)
-    );
+    this.containerEl.setAttribute('title', description);
     this.containerEl.setAttribute('aria-label', ariaLabel);
+    this.containerEl.setAttribute('aria-describedby', 'game-instructions');
+    this.containerEl.setAttribute('aria-keyshortcuts', 'Space ArrowUp ArrowDown P R M');
 
     this.containerEl.className = Runner.classes.CONTAINER;
 
@@ -541,7 +557,8 @@ export class Runner {
     // Live region for game status updates.
     this.a11yStatusEl = document.createElement('span');
     this.a11yStatusEl.className = 'offline-runner-live-region';
-    this.a11yStatusEl.setAttribute('aria-live', 'assertive');
+    this.a11yStatusEl.setAttribute('aria-live', 'polite');
+    this.a11yStatusEl.setAttribute('aria-atomic', 'true');
     this.a11yStatusEl.textContent = '';
     Runner.a11yStatusEl = this.a11yStatusEl;
 
@@ -769,10 +786,14 @@ export class Runner {
     this.tRex.playingIntro = false;
     this.containerEl.style.webkitAnimation = '';
     this.playCount++;
+    this.emit('start', { playCount: this.playCount });
     this.generatedSoundFx.background();
 
     if (Runner.audioCues) {
-      this.containerEl.setAttribute('title', getA11yString(A11Y_STRINGS.jump));
+      this.containerEl.setAttribute(
+        'title',
+        getA11yString(A11Y_STRINGS.jump) || 'Press Space or Up to jump.'
+      );
     }
 
     // Handle tabbing off the page. Pause the current game.
@@ -898,6 +919,17 @@ export class Runner {
       let collision =
         hasObstacles && checkForCollision(this.horizon.obstacles[0], this.tRex);
 
+      const signal = this.horizon.signals?.[0];
+      if (signal && checkForCollision(signal, this.tRex)) {
+        signal.collected = true;
+        signal.remove = true;
+        this.horizon.signals.shift();
+        this.emit('signalcollect', {
+          score: this.distanceMeter.getActualDistance(Math.ceil(this.distanceRan))
+        });
+        this.playSound(this.soundFx.SCORE);
+      }
+
       // For a11y, audio cues.
       if (Runner.audioCues && hasObstacles) {
         const jumpObstacle =
@@ -948,6 +980,18 @@ export class Runner {
         deltaTime,
         Math.ceil(this.distanceRan)
       );
+
+      const visibleScore = this.distanceMeter.getActualDistance(
+        Math.ceil(this.distanceRan)
+      );
+      if (visibleScore !== this.lastEmittedScore) {
+        this.lastEmittedScore = visibleScore;
+        this.emit('score', {
+          score: visibleScore,
+          rawDistance: Math.ceil(this.distanceRan),
+          speed: this.currentSpeed
+        });
+      }
 
       if (!Runner.audioCues && playAchievementSound) {
         this.playSound(this.soundFx.SCORE);
@@ -1155,6 +1199,10 @@ export class Runner {
    * @param {Event} e
    */
   onKeyDown(e) {
+    if (e.target?.closest?.('[data-game-action]')) {
+      return;
+    }
+
     // Prevent native page scrolling whilst tapping on mobile.
     if (IS_MOBILE && this.playing) {
       e.preventDefault();
@@ -1230,6 +1278,10 @@ export class Runner {
    * @param {Event} e
    */
   onKeyUp(e) {
+    if (e.target?.closest?.('[data-game-action]')) {
+      return;
+    }
+
     const keyCode = String(e.keyCode);
     const isjumpKey =
       Runner.keycodes.JUMP[keyCode] ||
@@ -1455,7 +1507,7 @@ export class Runner {
     this.playSound(this.soundFx.HIT);
     vibrate(200);
 
-    this.stop();
+    this.stop(false);
     this.crashed = true;
     this.distanceMeter.achievement = false;
 
@@ -1495,6 +1547,11 @@ export class Runner {
       this.saveHighScore(this.distanceRan);
     }
 
+    this.emit('gameover', {
+      score: this.distanceMeter.getActualDistance(this.distanceRan),
+      highScore: this.distanceMeter.getActualDistance(this.highestScore)
+    });
+
     // Reset the time clock.
     this.time = getTimeStamp();
 
@@ -1519,12 +1576,17 @@ export class Runner {
     this.disableSpeedToggle(false);
   }
 
-  stop() {
+  stop(emitPause = true) {
     this.setPlayStatus(false);
     this.paused = true;
     cancelAnimationFrame(this.raqId);
     this.raqId = 0;
     this.generatedSoundFx.stopAll();
+    if (emitPause && !this.crashed) {
+      this.emit('pause', {
+        score: this.distanceMeter.getActualDistance(this.distanceRan)
+      });
+    }
   }
 
   play() {
@@ -1535,6 +1597,9 @@ export class Runner {
       this.time = getTimeStamp();
       this.update();
       this.generatedSoundFx.background();
+      this.emit('resume', {
+        score: this.distanceMeter.getActualDistance(this.distanceRan)
+      });
     }
   }
 
@@ -1547,6 +1612,7 @@ export class Runner {
       this.paused = false;
       this.crashed = false;
       this.distanceRan = 0;
+      this.lastEmittedScore = -1;
       this.setSpeed(this.config.SPEED);
       this.time = getTimeStamp();
       this.containerEl.classList.remove(Runner.classes.CRASHED);
@@ -1562,6 +1628,7 @@ export class Runner {
       this.generatedSoundFx.background();
       this.containerEl.setAttribute('title', getA11yString(A11Y_STRINGS.jump));
       announcePhrase(getA11yString(A11Y_STRINGS.started));
+      this.emit('start', { playCount: this.playCount, restarted: true });
     }
   }
 

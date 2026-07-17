@@ -1,0 +1,20 @@
+{
+  "name": "ishaan-cosmic-portfolio",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.9.0",
+  "scripts": {
+    "serve": "python3 -m http.server 4173 --bind 127.0.0.1",
+    "test": "pnpm test:unit && pnpm test:e2e",
+    "test:unit": "node --test tests/unit/*.test.js",
+    "test:e2e": "playwright test",
+    "test:e2e:update": "playwright test --update-snapshots",
+    "screenshots:review": "node scripts/capture-review.mjs",
+    "check:js": "node --check analytics.js && node --check site.js && node --check universe-core.js && node --check game.js && node --check game-state.js && node --check game-mechanics.js && node --check trex-runner.js && node --check scripts/capture-review.mjs",
+    "check": "pnpm check:js && pnpm test"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.12.1",
+    "@playwright/test": "1.61.1"
+  }
+}

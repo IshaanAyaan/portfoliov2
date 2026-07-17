@@ -120,6 +120,11 @@ export class Obstacle {
    * Draw and crop based on size.
    */
   draw() {
+    if (window.Runner.cosmicMode !== false) {
+      this.drawCosmic();
+      return;
+    }
+
     let sourceWidth = this.typeConfig.width;
     let sourceHeight = this.typeConfig.height;
 
@@ -148,6 +153,86 @@ export class Obstacle {
       this.typeConfig.width * this.size,
       this.typeConfig.height
     );
+  }
+
+  /** Draw original collision shapes as a procedural cosmic obstacle. */
+  drawCosmic() {
+    const ctx = this.canvasCtx;
+    const x = this.xPos;
+    const y = this.yPos;
+    const width = this.typeConfig.width * this.size;
+    const height = this.typeConfig.height;
+    const lightTheme = document.documentElement.dataset.theme === 'light' ||
+      (!document.documentElement.dataset.theme && matchMedia('(prefers-color-scheme: light)').matches);
+    const ink = lightTheme ? '#15201a' : '#e9f0e8';
+    const muted = lightTheme ? '#5b6b62' : '#85958c';
+
+    ctx.save();
+    ctx.translate(x, y);
+
+    if (this.typeConfig.type === 'COLLECTABLE') {
+      const pulse = 1 + Math.sin(performance.now() / 180) * 0.08;
+      ctx.translate(width / 2, height / 2);
+      ctx.scale(pulse, pulse);
+      ctx.rotate(Math.PI / 4);
+      ctx.shadowColor = '#c9f19a';
+      ctx.shadowBlur = 12;
+      ctx.fillStyle = '#c9f19a';
+      ctx.fillRect(-6, -6, 12, 12);
+      ctx.shadowBlur = 0;
+      ctx.strokeStyle = lightTheme ? '#1d3a1f' : '#071008';
+      ctx.strokeRect(-3, -3, 6, 6);
+      ctx.restore();
+      return;
+    }
+
+    if (this.typeConfig.type === 'PTERODACTYL') {
+      ctx.strokeStyle = ink;
+      ctx.fillStyle = muted;
+      ctx.lineWidth = 1.5;
+      ctx.fillRect(width * .36, height * .35, width * .28, height * .3);
+      ctx.strokeRect(width * .36, height * .35, width * .28, height * .3);
+      ctx.fillStyle = lightTheme ? '#b5c5bd' : '#32433a';
+      const wingY = this.currentFrame ? height * .18 : height * .28;
+      ctx.fillRect(0, wingY, width * .34, height * .32);
+      ctx.fillRect(width * .66, wingY, width * .34, height * .32);
+      ctx.beginPath();
+      ctx.moveTo(width / 2, height * .35);
+      ctx.lineTo(width / 2, height * .05);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(width / 2, height * .04, 2, 0, Math.PI * 2);
+      ctx.fillStyle = '#c9f19a';
+      ctx.fill();
+      ctx.restore();
+      return;
+    }
+
+    ctx.fillStyle = lightTheme ? '#6f776f' : '#677169';
+    ctx.strokeStyle = ink;
+    ctx.lineWidth = 1.25;
+    for (let index = 0; index < this.size; index++) {
+      const unit = this.typeConfig.width;
+      const cx = index * unit + unit / 2;
+      const radiusX = Math.max(7, unit * .48);
+      const radiusY = Math.max(12, height * .48);
+      ctx.beginPath();
+      ctx.moveTo(cx - radiusX, height * .58);
+      ctx.lineTo(cx - radiusX * .58, height * .14);
+      ctx.lineTo(cx + radiusX * .12, 0);
+      ctx.lineTo(cx + radiusX * .78, height * .22);
+      ctx.lineTo(cx + radiusX, height * .68);
+      ctx.lineTo(cx + radiusX * .35, height);
+      ctx.lineTo(cx - radiusX * .55, height * .92);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(cx - radiusX * .18, height * .42, Math.max(2, unit * .12), 0, Math.PI * 2);
+      ctx.strokeStyle = muted;
+      ctx.stroke();
+    }
+    ctx.restore();
   }
 
   /**
