@@ -49,6 +49,20 @@
 @keyframes hole-ring-five { to { transform: rotate(472deg) scaleY(.2); } }
 .cluster-map { top: 33.333%; transform: rotate(var(--field-rotation, 0deg)); transform-origin: 52% 54%; will-change: transform; touch-action: none; }
 .cluster-map.is-dragging { cursor: grabbing; }
+.orbit-tracks, .constellation-lines, .satellite-layer { position: absolute; inset: 0; pointer-events: none; }
+.orbit-tracks { z-index: 0; opacity: .7; }
+.orbit-tracks i { position: absolute; left: 52%; top: 54%; border: 1px solid rgba(217,229,217,.13); border-radius: 50%; transform: translate(-50%,-50%) rotate(var(--orbit-tilt, 0deg)); box-shadow: inset 0 0 26px rgba(211,225,215,.025); }
+.orbit-tracks i:nth-child(1) { width: 28%; height: 18%; --orbit-tilt: -8deg; }
+.orbit-tracks i:nth-child(2) { width: 45%; height: 31%; --orbit-tilt: 7deg; border-style: dashed; }
+.orbit-tracks i:nth-child(3) { width: 63%; height: 44%; --orbit-tilt: -4deg; }
+.orbit-tracks i:nth-child(4) { width: 82%; height: 60%; --orbit-tilt: 5deg; border-style: dotted; }
+.orbit-tracks i:nth-child(5) { width: 106%; height: 76%; --orbit-tilt: -3deg; opacity: .55; }
+.constellation-lines { z-index: 1; opacity: .42; }
+.constellation-lines i { position: absolute; height: 1px; transform-origin: 0 50%; background: linear-gradient(90deg, transparent, rgba(203,220,211,.38), transparent); }
+.constellation-lines i:nth-child(1) { left: 12%; top: 52%; width: 39%; transform: rotate(16deg); }
+.constellation-lines i:nth-child(2) { left: 52%; top: 55%; width: 34%; transform: rotate(-26deg); }
+.constellation-lines i:nth-child(3) { left: 26%; top: 77%; width: 40%; transform: rotate(-31deg); }
+.constellation-lines i:nth-child(4) { left: 54%; top: 58%; width: 33%; transform: rotate(26deg); }
 .cluster { width: 8.5rem; height: 8.5rem; }
 .cluster { transform: rotate(var(--counter-rotation, 0deg)); will-change: transform; }
 .cluster b { margin-top: 6.15rem; }
@@ -59,12 +73,37 @@
 .cluster-now { right: 31%; top: 52%; }
 .universe-prompt { bottom: 1.3rem; }
 
+.cluster-orb { border: 1px solid color-mix(in srgb, var(--tone), #fff 16%); }
+.cluster-build .cluster-orb { background: radial-gradient(circle at 33% 27%, rgba(244,255,226,.72) 0 3%, transparent 16%), repeating-linear-gradient(118deg, transparent 0 9px, rgba(226,245,198,.08) 10px 11px), radial-gradient(circle at 36% 32%, #81986d, #324236 42%, #111815 76%); box-shadow: inset -1.2rem -1rem 2.3rem rgba(0,0,0,.55), inset .65rem .5rem 1.3rem rgba(218,240,188,.22), 0 0 2.5rem rgba(181,212,148,.18); }
+.cluster-research .cluster-orb { background: repeating-radial-gradient(ellipse at 38% 31%, rgba(210,235,245,.13) 0 5px, transparent 6px 11px), radial-gradient(circle at 35% 29%, #95b8c7, #3e6071 38%, #172733 71%); box-shadow: inset -1.2rem -1.1rem 2.4rem rgba(0,0,0,.52), 0 0 2.8rem rgba(156,205,226,.2); }
+.cluster-ideas .cluster-orb { background: radial-gradient(circle at 38% 31%, rgba(255,239,220,.7) 0 4%, transparent 20%), conic-gradient(from 20deg, #76585d, #c59b8d, #6d4e63, #76585d); box-shadow: inset -1rem -1rem 2.5rem rgba(20,6,14,.52), 0 0 2.7rem rgba(223,174,171,.2); }
+.cluster-ideas .cluster-orb::before { inset: -16px; border-width: 2px; transform: rotateX(72deg) rotateZ(-18deg); box-shadow: 0 0 18px rgba(225,194,166,.17); }
+.cluster-trajectory .cluster-orb { background: radial-gradient(circle at 62% 42%, rgba(255,244,207,.45) 0 3%, transparent 9%), linear-gradient(145deg, rgba(228,208,161,.22), transparent 35%), radial-gradient(circle at 40% 35%, #817350, #332f27 46%, #121310 76%); box-shadow: inset -1rem -1.2rem 2.3rem rgba(0,0,0,.6), 1.4rem .5rem 2.8rem rgba(227,205,154,.11); }
+.cluster-trajectory::after { content: ""; position: absolute; left: -4.5rem; top: 42%; width: 5rem; height: 1px; background: linear-gradient(90deg, transparent, rgba(230,207,156,.32)); transform: rotate(-9deg); pointer-events: none; }
+.cluster-now .cluster-orb { background: radial-gradient(circle at 32% 28%, #fff 0 4%, #dce4d4 12%, #81917c 43%, #252e29 72%); box-shadow: inset -.8rem -.8rem 1.7rem rgba(0,0,0,.48), 0 0 1rem rgba(225,241,219,.32), 0 0 3rem rgba(190,222,190,.16); }
+
+.satellite-layer { --anchor-x: 52%; --anchor-y: 54%; z-index: 4; display: block; }
+.universe[data-selected-cluster="build"] .satellite-layer { --anchor-x: 12%; --anchor-y: 50%; }
+.universe[data-selected-cluster="research"] .satellite-layer { --anchor-x: 87%; --anchor-y: 32%; }
+.universe[data-selected-cluster="ideas"] .satellite-layer { --anchor-x: 26%; --anchor-y: 82%; }
+.universe[data-selected-cluster="trajectory"] .satellite-layer { --anchor-x: 82%; --anchor-y: 82%; }
+.universe[data-selected-cluster="now"] .satellite-layer { --anchor-x: 64%; --anchor-y: 67%; }
+.project-satellite { --satellite-angle: -90deg; --satellite-counter: 90deg; position: absolute; left: var(--anchor-x); top: var(--anchor-y); display: flex; align-items: center; gap: .42rem; max-width: 10rem; padding: .3rem .48rem; border: 1px solid rgba(226,235,225,.24); border-radius: 99px; background: rgba(8,10,11,.82); color: var(--paper); font: 500 .52rem/1.2 var(--mono); text-align: left; transform: translate(-50%,-50%) rotate(var(--satellite-angle)) translateX(8.4rem) rotate(var(--satellite-counter)) rotate(var(--counter-rotation, 0deg)); pointer-events: auto; backdrop-filter: blur(9px); transition: border-color .2s, background .2s, opacity .35s, transform .6s cubic-bezier(.2,.75,.2,1); }
+.project-satellite:nth-child(2) { --satellite-angle: -18deg; --satellite-counter: 18deg; }
+.project-satellite:nth-child(3) { --satellite-angle: 54deg; --satellite-counter: -54deg; }
+.project-satellite:nth-child(4) { --satellite-angle: 126deg; --satellite-counter: -126deg; }
+.project-satellite:nth-child(5) { --satellite-angle: 198deg; --satellite-counter: -198deg; }
+.project-satellite i { flex: 0 0 auto; width: .42rem; height: .42rem; border-radius: 50%; background: var(--lime); box-shadow: 0 0 12px var(--lime); }
+.project-satellite span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.project-satellite:hover, .project-satellite:focus-visible { border-color: var(--lime); background: #131814; }
+.satellite-layer[hidden] { display: none; }
+
 .cluster-orb::before { content: ""; position: absolute; inset: -10px; border: 1px solid color-mix(in srgb, var(--tone), transparent 66%); border-left-color: transparent; border-bottom-color: transparent; border-radius: 50%; transform: rotateX(68deg) rotateZ(0); animation: orbit-ring 9s linear infinite; }
 .cluster-orb::after { content: ""; position: absolute; width: 4px; height: 4px; top: -8px; left: 50%; border-radius: 50%; background: var(--tone); box-shadow: 0 0 12px var(--tone); }
-.cluster:nth-child(2) .cluster-orb::before { animation-duration: 12s; animation-direction: reverse; }.cluster:nth-child(3) .cluster-orb::before { animation-duration: 7s; }.cluster:nth-child(4) .cluster-orb::before { animation-duration: 14s; animation-direction: reverse; }.cluster:nth-child(5) .cluster-orb::before { animation-duration: 8s; }
+.cluster-research .cluster-orb::before { animation-duration: 12s; animation-direction: reverse; }.cluster-ideas .cluster-orb::before { animation-duration: 7s; }.cluster-trajectory .cluster-orb::before { animation-duration: 14s; animation-direction: reverse; }.cluster-now .cluster-orb::before { animation-duration: 8s; }
 @keyframes orbit-ring { to { transform: rotateX(68deg) rotateZ(360deg); } }
 .cluster-orb { animation: planet-morph 7s ease-in-out infinite; will-change: transform, border-radius, filter; }
-.cluster:nth-child(2) .cluster-orb { animation-delay: -1.7s; animation-duration: 8.5s; }.cluster:nth-child(3) .cluster-orb { animation-delay: -3.1s; animation-duration: 6.8s; }.cluster:nth-child(4) .cluster-orb { animation-delay: -4.2s; animation-duration: 9.2s; }.cluster:nth-child(5) .cluster-orb { animation-delay: -2.4s; animation-duration: 7.7s; }
+.cluster-research .cluster-orb { animation-delay: -1.7s; animation-duration: 8.5s; }.cluster-ideas .cluster-orb { animation-delay: -3.1s; animation-duration: 6.8s; }.cluster-trajectory .cluster-orb { animation-delay: -4.2s; animation-duration: 9.2s; }.cluster-now .cluster-orb { animation-delay: -2.4s; animation-duration: 7.7s; }
 .cluster:hover .cluster-orb, .cluster:focus-visible .cluster-orb { animation-play-state: paused; transform: scale(1.12) rotate(2deg); }
 @keyframes planet-morph { 0%,100% { border-radius: 50% 47% 53% 48% / 48% 52% 46% 54%; transform: translateY(0) rotate(-1deg) scale(1); filter: saturate(.9); } 35% { border-radius: 46% 54% 48% 52% / 54% 47% 53% 46%; transform: translateY(-3px) rotate(1.5deg) scale(1.035,.98); filter: saturate(1.12); } 68% { border-radius: 53% 47% 55% 45% / 47% 55% 45% 53%; transform: translateY(2px) rotate(-.5deg) scale(.985,1.025); filter: saturate(1); } }
 .panel-node-copy { display: grid; gap: .2rem; min-width: 0; padding-right: 1rem; }
@@ -175,6 +214,7 @@ body.is-portfolio .resume-link:hover, body.is-over-portfolio .resume-link:hover 
   .identity-note { display: none; }.identity-actions { margin-top: 1rem; font-size: .59rem; }
   .black-hole { top: 69%; left: 50%; width: 14rem; }
   .cluster-map { top: 36%; }.cluster { width: 5.8rem; height: 5.8rem; }.cluster b { margin-top: 4.55rem; }
+  .satellite-layer { display: none !important; }
   .cluster-build { left: 1%; top: 34%; }.cluster-research { right: 1%; top: 10%; }.cluster-ideas { left: 2%; bottom: 5%; }.cluster-trajectory { right: 1%; bottom: 5%; }.cluster-now { right: 36%; top: 49%; }
   .top-actions { gap: 0; }.contact-constellation { display: flex; gap: .2rem; padding: 0; }.contact-constellation a { width: 1.45rem; height: 1.45rem; }.contact-constellation a:nth-child(n+4), .top-actions .resume-link { display: none; }
   .portfolio-hero { grid-template-columns: 6.5rem 1fr; gap: 1rem; }.portfolio-portrait { width: 6.5rem; }.portfolio-section { grid-template-columns: 1fr; gap: 1.1rem; }.section-label { position: static; }.project { grid-template-columns: 4.8rem 1fr; gap: .55rem 1rem; }.project-index { grid-column: 1; grid-row: 1 / span 4; }.project h3, .project-summary, .project-detail, .project .tags, .project > p:last-of-type, .project > a { grid-column: 2; }.project-summary { grid-row: auto; }.research-list article { grid-template-columns: 1fr; gap: .5rem; }.research-list p { font-size: .84rem; }.additional-work { grid-template-columns: 1fr; }.events-list summary { grid-template-columns: 1fr auto; }.events-list summary span { grid-template-columns: 1fr; gap: .15rem; }.events-list summary i { display: none; }.event-body { padding-left: 0; }

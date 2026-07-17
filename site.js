@@ -9,6 +9,7 @@ const universe = document.querySelector(".universe");
 const portfolio = document.querySelector(".portfolio");
 const canvas = document.querySelector(".field-canvas");
 const clusterMap = document.querySelector(".cluster-map");
+const satelliteLayer = document.querySelector("[data-satellite-layer]");
 const buttons = [...document.querySelectorAll(".cluster[data-cluster]")];
 const panel = document.querySelector(".explore-panel");
 const panelTitle = document.querySelector("[data-panel-title]");
@@ -101,6 +102,24 @@ function createPanelNode(item) {
   return node;
 }
 
+function createSatellite(item, index) {
+  const satellite = document.createElement("button");
+  satellite.type = "button";
+  satellite.className = "project-satellite";
+  satellite.style.setProperty("--satellite-index", index);
+  satellite.setAttribute("aria-label", `${item.title}. Open in portfolio.`);
+  const marker = document.createElement("i");
+  marker.setAttribute("aria-hidden", "true");
+  const label = document.createElement("span");
+  label.textContent = item.title;
+  satellite.append(marker, label);
+  satellite.addEventListener("click", () => {
+    controller.setMode("portfolio", { hash: "#portfolio" });
+    window.setTimeout(() => scrollTo(item.source, "center"), 50);
+  });
+  return satellite;
+}
+
 function createUniverseController() {
   let state = createUniverseState(location.hash);
   let lastFocus = null;
@@ -127,11 +146,16 @@ function createUniverseController() {
       panel.hidden = !isOpen;
       setInert(panel, !isOpen);
     }
+    if (satelliteLayer) {
+      satelliteLayer.hidden = !isOpen;
+      setInert(satelliteLayer, !isOpen);
+    }
     if (isOpen && state.selected !== previous.selected) {
       const id = state.selected;
       panelTitle.textContent = names[id];
       panelDescription.textContent = descriptions[id];
       panelNodes.replaceChildren(...content[id].slice(0, 5).map(createPanelNode));
+      satelliteLayer?.replaceChildren(...content[id].slice(0, 5).map(createSatellite));
       panelRoute.href = `#${clusterSections[id]}`;
       panelRoute.dataset.target = clusterSections[id];
       if (options.moveFocus) panelTitle.focus({ preventScroll: true });
