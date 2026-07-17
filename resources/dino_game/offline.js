@@ -911,6 +911,17 @@ export class Runner {
       let collision =
         hasObstacles && checkForCollision(this.horizon.obstacles[0], this.tRex);
 
+      const signal = this.horizon.signals?.[0];
+      if (signal && checkForCollision(signal, this.tRex)) {
+        signal.collected = true;
+        signal.remove = true;
+        this.horizon.signals.shift();
+        this.emit('signalcollect', {
+          score: this.distanceMeter.getActualDistance(Math.ceil(this.distanceRan))
+        });
+        this.playSound(this.soundFx.SCORE);
+      }
+
       // For a11y, audio cues.
       if (Runner.audioCues && hasObstacles) {
         const jumpObstacle =

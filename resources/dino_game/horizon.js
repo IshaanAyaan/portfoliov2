@@ -29,6 +29,7 @@ export class Horizon {
     this.dimensions = dimensions;
     this.gapCoefficient = gapCoefficient;
     this.obstacles = [];
+    this.signals = [];
     this.obstacleHistory = [];
     this.horizonOffsets = [0, 0];
     this.cloudFrequency = this.config.CLOUD_FREQUENCY;
@@ -147,6 +148,7 @@ export class Horizon {
 
     if (updateObstacles) {
       this.updateObstacles(deltaTime, currentSpeed);
+      this.updateSignals(deltaTime, currentSpeed);
     }
   }
 
@@ -260,6 +262,39 @@ export class Horizon {
     this.obstacles.shift();
   }
 
+  updateSignals(deltaTime, currentSpeed) {
+    const active = [];
+    for (const signal of this.signals) {
+      signal.update(deltaTime, currentSpeed);
+      if (!signal.remove) active.push(signal);
+      else if (!signal.collected) window.TrexRunner?.emit('signalmiss');
+    }
+    this.signals = active;
+  }
+
+  addSignal(currentSpeed) {
+    if (this.signals.length || Math.random() > .34) return;
+    const type = spriteDefinitionByType.original.OBSTACLES.find(({ type }) => type === 'COLLECTABLE');
+    if (!type) return;
+    const cosmicSignal = {
+      ...type,
+      width: 24,
+      height: 24,
+      yPos: getRandomNum(55, 88),
+      collisionBoxes: type.collisionBoxes
+    };
+    this.signals.push(new Obstacle(
+      this.canvasCtx,
+      cosmicSignal,
+      this.spritePos.COLLECTABLE,
+      this.dimensions,
+      this.gapCoefficient,
+      currentSpeed,
+      getRandomNum(130, 240),
+      false
+    ));
+  }
+
   /**
    * Add a new obstacle.
    * @param {number} currentSpeed
@@ -297,6 +332,7 @@ export class Horizon {
           this.altGameModeActive
         )
       );
+      this.addSignal(currentSpeed);
 
       this.obstacleHistory.unshift(obstacleType.type);
 
@@ -329,6 +365,7 @@ export class Horizon {
    */
   reset() {
     this.obstacles = [];
+    this.signals = [];
     for (let l = 0; l < this.horizonLines.length; l++) {
       this.horizonLines[l].reset();
     }
