@@ -1,6 +1,7 @@
 import "./trex-runner.js";
 import {
   ACHIEVEMENTS,
+  TRANSMISSIONS,
   loadGameState,
   recordRunStart,
   recordScore,
@@ -32,6 +33,8 @@ const gameFrame = document.querySelector("[data-game-frame]");
 const biomeElement = document.querySelector("[data-biome]");
 const signalsElement = document.querySelector("[data-signals]");
 const multiplierElement = document.querySelector("[data-multiplier]");
+const transmissionsElement = document.querySelector("[data-transmissions]");
+const achievementsElement = document.querySelector("[data-achievements]");
 const formatScore = (score) => String(Math.max(0, Math.floor(score))).padStart(5, "0");
 const themeOrder = ["system", "dark", "light"];
 
@@ -60,6 +63,38 @@ function renderPersistentState() {
   if (achievementElement && latest) {
     achievementElement.textContent = `${latest.label} recovered. Progress is saved in this browser.`;
   }
+
+  if (transmissionsElement) {
+    transmissionsElement.replaceChildren(...TRANSMISSIONS.map((transmission) => {
+      const item = document.createElement("li");
+      const unlocked = gameState.unlockedTransmissions.includes(transmission.id);
+      item.classList.toggle("is-unlocked", unlocked);
+      if (unlocked) {
+        const link = document.createElement("a");
+        link.href = transmission.href;
+        link.textContent = transmission.label;
+        item.append(link);
+      } else {
+        item.append(`Recover ${transmission.threshold} signal${transmission.threshold === 1 ? "" : "s"}`);
+      }
+      return item;
+    }));
+  }
+
+  if (achievementsElement) {
+    achievementsElement.replaceChildren(...ACHIEVEMENTS.map((achievement) => {
+      const item = document.createElement("li");
+      item.classList.toggle("is-unlocked", gameState.achievements.includes(achievement.id));
+      item.textContent = achievement.label;
+      return item;
+    }));
+  }
+}
+
+function announceNewAchievement(previous, next) {
+  const newId = next.achievements.find((id) => !previous.achievements.includes(id));
+  const achievement = ACHIEVEMENTS.find(({ id }) => id === newId);
+  if (achievement) announce(`Achievement unlocked: ${achievement.label}.`);
 }
 
 function runner() {
@@ -114,8 +149,10 @@ function restart() {
 
 gameRoot?.addEventListener("cosmicrun:start", () => {
   runState = createRunState();
+  const previous = gameState;
   gameState = saveGameState(recordRunStart(gameState));
   renderPersistentState();
+  announceNewAchievement(previous, gameState);
   if (promptElement) promptElement.hidden = true;
   if (pauseButton) pauseButton.innerHTML = '<span aria-hidden="true">Ⅱ</span> Pause';
   renderRunState();
@@ -123,15 +160,24 @@ gameRoot?.addEventListener("cosmicrun:start", () => {
 
 gameRoot?.addEventListener("cosmicrun:score", ({ detail }) => {
   runState = applyDistanceScore(runState, detail.score);
+  if ((runState.totalScore >= 500 && !gameState.achievements.includes("score-500")) ||
+      (runState.totalScore >= 1000 && !gameState.achievements.includes("score-1000"))) {
+    const previous = gameState;
+    gameState = saveGameState(recordScore(gameState, runState.totalScore));
+    renderPersistentState();
+    announceNewAchievement(previous, gameState);
+  }
   renderRunState();
 });
 
 gameRoot?.addEventListener("cosmicrun:signalcollect", () => {
   runState = collectSignal(runState);
+  const previous = gameState;
   gameState = saveGameState(recordSignal(gameState));
   renderRunState();
   renderPersistentState();
-  announce(`Signal recovered. Multiplier ${runState.combo} times.`);
+  if (gameState.achievements.length > previous.achievements.length) announceNewAchievement(previous, gameState);
+  else announce(`Signal recovered. Multiplier ${runState.combo} times.`);
 });
 
 gameRoot?.addEventListener("cosmicrun:signalmiss", () => {
