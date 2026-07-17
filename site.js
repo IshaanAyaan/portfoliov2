@@ -17,6 +17,7 @@ const panelDescription = document.querySelector("[data-panel-description]");
 const panelNodes = document.querySelector("[data-panel-nodes]");
 const panelRoute = document.querySelector("[data-panel-route]");
 const closer = document.querySelector(".panel-close");
+let suppressClusterClick = false;
 
 const clusterSections = {
   build: "work",
@@ -81,6 +82,7 @@ function scrollTo(element, block = "start") {
 }
 
 function createPanelNode(item) {
+  const listItem = document.createElement("li");
   const node = document.createElement("button");
   node.type = "button";
   node.className = "panel-node";
@@ -99,7 +101,8 @@ function createPanelNode(item) {
     controller.setMode("portfolio", { hash: "#portfolio" });
     window.setTimeout(() => scrollTo(item.source, "center"), 50);
   });
-  return node;
+  listItem.append(node);
+  return listItem;
 }
 
 function createSatellite(item, index) {
@@ -236,10 +239,14 @@ const controller = createUniverseController();
 window.__portfolioUniverse = controller;
 
 buttons.forEach((button) => {
-  button.addEventListener("click", () => controller.select(button.dataset.cluster, {
-    trigger: button,
-    moveFocus: true
-  }));
+  button.addEventListener("click", (event) => {
+    if (suppressClusterClick) {
+      event.preventDefault();
+      suppressClusterClick = false;
+      return;
+    }
+    controller.select(button.dataset.cluster, { trigger: button, moveFocus: true });
+  });
 });
 closer?.addEventListener("click", () => controller.clear({ restoreFocus: true }));
 universe?.addEventListener("click", (event) => {
@@ -333,8 +340,13 @@ function createFieldController() {
   let particles = [];
   let frame = 0;
   let running = false;
+  let requested = false;
+  let visible = true;
   let width = 0;
   let height = 0;
+  let rotation = 0;
+  let angularVelocity = 0;
+  let gesture = null;
 
   function resize() {
     const rect = universe.getBoundingClientRect();
@@ -357,6 +369,12 @@ function createFieldController() {
 
   function draw(time = 0) {
     context.clearRect(0, 0, width, height);
+    if (!gesture?.active && Math.abs(angularVelocity) > .001) {
+      rotation += angularVelocity;
+      angularVelocity *= .94;
+    }
+    clusterMap?.style.setProperty("--field-rotation", `${rotation.toFixed(3)}deg`);
+    clusterMap?.style.setProperty("--counter-rotation", `${(-rotation).toFixed(3)}deg`);
     const centerX = width * .52;
     const centerY = height * .69;
     particles.forEach((particle) => {
@@ -368,25 +386,95 @@ function createFieldController() {
       context.fillStyle = `rgba(213, 224, 213, ${particle.alpha})`;
       context.fill();
     });
-    if (running && !reduceMotion.matches) frame = requestAnimationFrame(draw);
+    if (running) frame = requestAnimationFrame(draw);
+  }
+
+  function sync() {
+    const shouldRun = requested && visible && !document.hidden && !reduceMotion.matches;
+    if (shouldRun && !running) {
+      running = true;
+      frame = requestAnimationFrame(draw);
+    } else if (!shouldRun && running) {
+      running = false;
+      cancelAnimationFrame(frame);
+    }
+    if (reduceMotion.matches) draw(0);
+  }
+
+  function onPointerDown(event) {
+    if (reduceMotion.matches || event.button > 0 || controller.getState().selected) return;
+    gesture = {
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startY: event.clientY,
+      previousX: event.clientX,
+      active: false,
+      moved: false
+    };
+  }
+
+  function onPointerMove(event) {
+    if (!gesture || event.pointerId !== gesture.pointerId) return;
+    const totalX = event.clientX - gesture.startX;
+    const totalY = event.clientY - gesture.startY;
+    if (!gesture.active && Math.abs(totalX) > 9 && Math.abs(totalX) > Math.abs(totalY) * 1.15) {
+      gesture.active = true;
+      clusterMap.classList.add("is-dragging");
+      try { clusterMap.setPointerCapture(event.pointerId); } catch (_) {}
+    }
+    if (!gesture.active) return;
+    event.preventDefault();
+    const deltaX = event.clientX - gesture.previousX;
+    gesture.previousX = event.clientX;
+    gesture.moved ||= Math.abs(totalX) > 12;
+    rotation += deltaX * .11;
+    angularVelocity = deltaX * .018;
+    clusterMap.style.setProperty("--field-rotation", `${rotation.toFixed(3)}deg`);
+    clusterMap.style.setProperty("--counter-rotation", `${(-rotation).toFixed(3)}deg`);
+  }
+
+  function finishPointer(event) {
+    if (!gesture || event.pointerId !== gesture.pointerId) return;
+    if (gesture.moved) {
+      suppressClusterClick = true;
+      window.setTimeout(() => { suppressClusterClick = false; }, 0);
+    }
+    clusterMap.classList.remove("is-dragging");
+    if (clusterMap.hasPointerCapture?.(event.pointerId)) clusterMap.releasePointerCapture(event.pointerId);
+    gesture = null;
   }
 
   const onResize = () => { resize(); draw(); };
   window.addEventListener("resize", onResize);
+  clusterMap?.addEventListener("pointerdown", onPointerDown);
+  clusterMap?.addEventListener("pointermove", onPointerMove, { passive: false });
+  clusterMap?.addEventListener("pointerup", finishPointer);
+  clusterMap?.addEventListener("pointercancel", finishPointer);
+  const observer = "IntersectionObserver" in window
+    ? new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting && entry.intersectionRatio > .01;
+      sync();
+    }, { threshold: [0, .01] })
+    : null;
+  observer?.observe(universe);
   resize();
   draw();
   return {
-    pause() { running = false; cancelAnimationFrame(frame); },
+    pause() { requested = false; sync(); },
     resume() {
-      if (running) return;
-      running = true;
-      if (!reduceMotion.matches) frame = requestAnimationFrame(draw);
-      else draw();
+      requested = true;
+      sync();
     },
     destroy() {
+      requested = false;
       running = false;
       cancelAnimationFrame(frame);
+      observer?.disconnect();
       window.removeEventListener("resize", onResize);
+      clusterMap?.removeEventListener("pointerdown", onPointerDown);
+      clusterMap?.removeEventListener("pointermove", onPointerMove);
+      clusterMap?.removeEventListener("pointerup", finishPointer);
+      clusterMap?.removeEventListener("pointercancel", finishPointer);
       context.clearRect(0, 0, width, height);
     }
   };

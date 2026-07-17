@@ -48,7 +48,7 @@
 @keyframes hole-ring-four { to { transform: rotate(377deg) scaleY(.23); } }
 @keyframes hole-ring-five { to { transform: rotate(472deg) scaleY(.2); } }
 .universe { --camera-x: 0px; --camera-y: 0px; --camera-scale: 1; }
-.cluster-map { top: 33.333%; transform: translate3d(var(--camera-x),var(--camera-y),0) scale(var(--camera-scale)) rotate(var(--field-rotation, 0deg)); transform-origin: 52% 54%; will-change: transform; touch-action: none; transition: transform 1s cubic-bezier(.16,.76,.18,1); }
+.cluster-map { top: 33.333%; transform: translate3d(var(--camera-x),var(--camera-y),0) scale(var(--camera-scale)) rotate(var(--field-rotation, 0deg)); transform-origin: 52% 54%; will-change: transform; touch-action: pan-y; transition: transform 1s cubic-bezier(.16,.76,.18,1); }
 .cluster-map.is-dragging { cursor: grabbing; }
 .orbit-tracks, .constellation-lines, .satellite-layer { position: absolute; inset: 0; pointer-events: none; }
 .orbit-tracks { z-index: 0; opacity: .7; }
@@ -112,8 +112,10 @@
 .universe.is-open .universe-prompt { opacity: 0; }
 
 .explore-panel { top: 5.6rem; right: clamp(1rem,2vw,1.7rem); bottom: clamp(1rem,2vw,1.7rem); left: auto; width: min(28rem,calc(100vw - 2rem)); max-height: none; display: flex; flex-direction: column; padding: clamp(1.4rem,3vw,2.2rem); transform: translateX(2rem) scale(.985); border-radius: 1rem; background: linear-gradient(160deg,rgba(19,22,22,.91),rgba(8,10,12,.84)); opacity: 0; overflow: auto; }
+.explore-panel[hidden] { display: none; }
 .universe.is-open .explore-panel { transform: translateX(0) scale(1); opacity: 1; }
 .explore-panel .panel-nodes { margin-bottom: auto; }
+.panel-nodes { padding: 0; list-style: none; }
 .explore-panel h2:focus { outline: none; }
 .explore-panel h2:focus-visible { outline: 2px solid var(--lime); outline-offset: .4rem; }
 
