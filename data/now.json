@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-17T22:33:20+00:00",
+  "updatedAt": "2026-07-18T05:37:52+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -8,57 +8,55 @@
     "topTimeRange": "short_term",
     "recentTracks": [
       {
-        "name": "Low Life (feat. The Weeknd)",
-        "artistNames": [
-          "Future",
-          "The Weeknd"
-        ],
-        "albumName": "EVOL",
-        "playedAt": "2026-07-17T22:19:57.536Z",
-        "url": "https://open.spotify.com/track/7EiZI6JVHllARrX9PUvAdX",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2732f62a05cc754995b544ec1f6"
-      },
-      {
-        "name": "The Birds Pt. 2",
+        "name": "House Of Balloons / Glass Table Girls",
         "artistNames": [
           "The Weeknd"
         ],
-        "albumName": "Trilogy",
-        "playedAt": "2026-07-17T22:14:49.933Z",
-        "url": "https://open.spotify.com/track/4Mnnd0fBRucoxGhtG7MccI",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273158c84a1b6f8b935dc7fa9a9"
+        "albumName": "House Of Balloons (Original)",
+        "playedAt": "2026-07-18T01:15:18.893Z",
+        "url": "https://open.spotify.com/track/2r7BPog74oaTG5shNYiUnV",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273274b406a7e18acebcf743079"
       },
       {
-        "name": "Bound 2",
+        "name": "NOBLE (with The Kid LAROI)",
         "artistNames": [
-          "Kanye West"
+          "F3miii",
+          "The Kid LAROI"
         ],
-        "albumName": "Yeezus",
-        "playedAt": "2026-07-17T21:56:59.557Z",
-        "url": "https://open.spotify.com/track/3sNVsP50132BTNlImLx70i",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2731dacfbc31cc873d132958af9"
+        "albumName": "NOBLE (with The Kid LAROI)",
+        "playedAt": "2026-07-18T01:08:24.991Z",
+        "url": "https://open.spotify.com/track/00meonIF1VYLe1eTcx3w9e",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273bc7580dac985ac06192dbbde"
       },
       {
-        "name": "Ima Boss (feat. Rick Ross)",
+        "name": "sdp interlude",
         "artistNames": [
-          "Meek Mill",
-          "Rick Ross"
+          "Travis Scott"
         ],
-        "albumName": "MMG Presents: Self Made, Vol. 1",
-        "playedAt": "2026-07-17T20:51:21.041Z",
-        "url": "https://open.spotify.com/track/7sjwaBQ6M3aVigYfBjm1sL",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273c3db0fe3a8ed529a9c388dc9"
+        "albumName": "Birds In The Trap Sing McKnight",
+        "playedAt": "2026-07-18T00:50:56.222Z",
+        "url": "https://open.spotify.com/track/4gh0ZnHzaTMT1sDga7Ek0N",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2738752a7355996e64709247c53"
       },
       {
-        "name": "Flawl\u00ebss (feat. Lil Uzi Vert)",
+        "name": "Les",
         "artistNames": [
-          "Yeat",
-          "Lil Uzi Vert"
+          "Childish Gambino"
         ],
-        "albumName": "Lyf\u00eb",
-        "playedAt": "2026-07-17T20:46:17.532Z",
-        "url": "https://open.spotify.com/track/1a019wP7IdYLexwbmfZPm3",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2737aee5b36a3a60ca926bc429b"
+        "albumName": "Camp",
+        "playedAt": "2026-07-18T00:47:50.570Z",
+        "url": "https://open.spotify.com/track/7ghKr0pCYyPPyp7t1FH8k4",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2736182cfe2e2a090d125c81dc0"
+      },
+      {
+        "name": "Coming Down",
+        "artistNames": [
+          "The Weeknd"
+        ],
+        "albumName": "House Of Balloons (Original)",
+        "playedAt": "2026-07-18T00:38:29.813Z",
+        "url": "https://open.spotify.com/track/3mHO1J6kfiArjBo1zhLFGP",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273274b406a7e18acebcf743079"
       }
     ],
     "topTracks": [
@@ -102,6 +100,11 @@
     ],
     "topArtists": [
       {
+        "name": "The Weeknd",
+        "genres": [],
+        "url": "https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ"
+      },
+      {
         "name": "Drake",
         "genres": [],
         "url": "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4"
@@ -115,11 +118,6 @@
         "name": "Michael Jackson",
         "genres": [],
         "url": "https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm"
-      },
-      {
-        "name": "The Weeknd",
-        "genres": [],
-        "url": "https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ"
       },
       {
         "name": "Kanye West",
