@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-19T03:31:13+00:00",
+  "updatedAt": "2026-07-19T15:51:44+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -7,6 +7,16 @@
   "spotify": {
     "topTimeRange": "short_term",
     "recentTracks": [
+      {
+        "name": "3005",
+        "artistNames": [
+          "Childish Gambino"
+        ],
+        "albumName": "Because the Internet",
+        "playedAt": "2026-07-19T06:14:28.959Z",
+        "url": "https://open.spotify.com/track/2X6b7zLdIxCejd6GqVcQ9M",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27321b2b485aef32bcc96c1875c"
+      },
       {
         "name": "COM\u00cb N GO",
         "artistNames": [
@@ -47,17 +57,6 @@
         "playedAt": "2026-07-18T01:15:18.893Z",
         "url": "https://open.spotify.com/track/2r7BPog74oaTG5shNYiUnV",
         "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273274b406a7e18acebcf743079"
-      },
-      {
-        "name": "NOBLE (with The Kid LAROI)",
-        "artistNames": [
-          "F3miii",
-          "The Kid LAROI"
-        ],
-        "albumName": "NOBLE (with The Kid LAROI)",
-        "playedAt": "2026-07-18T01:08:24.991Z",
-        "url": "https://open.spotify.com/track/00meonIF1VYLe1eTcx3w9e",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273bc7580dac985ac06192dbbde"
       }
     ],
     "topTracks": [
@@ -106,11 +105,6 @@
         "url": "https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ"
       },
       {
-        "name": "Drake",
-        "genres": [],
-        "url": "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4"
-      },
-      {
         "name": "Michael Jackson",
         "genres": [],
         "url": "https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm"
@@ -119,6 +113,11 @@
         "name": "Don Toliver",
         "genres": [],
         "url": "https://open.spotify.com/artist/4Gso3d4CscCijv0lmajZWs"
+      },
+      {
+        "name": "Drake",
+        "genres": [],
+        "url": "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4"
       },
       {
         "name": "Kanye West",
