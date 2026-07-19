@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-18T18:53:51+00:00",
+  "updatedAt": "2026-07-19T03:31:13+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -7,6 +7,37 @@
   "spotify": {
     "topTimeRange": "short_term",
     "recentTracks": [
+      {
+        "name": "COM\u00cb N GO",
+        "artistNames": [
+          "Yeat"
+        ],
+        "albumName": "DANGEROUS SUMMER",
+        "playedAt": "2026-07-19T02:19:04.515Z",
+        "url": "https://open.spotify.com/track/2mNGL7mZILSqZHxGboJaO9",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273e35aad7bbe4508513f36fd58"
+      },
+      {
+        "name": "COM\u00cb N GO",
+        "artistNames": [
+          "Yeat"
+        ],
+        "albumName": "DANGEROUS SUMMER",
+        "playedAt": "2026-07-19T02:18:31.610Z",
+        "url": "https://open.spotify.com/track/2mNGL7mZILSqZHxGboJaO9",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273e35aad7bbe4508513f36fd58"
+      },
+      {
+        "name": "Cinderella (feat. Ty Dolla $ign)",
+        "artistNames": [
+          "Mac Miller",
+          "Ty Dolla $ign"
+        ],
+        "albumName": "The Divine Feminine",
+        "playedAt": "2026-07-19T01:00:36.307Z",
+        "url": "https://open.spotify.com/track/2lpygKqzPFtItQ4ss3cgfb",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2732e92f776279eaf45d14a33fd"
+      },
       {
         "name": "House Of Balloons / Glass Table Girls",
         "artistNames": [
@@ -27,46 +58,9 @@
         "playedAt": "2026-07-18T01:08:24.991Z",
         "url": "https://open.spotify.com/track/00meonIF1VYLe1eTcx3w9e",
         "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273bc7580dac985ac06192dbbde"
-      },
-      {
-        "name": "sdp interlude",
-        "artistNames": [
-          "Travis Scott"
-        ],
-        "albumName": "Birds In The Trap Sing McKnight",
-        "playedAt": "2026-07-18T00:50:56.222Z",
-        "url": "https://open.spotify.com/track/4gh0ZnHzaTMT1sDga7Ek0N",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2738752a7355996e64709247c53"
-      },
-      {
-        "name": "Les",
-        "artistNames": [
-          "Childish Gambino"
-        ],
-        "albumName": "Camp",
-        "playedAt": "2026-07-18T00:47:50.570Z",
-        "url": "https://open.spotify.com/track/7ghKr0pCYyPPyp7t1FH8k4",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2736182cfe2e2a090d125c81dc0"
-      },
-      {
-        "name": "Coming Down",
-        "artistNames": [
-          "The Weeknd"
-        ],
-        "albumName": "House Of Balloons (Original)",
-        "playedAt": "2026-07-18T00:38:29.813Z",
-        "url": "https://open.spotify.com/track/3mHO1J6kfiArjBo1zhLFGP",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273274b406a7e18acebcf743079"
       }
     ],
     "topTracks": [
-      {
-        "name": "Headlines",
-        "artistNames": [
-          "Drake"
-        ],
-        "url": "https://open.spotify.com/track/6LxSe8YmdPxy095Ux6znaQ"
-      },
       {
         "name": "DJ Got Us Fallin' In Love (feat. Pitbull)",
         "artistNames": [
@@ -74,6 +68,13 @@
           "Pitbull"
         ],
         "url": "https://open.spotify.com/track/4356Typ82hUiFAynbLYbPn"
+      },
+      {
+        "name": "Headlines",
+        "artistNames": [
+          "Drake"
+        ],
+        "url": "https://open.spotify.com/track/6LxSe8YmdPxy095Ux6znaQ"
       },
       {
         "name": "DNA.",
@@ -110,14 +111,14 @@
         "url": "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4"
       },
       {
-        "name": "Don Toliver",
-        "genres": [],
-        "url": "https://open.spotify.com/artist/4Gso3d4CscCijv0lmajZWs"
-      },
-      {
         "name": "Michael Jackson",
         "genres": [],
         "url": "https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm"
+      },
+      {
+        "name": "Don Toliver",
+        "genres": [],
+        "url": "https://open.spotify.com/artist/4Gso3d4CscCijv0lmajZWs"
       },
       {
         "name": "Kanye West",
