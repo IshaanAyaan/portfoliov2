@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-19T15:51:44+00:00",
+  "updatedAt": "2026-07-20T00:10:36+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -7,6 +7,17 @@
   "spotify": {
     "topTimeRange": "short_term",
     "recentTracks": [
+      {
+        "name": "Drugs N Hella Melodies (feat. Kali Uchis)",
+        "artistNames": [
+          "Don Toliver",
+          "Kali Uchis"
+        ],
+        "albumName": "Life of a DON",
+        "playedAt": "2026-07-20T00:08:03.936Z",
+        "url": "https://open.spotify.com/track/0IX5OFffosy8wk16m1IFCa",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27372951fef63d89bee5e8224c7"
+      },
       {
         "name": "3005",
         "artistNames": [
@@ -47,16 +58,6 @@
         "playedAt": "2026-07-19T01:00:36.307Z",
         "url": "https://open.spotify.com/track/2lpygKqzPFtItQ4ss3cgfb",
         "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2732e92f776279eaf45d14a33fd"
-      },
-      {
-        "name": "House Of Balloons / Glass Table Girls",
-        "artistNames": [
-          "The Weeknd"
-        ],
-        "albumName": "House Of Balloons (Original)",
-        "playedAt": "2026-07-18T01:15:18.893Z",
-        "url": "https://open.spotify.com/track/2r7BPog74oaTG5shNYiUnV",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273274b406a7e18acebcf743079"
       }
     ],
     "topTracks": [
