@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T20:06:06+00:00",
+  "updatedAt": "2026-07-20T23:38:42+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -7,6 +7,17 @@
   "spotify": {
     "topTimeRange": "short_term",
     "recentTracks": [
+      {
+        "name": "Just Dance",
+        "artistNames": [
+          "Lady Gaga",
+          "Colby O'Donis"
+        ],
+        "albumName": "The Fame",
+        "playedAt": "2026-07-20T23:30:22.276Z",
+        "url": "https://open.spotify.com/track/2x7MyWybabEz6Y6wvHuwGE",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273613aaa3ae566d9f36008aed0"
+      },
       {
         "name": "No One Noticed",
         "artistNames": [
@@ -47,17 +58,6 @@
         "playedAt": "2026-07-20T05:05:31.947Z",
         "url": "https://open.spotify.com/track/6IyoLWzljeR3ldQo4KWHT6",
         "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2737aee5b36a3a60ca926bc429b"
-      },
-      {
-        "name": "Moth To A Flame (with The Weeknd)",
-        "artistNames": [
-          "Swedish House Mafia",
-          "The Weeknd"
-        ],
-        "albumName": "Dawn FM (Alternate World)",
-        "playedAt": "2026-07-20T05:03:00.708Z",
-        "url": "https://open.spotify.com/track/1S9DHKpS73KFVN7nnIql3f",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273ade87e5f9c3764f0a1e5df64"
       }
     ],
     "topTracks": [
