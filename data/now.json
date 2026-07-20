@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T00:10:36+00:00",
+  "updatedAt": "2026-07-20T20:06:06+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -8,56 +8,56 @@
     "topTimeRange": "short_term",
     "recentTracks": [
       {
-        "name": "Drugs N Hella Melodies (feat. Kali Uchis)",
+        "name": "No One Noticed",
         "artistNames": [
-          "Don Toliver",
-          "Kali Uchis"
+          "The Mar\u00edas"
         ],
-        "albumName": "Life of a DON",
-        "playedAt": "2026-07-20T00:08:03.936Z",
-        "url": "https://open.spotify.com/track/0IX5OFffosy8wk16m1IFCa",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27372951fef63d89bee5e8224c7"
+        "albumName": "Submarine",
+        "playedAt": "2026-07-20T05:10:37.145Z",
+        "url": "https://open.spotify.com/track/3siwsiaEoU4Kuuc9WKMUy5",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2738aa339341a0b0c813909c831"
       },
       {
-        "name": "3005",
+        "name": "No One Noticed",
         "artistNames": [
-          "Childish Gambino"
+          "The Mar\u00edas"
         ],
-        "albumName": "Because the Internet",
-        "playedAt": "2026-07-19T06:14:28.959Z",
-        "url": "https://open.spotify.com/track/2X6b7zLdIxCejd6GqVcQ9M",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27321b2b485aef32bcc96c1875c"
+        "albumName": "Submarine",
+        "playedAt": "2026-07-20T05:10:22.589Z",
+        "url": "https://open.spotify.com/track/3siwsiaEoU4Kuuc9WKMUy5",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2738aa339341a0b0c813909c831"
       },
       {
-        "name": "COM\u00cb N GO",
+        "name": "Save Your Tears (Remix) (with Ariana Grande) - Bonus Track",
+        "artistNames": [
+          "The Weeknd",
+          "Ariana Grande"
+        ],
+        "albumName": "After Hours (Deluxe)",
+        "playedAt": "2026-07-20T05:09:12.586Z",
+        "url": "https://open.spotify.com/track/1oFAF1hdPOickyHgbuRjyX",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273b5097b81179824803664aaaf"
+      },
+      {
+        "name": "Out th\u00eb way",
         "artistNames": [
           "Yeat"
         ],
-        "albumName": "DANGEROUS SUMMER",
-        "playedAt": "2026-07-19T02:19:04.515Z",
-        "url": "https://open.spotify.com/track/2mNGL7mZILSqZHxGboJaO9",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273e35aad7bbe4508513f36fd58"
+        "albumName": "Lyf\u00eb",
+        "playedAt": "2026-07-20T05:05:31.947Z",
+        "url": "https://open.spotify.com/track/6IyoLWzljeR3ldQo4KWHT6",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2737aee5b36a3a60ca926bc429b"
       },
       {
-        "name": "COM\u00cb N GO",
+        "name": "Moth To A Flame (with The Weeknd)",
         "artistNames": [
-          "Yeat"
+          "Swedish House Mafia",
+          "The Weeknd"
         ],
-        "albumName": "DANGEROUS SUMMER",
-        "playedAt": "2026-07-19T02:18:31.610Z",
-        "url": "https://open.spotify.com/track/2mNGL7mZILSqZHxGboJaO9",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273e35aad7bbe4508513f36fd58"
-      },
-      {
-        "name": "Cinderella (feat. Ty Dolla $ign)",
-        "artistNames": [
-          "Mac Miller",
-          "Ty Dolla $ign"
-        ],
-        "albumName": "The Divine Feminine",
-        "playedAt": "2026-07-19T01:00:36.307Z",
-        "url": "https://open.spotify.com/track/2lpygKqzPFtItQ4ss3cgfb",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2732e92f776279eaf45d14a33fd"
+        "albumName": "Dawn FM (Alternate World)",
+        "playedAt": "2026-07-20T05:03:00.708Z",
+        "url": "https://open.spotify.com/track/1S9DHKpS73KFVN7nnIql3f",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273ade87e5f9c3764f0a1e5df64"
       }
     ],
     "topTracks": [
@@ -77,13 +77,6 @@
         "url": "https://open.spotify.com/track/6LxSe8YmdPxy095Ux6znaQ"
       },
       {
-        "name": "DNA.",
-        "artistNames": [
-          "Kendrick Lamar"
-        ],
-        "url": "https://open.spotify.com/track/6HZILIRieu8S0iqY8kIKhj"
-      },
-      {
         "name": "Hotel California - 2013 Remaster",
         "artistNames": [
           "Eagles"
@@ -97,6 +90,13 @@
           "Swae Lee"
         ],
         "url": "https://open.spotify.com/track/0RiRZpuVRbi7oqRdSMwhQY"
+      },
+      {
+        "name": "(I Just) Died In Your Arms",
+        "artistNames": [
+          "Cutting Crew"
+        ],
+        "url": "https://open.spotify.com/track/4ByEFOBuLXpCqvO1kw8Wdm"
       }
     ],
     "topArtists": [
@@ -106,24 +106,24 @@
         "url": "https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ"
       },
       {
-        "name": "Michael Jackson",
-        "genres": [],
-        "url": "https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm"
-      },
-      {
         "name": "Don Toliver",
         "genres": [],
         "url": "https://open.spotify.com/artist/4Gso3d4CscCijv0lmajZWs"
       },
       {
-        "name": "Drake",
+        "name": "Michael Jackson",
         "genres": [],
-        "url": "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4"
+        "url": "https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm"
       },
       {
         "name": "Kanye West",
         "genres": [],
         "url": "https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x"
+      },
+      {
+        "name": "Drake",
+        "genres": [],
+        "url": "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4"
       }
     ]
   }
