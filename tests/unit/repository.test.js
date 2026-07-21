@@ -54,6 +54,9 @@ test("automation dependencies are pinned and narrowly authorized", async () => {
   assert.doesNotMatch(workflow, /uses:\s+[^\s@]+@v\d/);
   assert.match(workflow, /permissions: \{\}/);
   assert.match(workflow, /github-actions\[bot\]/);
+  assert.match(workflow, /GIT_AUTHOR_NAME="Ishaan Ranjan"/);
+  assert.match(workflow, /74154950\+IshaanAyaan@users\.noreply\.github\.com/);
+  assert.match(workflow, /Generated-by: GitHub Actions/);
   assert.match(workflow, /cron: "17 15-23,0-4 \* \* \*"/);
   assert.match(workflow, /concurrency:/);
   assert.match(workflow, /force_refresh:/);
