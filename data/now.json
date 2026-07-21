@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-21T06:33:10+00:00",
+  "updatedAt": "2026-07-21T18:40:56+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -7,6 +7,16 @@
   "spotify": {
     "topTimeRange": "short_term",
     "recentTracks": [
+      {
+        "name": "Blow Your Mind (Mwah)",
+        "artistNames": [
+          "Dua Lipa"
+        ],
+        "albumName": "Blow Your Mind (Mwah)",
+        "playedAt": "2026-07-21T04:34:34.863Z",
+        "url": "https://open.spotify.com/track/7kJlTKjNZVT26iwiDUVhRm",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2736f3a9d2b11ad1707cbb88369"
+      },
       {
         "name": "Sailor Song",
         "artistNames": [
@@ -47,17 +57,6 @@
         "playedAt": "2026-07-20T05:10:22.589Z",
         "url": "https://open.spotify.com/track/3siwsiaEoU4Kuuc9WKMUy5",
         "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2738aa339341a0b0c813909c831"
-      },
-      {
-        "name": "Save Your Tears (Remix) (with Ariana Grande) - Bonus Track",
-        "artistNames": [
-          "The Weeknd",
-          "Ariana Grande"
-        ],
-        "albumName": "After Hours (Deluxe)",
-        "playedAt": "2026-07-20T05:09:12.586Z",
-        "url": "https://open.spotify.com/track/1oFAF1hdPOickyHgbuRjyX",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273b5097b81179824803664aaaf"
       }
     ],
     "topTracks": [
