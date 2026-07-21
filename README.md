@@ -83,3 +83,6 @@ explicitly identifies the refresh as automated. Commit-name and commit-email
 secrets are intentionally unnecessary. Scheduled runs wake hourly during the
 Phoenix daytime and refresh the widget when its data is from a prior local day or
 at least four hours old. Manual runs can force an immediate refresh.
+If Spotify temporarily rejects one user-data endpoint with HTTP 403, the updater
+keeps that section's last valid data and retries it on the next scheduled run; it
+fails without writing when every Spotify data endpoint is unavailable.
