@@ -25,7 +25,10 @@ MAX_RETRY_DELAY_SECONDS = 30
 
 
 class SpotifyRequestError(RuntimeError):
-    pass
+    def __init__(self, message, status_code=None, endpoint=None):
+        super().__init__(message)
+        self.status_code = status_code
+        self.endpoint = endpoint
 
 
 class PayloadValidationError(ValueError):
@@ -92,7 +95,11 @@ def request_json(request):
                 print(f"Spotify HTTP {exc.code}; retrying in {delay}s (attempt {attempt + 2}/{MAX_ATTEMPTS}).")
                 time.sleep(delay)
                 continue
-            raise SpotifyRequestError(f"Spotify request failed with HTTP {exc.code}: {body}") from exc
+            raise SpotifyRequestError(
+                f"Spotify request failed with HTTP {exc.code}: {body}",
+                status_code=exc.code,
+                endpoint=request.full_url,
+            ) from exc
         except urllib.error.URLError as exc:
             if attempt + 1 < MAX_ATTEMPTS:
                 delay = retry_delay(None, attempt)
@@ -148,6 +155,22 @@ def response_items(payload, label):
     if not isinstance(items, list) or not all(isinstance(item, dict) for item in items):
         raise PayloadValidationError(f"Spotify {label} response did not include a valid items list.")
     return items
+
+
+def fetch_items(path, access_token, params, label, fallback_items):
+    try:
+        return response_items(spotify_get(path, access_token, params), label), False
+    except SpotifyRequestError as exc:
+        if exc.status_code != 403:
+            raise
+        if fallback_items is None:
+            raise PayloadValidationError(
+                f"Spotify {label} endpoint is forbidden and has no cached data to preserve."
+            ) from exc
+        print(
+            f"Spotify {label} endpoint returned HTTP 403; preserving its last valid data and retrying later."
+        )
+        return fallback_items, True
 
 
 def map_recent_track(item):
@@ -210,17 +233,35 @@ def build_payload():
     require_env()
     access_token = get_access_token()
     book = read_json(BOOK_PATH)
-    recent = response_items(
-        spotify_get("me/player/recently-played", access_token, {"limit": 5}), "recently played"
+    try:
+        previous_spotify = read_json(NOW_PATH).get("spotify", {})
+    except (OSError, TypeError, json.JSONDecodeError):
+        previous_spotify = {}
+
+    recent, recent_fallback = fetch_items(
+        "me/player/recently-played",
+        access_token,
+        {"limit": 5},
+        "recently played",
+        previous_spotify.get("recentTracks"),
     )
-    top_tracks = response_items(
-        spotify_get("me/top/tracks", access_token, {"limit": 5, "time_range": TOP_TIME_RANGE}),
+    top_tracks, top_tracks_fallback = fetch_items(
+        "me/top/tracks",
+        access_token,
+        {"limit": 5, "time_range": TOP_TIME_RANGE},
         "top tracks",
+        previous_spotify.get("topTracks"),
     )
-    top_artists = response_items(
-        spotify_get("me/top/artists", access_token, {"limit": 5, "time_range": TOP_TIME_RANGE}),
+    top_artists, top_artists_fallback = fetch_items(
+        "me/top/artists",
+        access_token,
+        {"limit": 5, "time_range": TOP_TIME_RANGE},
         "top artists",
+        previous_spotify.get("topArtists"),
     )
+
+    if recent_fallback and top_tracks_fallback and top_artists_fallback:
+        raise SpotifyRequestError("All Spotify data endpoints were forbidden; preserving the previous widget data.")
 
     payload = {
         "updatedAt": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),

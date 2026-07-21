@@ -68,6 +68,23 @@ class SpotifyUpdaterTests(unittest.TestCase):
         with self.assertRaisesRegex(update_now.PayloadValidationError, "items list"):
             update_now.response_items({"items": "not-a-list"}, "top tracks")
 
+    def test_forbidden_endpoint_preserves_cached_items(self):
+        forbidden = update_now.SpotifyRequestError(
+            "forbidden", status_code=403, endpoint="https://api.spotify.test/v1/me/top/tracks"
+        )
+        with mock.patch.object(update_now, "spotify_get", side_effect=forbidden):
+            items, used_fallback = update_now.fetch_items(
+                "me/top/tracks", "token", {"limit": 5}, "top tracks", [{"name": "cached"}]
+            )
+        self.assertEqual(items, [{"name": "cached"}])
+        self.assertTrue(used_fallback)
+
+    def test_forbidden_endpoint_without_cache_is_rejected(self):
+        forbidden = update_now.SpotifyRequestError("forbidden", status_code=403)
+        with mock.patch.object(update_now, "spotify_get", side_effect=forbidden):
+            with self.assertRaisesRegex(update_now.PayloadValidationError, "no cached data"):
+                update_now.fetch_items("me/top/tracks", "token", {}, "top tracks", None)
+
     def test_atomic_write_produces_valid_json(self):
         payload = {
             "updatedAt": "2026-07-20T19:00:00+00:00",
