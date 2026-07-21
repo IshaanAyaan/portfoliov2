@@ -76,7 +76,8 @@ Add these repository secrets before relying on the scheduled workflow:
 - `SPOTIFY_CLIENT_ID`
 - `SPOTIFY_CLIENT_SECRET`
 - `SPOTIFY_REFRESH_TOKEN`
-- `SPOTIFY_UPDATE_RANDOM_SEED`
 
 The workflow commits as GitHub's fixed Actions bot identity, so commit-name and
-commit-email secrets are intentionally unnecessary.
+commit-email secrets are intentionally unnecessary. Scheduled runs wake hourly
+during the Phoenix daytime and refresh the widget when its data is from a prior
+local day or at least four hours old. Manual runs can force an immediate refresh.

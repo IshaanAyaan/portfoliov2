@@ -2,14 +2,24 @@ name: Update Now Widget
 
 on:
   schedule:
-    - cron: "*/15 15-23 * * *"
-    - cron: "*/15 0-4 * * *"
+    - cron: "17 15-23,0-4 * * *"
   workflow_dispatch:
+    inputs:
+      force_refresh:
+        description: Refresh Spotify data even when the widget is still fresh
+        required: false
+        default: true
+        type: boolean
 
 permissions: {}
 
+concurrency:
+  group: update-now-${{ github.event.repository.default_branch }}
+  cancel-in-progress: false
+
 env:
   TZ: America/Phoenix
+  TARGET_BRANCH: ${{ github.event.repository.default_branch }}
 
 jobs:
   update-now:
@@ -18,23 +28,32 @@ jobs:
       contents: write
 
     steps:
-      - name: Check out repository
+      - name: Check out default branch
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
-          ref: ${{ github.ref_name }}
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
           python-version: "3.11"
 
-      - name: Pick daytime update slot
+      - name: Capture data baseline
+        id: baseline
+        shell: bash
+        run: |
+          blob=$(git rev-parse "HEAD:data/now.json" 2>/dev/null || echo missing)
+          echo "now_blob=$blob" >> "$GITHUB_OUTPUT"
+
+      - name: Check widget freshness
         id: update-slot
         env:
-          SPOTIFY_UPDATE_RANDOM_SEED: ${{ secrets.SPOTIFY_UPDATE_RANDOM_SEED }}
+          FORCE_UPDATE: ${{ github.event_name == 'workflow_dispatch' && inputs.force_refresh || false }}
         run: python3 scripts/should_update_now.py
 
       - name: Refresh Spotify data
+        id: refresh
         if: steps.update-slot.outputs.should_run == 'true'
         env:
           SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
@@ -44,14 +63,57 @@ jobs:
         run: python3 scripts/update_now.py
 
       - name: Commit updated data
+        id: commit
         if: steps.update-slot.outputs.should_run == 'true'
+        shell: bash
+        env:
+          BASELINE_NOW_BLOB: ${{ steps.baseline.outputs.now_blob }}
         run: |
-          if git diff --quiet; then
+          if git diff --quiet -- data/now.json; then
             echo "No changes to commit."
+            echo "result=no-change" >> "$GITHUB_OUTPUT"
+            echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
             exit 0
           fi
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/now.json
+          git add -- data/now.json
           git commit -m "Update Now widget data"
-          git push origin "HEAD:${GITHUB_REF#refs/heads/}"
+
+          if ! git push origin "HEAD:$TARGET_BRANCH"; then
+            git fetch origin "$TARGET_BRANCH"
+            upstream_blob=$(git rev-parse "origin/$TARGET_BRANCH:data/now.json" 2>/dev/null || echo missing)
+            if [[ "$upstream_blob" != "$BASELINE_NOW_BLOB" ]]; then
+              echo "data/now.json changed upstream; leaving this run failed so the next wakeup retries safely."
+              exit 1
+            fi
+            git rebase "origin/$TARGET_BRANCH"
+            git push origin "HEAD:$TARGET_BRANCH"
+          fi
+
+          echo "result=committed" >> "$GITHUB_OUTPUT"
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Publish run summary
+        if: always()
+        shell: bash
+        env:
+          SHOULD_RUN: ${{ steps.update-slot.outputs.should_run }}
+          DECISION_REASON: ${{ steps.update-slot.outputs.reason }}
+          LAST_UPDATED_AT: ${{ steps.update-slot.outputs.last_updated_at }}
+          AGE_MINUTES: ${{ steps.update-slot.outputs.age_minutes }}
+          REFRESH_RESULT: ${{ steps.refresh.outcome }}
+          COMMIT_RESULT: ${{ steps.commit.outputs.result }}
+          COMMIT_SHA: ${{ steps.commit.outputs.sha }}
+        run: |
+          {
+            echo "### Spotify Now automation"
+            echo "- Refresh requested: ${SHOULD_RUN:-unknown}"
+            echo "- Decision: ${DECISION_REASON:-unavailable}"
+            echo "- Previous update: ${LAST_UPDATED_AT:-unavailable}"
+            echo "- Age: ${AGE_MINUTES:-unknown} minutes"
+            echo "- Refresh step: ${REFRESH_RESULT:-skipped}"
+            echo "- Commit: ${COMMIT_RESULT:-skipped}"
+            echo "- Resulting SHA: ${COMMIT_SHA:-none}"
+          } >> "$GITHUB_STEP_SUMMARY"

@@ -7,11 +7,12 @@
     "serve": "python3 -m http.server 4173 --bind 127.0.0.1",
     "test": "pnpm test:unit && pnpm test:e2e",
     "test:unit": "node --test tests/unit/*.test.js",
+    "test:python": "python3 -m unittest discover -s tests/python -p 'test_*.py' -v",
     "test:e2e": "playwright test",
     "test:e2e:update": "playwright test --update-snapshots",
     "screenshots:review": "node scripts/capture-review.mjs",
     "check:js": "node --check analytics.js && node --check site.js && node --check universe-core.js && node --check game.js && node --check game-state.js && node --check game-mechanics.js && node --check trex-runner.js && node --check scripts/capture-review.mjs",
-    "check": "pnpm check:js && pnpm test"
+    "check": "pnpm check:js && pnpm test:python && pnpm test"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.12.1",
