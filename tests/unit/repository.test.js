@@ -54,6 +54,10 @@ test("automation dependencies are pinned and narrowly authorized", async () => {
   assert.doesNotMatch(workflow, /uses:\s+[^\s@]+@v\d/);
   assert.match(workflow, /permissions: \{\}/);
   assert.match(workflow, /github-actions\[bot\]/);
+  assert.match(workflow, /cron: "17 15-23,0-4 \* \* \*"/);
+  assert.match(workflow, /concurrency:/);
+  assert.match(workflow, /force_refresh:/);
+  assert.doesNotMatch(workflow, /SPOTIFY_UPDATE_RANDOM_SEED/);
   assert.match(dependabot, /package-ecosystem: github-actions/);
   assert.match(dependabot, /package-ecosystem: npm/);
 });

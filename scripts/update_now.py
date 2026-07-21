@@ -3,7 +3,8 @@
 import json
 import os
 import pathlib
-import sys
+import tempfile
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -19,6 +20,16 @@ CLIENT_ID = os.environ.get("SPOTIFY_CLIENT_ID")
 CLIENT_SECRET = os.environ.get("SPOTIFY_CLIENT_SECRET")
 REFRESH_TOKEN = os.environ.get("SPOTIFY_REFRESH_TOKEN")
 TOP_TIME_RANGE = os.environ.get("SPOTIFY_TOP_TIME_RANGE", "short_term")
+MAX_ATTEMPTS = 3
+MAX_RETRY_DELAY_SECONDS = 30
+
+
+class SpotifyRequestError(RuntimeError):
+    pass
+
+
+class PayloadValidationError(ValueError):
+    pass
 
 
 def read_json(path):
@@ -28,8 +39,20 @@ def read_json(path):
 
 def write_json(path, payload):
     text = json.dumps(payload, indent=2, ensure_ascii=True) + "\n"
-    with path.open("w", encoding="utf-8") as handle:
-        handle.write(text)
+    temporary_path = None
+    try:
+        with tempfile.NamedTemporaryFile(
+            "w", encoding="utf-8", dir=path.parent, prefix=f".{path.name}.", delete=False
+        ) as handle:
+            temporary_path = pathlib.Path(handle.name)
+            handle.write(text)
+            handle.flush()
+            os.fsync(handle.fileno())
+        os.replace(temporary_path, path)
+    except Exception:
+        if temporary_path is not None:
+            temporary_path.unlink(missing_ok=True)
+        raise
 
 
 def require_env():
@@ -43,8 +66,44 @@ def require_env():
         if not value
     ]
     if missing:
-        joined = ", ".join(missing)
-        raise SystemExit(f"Missing required environment variables: {joined}")
+        raise SystemExit(f"Missing required environment variables: {', '.join(missing)}")
+
+
+def retry_delay(headers, attempt):
+    retry_after = headers.get("Retry-After") if headers else None
+    if retry_after:
+        try:
+            return min(MAX_RETRY_DELAY_SECONDS, max(0, int(retry_after)))
+        except ValueError:
+            pass
+    return min(MAX_RETRY_DELAY_SECONDS, 2 ** (attempt + 1))
+
+
+def request_json(request):
+    for attempt in range(MAX_ATTEMPTS):
+        try:
+            with urllib.request.urlopen(request, timeout=30) as response:
+                return json.loads(response.read().decode("utf-8"))
+        except urllib.error.HTTPError as exc:
+            body = exc.read().decode("utf-8", errors="replace")
+            retryable = exc.code == 429 or 500 <= exc.code < 600
+            if retryable and attempt + 1 < MAX_ATTEMPTS:
+                delay = retry_delay(exc.headers, attempt)
+                print(f"Spotify HTTP {exc.code}; retrying in {delay}s (attempt {attempt + 2}/{MAX_ATTEMPTS}).")
+                time.sleep(delay)
+                continue
+            raise SpotifyRequestError(f"Spotify request failed with HTTP {exc.code}: {body}") from exc
+        except urllib.error.URLError as exc:
+            if attempt + 1 < MAX_ATTEMPTS:
+                delay = retry_delay(None, attempt)
+                print(f"Spotify network error; retrying in {delay}s (attempt {attempt + 2}/{MAX_ATTEMPTS}).")
+                time.sleep(delay)
+                continue
+            raise SpotifyRequestError(f"Spotify request failed: {exc.reason}") from exc
+        except json.JSONDecodeError as exc:
+            raise SpotifyRequestError("Spotify returned invalid JSON.") from exc
+
+    raise SpotifyRequestError("Spotify request failed after all retry attempts.")
 
 
 def post_form(url, form_data):
@@ -55,23 +114,17 @@ def post_form(url, form_data):
         headers={"Content-Type": "application/x-www-form-urlencoded"},
         method="POST",
     )
-    with urllib.request.urlopen(request, timeout=30) as response:
-        return json.loads(response.read().decode("utf-8"))
+    return request_json(request)
 
 
 def spotify_get(path, access_token, params=None):
-    query = ""
-    if params:
-        query = "?" + urllib.parse.urlencode(params)
-
+    query = "?" + urllib.parse.urlencode(params) if params else ""
     request = urllib.request.Request(
         f"https://api.spotify.com/v1/{path}{query}",
         headers={"Authorization": f"Bearer {access_token}"},
         method="GET",
     )
-
-    with urllib.request.urlopen(request, timeout=30) as response:
-        return json.loads(response.read().decode("utf-8"))
+    return request_json(request)
 
 
 def get_access_token():
@@ -84,10 +137,17 @@ def get_access_token():
             "client_secret": CLIENT_SECRET,
         },
     )
-    token = payload.get("access_token")
+    token = payload.get("access_token") if isinstance(payload, dict) else None
     if not token:
-        raise SystemExit("Spotify token response did not include an access_token.")
+        raise PayloadValidationError("Spotify token response did not include an access_token.")
     return token
+
+
+def response_items(payload, label):
+    items = payload.get("items") if isinstance(payload, dict) else None
+    if not isinstance(items, list) or not all(isinstance(item, dict) for item in items):
+        raise PayloadValidationError(f"Spotify {label} response did not include a valid items list.")
+    return items
 
 
 def map_recent_track(item):
@@ -108,7 +168,6 @@ def map_recent_track(item):
 
 
 def map_top_track(item):
-    album = item.get("album") or {}
     artists = item.get("artists") or []
     return {
         "name": item.get("name"),
@@ -125,48 +184,65 @@ def map_top_artist(item):
     }
 
 
+def validate_payload(payload):
+    if not isinstance(payload, dict):
+        raise PayloadValidationError("Now payload must be an object.")
+    try:
+        updated_at = datetime.fromisoformat(payload["updatedAt"].replace("Z", "+00:00"))
+    except (KeyError, AttributeError, TypeError, ValueError) as exc:
+        raise PayloadValidationError("Now payload has an invalid updatedAt timestamp.") from exc
+    if updated_at.tzinfo is None:
+        raise PayloadValidationError("Now payload updatedAt must include a timezone.")
+
+    book = payload.get("book")
+    if not isinstance(book, dict) or not {"title", "author"}.issubset(book):
+        raise PayloadValidationError("Now payload has an invalid book object.")
+
+    spotify = payload.get("spotify")
+    if not isinstance(spotify, dict) or not isinstance(spotify.get("topTimeRange"), str):
+        raise PayloadValidationError("Now payload has an invalid spotify object.")
+    for key in ("recentTracks", "topTracks", "topArtists"):
+        if not isinstance(spotify.get(key), list) or not all(isinstance(item, dict) for item in spotify[key]):
+            raise PayloadValidationError(f"Now payload has an invalid {key} list.")
+
+
 def build_payload():
     require_env()
     access_token = get_access_token()
     book = read_json(BOOK_PATH)
-
-    recent = spotify_get("me/player/recently-played", access_token, {"limit": 5})
-    top_tracks = spotify_get(
-        "me/top/tracks",
-        access_token,
-        {"limit": 5, "time_range": TOP_TIME_RANGE},
+    recent = response_items(
+        spotify_get("me/player/recently-played", access_token, {"limit": 5}), "recently played"
     )
-    top_artists = spotify_get(
-        "me/top/artists",
-        access_token,
-        {"limit": 5, "time_range": TOP_TIME_RANGE},
+    top_tracks = response_items(
+        spotify_get("me/top/tracks", access_token, {"limit": 5, "time_range": TOP_TIME_RANGE}),
+        "top tracks",
+    )
+    top_artists = response_items(
+        spotify_get("me/top/artists", access_token, {"limit": 5, "time_range": TOP_TIME_RANGE}),
+        "top artists",
     )
 
-    return {
+    payload = {
         "updatedAt": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
-        "book": {
-            "title": book.get("title"),
-            "author": book.get("author"),
-        },
+        "book": {"title": book.get("title"), "author": book.get("author")},
         "spotify": {
             "topTimeRange": TOP_TIME_RANGE,
-            "recentTracks": [map_recent_track(item) for item in recent.get("items", [])],
-            "topTracks": [map_top_track(item) for item in top_tracks.get("items", [])],
-            "topArtists": [map_top_artist(item) for item in top_artists.get("items", [])],
+            "recentTracks": [map_recent_track(item) for item in recent],
+            "topTracks": [map_top_track(item) for item in top_tracks],
+            "topArtists": [map_top_artist(item) for item in top_artists],
         },
     }
+    validate_payload(payload)
+    return payload
 
 
 def main():
     try:
         payload = build_payload()
-    except urllib.error.HTTPError as exc:
-        message = exc.read().decode("utf-8", errors="replace")
-        raise SystemExit(f"Spotify request failed with HTTP {exc.code}: {message}") from exc
-    except urllib.error.URLError as exc:
-        raise SystemExit(f"Spotify request failed: {exc.reason}") from exc
+        write_json(NOW_PATH, payload)
+    except (SpotifyRequestError, PayloadValidationError, OSError, json.JSONDecodeError) as exc:
+        raise SystemExit(str(exc)) from exc
 
-    write_json(NOW_PATH, payload)
     print(f"Updated {NOW_PATH}")
 
 
