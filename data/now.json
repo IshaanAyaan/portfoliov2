@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-21T19:00:33+00:00",
+  "updatedAt": "2026-07-21T23:13:23+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -8,55 +8,58 @@
     "topTimeRange": "short_term",
     "recentTracks": [
       {
-        "name": "Blow Your Mind (Mwah)",
+        "name": "DJ Got Us Fallin' In Love (feat. Pitbull)",
         "artistNames": [
-          "Dua Lipa"
+          "USHER",
+          "Pitbull"
         ],
-        "albumName": "Blow Your Mind (Mwah)",
-        "playedAt": "2026-07-21T04:34:34.863Z",
-        "url": "https://open.spotify.com/track/7kJlTKjNZVT26iwiDUVhRm",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2736f3a9d2b11ad1707cbb88369"
+        "albumName": "Raymond v Raymond (Expanded Edition)",
+        "playedAt": "2026-07-21T20:59:18.263Z",
+        "url": "https://open.spotify.com/track/4356Typ82hUiFAynbLYbPn",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27386b0c9728ad3ed338eaeea79"
       },
       {
-        "name": "Sailor Song",
+        "name": "Rock Your Body",
         "artistNames": [
-          "Gigi Perez"
+          "Justin Timberlake"
         ],
-        "albumName": "Sailor Song",
-        "playedAt": "2026-07-21T02:20:59.981Z",
-        "url": "https://open.spotify.com/track/2262bWmqomIaJXwCRHr13j",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273e6065f209e0a01986206bd53"
+        "albumName": "Justified",
+        "playedAt": "2026-07-21T20:55:43.489Z",
+        "url": "https://open.spotify.com/track/1AWQoqb9bSvzTjaLralEkT",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273346a5742374ab4cf9ed32dee"
       },
       {
-        "name": "Just Dance",
+        "name": "The Way I Are",
         "artistNames": [
-          "Lady Gaga",
-          "Colby O'Donis"
+          "Timbaland",
+          "Keri Hilson",
+          "D.O.E."
         ],
-        "albumName": "The Fame",
-        "playedAt": "2026-07-20T23:30:22.276Z",
-        "url": "https://open.spotify.com/track/2x7MyWybabEz6Y6wvHuwGE",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273613aaa3ae566d9f36008aed0"
+        "albumName": "Shock Value",
+        "playedAt": "2026-07-21T20:51:22.190Z",
+        "url": "https://open.spotify.com/track/2bLqfJjuC5syrsgDsZfGmn",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2734ed674ab91bdc566534f9285"
       },
       {
-        "name": "No One Noticed",
+        "name": "Earrings",
         "artistNames": [
-          "The Mar\u00edas"
+          "Malcolm Todd"
         ],
-        "albumName": "Submarine",
-        "playedAt": "2026-07-20T05:10:37.145Z",
-        "url": "https://open.spotify.com/track/3siwsiaEoU4Kuuc9WKMUy5",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2738aa339341a0b0c813909c831"
+        "albumName": "Sweet Boy",
+        "playedAt": "2026-07-21T20:48:29.085Z",
+        "url": "https://open.spotify.com/track/0eAuGrXyGFYwur9ARUe7LJ",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2732c1f34ecc1929fb59908aad1"
       },
       {
-        "name": "No One Noticed",
+        "name": "Beauty And A Beat",
         "artistNames": [
-          "The Mar\u00edas"
+          "Justin Bieber",
+          "Nicki Minaj"
         ],
-        "albumName": "Submarine",
-        "playedAt": "2026-07-20T05:10:22.589Z",
-        "url": "https://open.spotify.com/track/3siwsiaEoU4Kuuc9WKMUy5",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2738aa339341a0b0c813909c831"
+        "albumName": "Believe (Deluxe Edition)",
+        "playedAt": "2026-07-21T20:46:03.574Z",
+        "url": "https://open.spotify.com/track/190jyVPHYjAqEaOGmMzdyk",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2736c20c4638a558132ba95bc39"
       }
     ],
     "topTracks": [
@@ -110,6 +113,11 @@
         "url": "https://open.spotify.com/artist/4Gso3d4CscCijv0lmajZWs"
       },
       {
+        "name": "Kanye West",
+        "genres": [],
+        "url": "https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x"
+      },
+      {
         "name": "Drake",
         "genres": [],
         "url": "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4"
@@ -118,11 +126,6 @@
         "name": "Michael Jackson",
         "genres": [],
         "url": "https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm"
-      },
-      {
-        "name": "Kanye West",
-        "genres": [],
-        "url": "https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x"
       }
     ]
   }
