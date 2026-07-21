@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T23:38:42+00:00",
+  "updatedAt": "2026-07-21T06:24:49+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -7,6 +7,16 @@
   "spotify": {
     "topTimeRange": "short_term",
     "recentTracks": [
+      {
+        "name": "Sailor Song",
+        "artistNames": [
+          "Gigi Perez"
+        ],
+        "albumName": "Sailor Song",
+        "playedAt": "2026-07-21T02:20:59.981Z",
+        "url": "https://open.spotify.com/track/2262bWmqomIaJXwCRHr13j",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273e6065f209e0a01986206bd53"
+      },
       {
         "name": "Just Dance",
         "artistNames": [
@@ -48,16 +58,6 @@
         "playedAt": "2026-07-20T05:09:12.586Z",
         "url": "https://open.spotify.com/track/1oFAF1hdPOickyHgbuRjyX",
         "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273b5097b81179824803664aaaf"
-      },
-      {
-        "name": "Out th\u00eb way",
-        "artistNames": [
-          "Yeat"
-        ],
-        "albumName": "Lyf\u00eb",
-        "playedAt": "2026-07-20T05:05:31.947Z",
-        "url": "https://open.spotify.com/track/6IyoLWzljeR3ldQo4KWHT6",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2737aee5b36a3a60ca926bc429b"
       }
     ],
     "topTracks": [
@@ -68,20 +68,6 @@
           "Pitbull"
         ],
         "url": "https://open.spotify.com/track/4356Typ82hUiFAynbLYbPn"
-      },
-      {
-        "name": "Headlines",
-        "artistNames": [
-          "Drake"
-        ],
-        "url": "https://open.spotify.com/track/6LxSe8YmdPxy095Ux6znaQ"
-      },
-      {
-        "name": "Hotel California - 2013 Remaster",
-        "artistNames": [
-          "Eagles"
-        ],
-        "url": "https://open.spotify.com/track/02rMAu7hazKhd64yb6zgKU"
       },
       {
         "name": "Sunflower - Spider-Man: Into the Spider-Verse",
@@ -97,6 +83,20 @@
           "Cutting Crew"
         ],
         "url": "https://open.spotify.com/track/4ByEFOBuLXpCqvO1kw8Wdm"
+      },
+      {
+        "name": "DNA.",
+        "artistNames": [
+          "Kendrick Lamar"
+        ],
+        "url": "https://open.spotify.com/track/6HZILIRieu8S0iqY8kIKhj"
+      },
+      {
+        "name": "Bad Romance",
+        "artistNames": [
+          "Lady Gaga"
+        ],
+        "url": "https://open.spotify.com/track/0SiywuOBRcynK0uKGWdCnn"
       }
     ],
     "topArtists": [
@@ -111,6 +111,11 @@
         "url": "https://open.spotify.com/artist/4Gso3d4CscCijv0lmajZWs"
       },
       {
+        "name": "Drake",
+        "genres": [],
+        "url": "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4"
+      },
+      {
         "name": "Michael Jackson",
         "genres": [],
         "url": "https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm"
@@ -119,11 +124,6 @@
         "name": "Kanye West",
         "genres": [],
         "url": "https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x"
-      },
-      {
-        "name": "Drake",
-        "genres": [],
-        "url": "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4"
       }
     ]
   }
