@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-21T23:13:23+00:00",
+  "updatedAt": "2026-07-22T03:47:35+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -8,58 +8,56 @@
     "topTimeRange": "short_term",
     "recentTracks": [
       {
-        "name": "DJ Got Us Fallin' In Love (feat. Pitbull)",
+        "name": "Moves Like Jagger - Studio Recording From \"The Voice\" Performance",
         "artistNames": [
-          "USHER",
-          "Pitbull"
+          "Maroon 5",
+          "Christina Aguilera"
         ],
-        "albumName": "Raymond v Raymond (Expanded Edition)",
-        "playedAt": "2026-07-21T20:59:18.263Z",
-        "url": "https://open.spotify.com/track/4356Typ82hUiFAynbLYbPn",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27386b0c9728ad3ed338eaeea79"
+        "albumName": "Hands All Over",
+        "playedAt": "2026-07-22T02:59:45.017Z",
+        "url": "https://open.spotify.com/track/7LcfRTgAVTs5pQGEQgUEzN",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273ce70cb2d7063cf869f9f1239"
       },
       {
-        "name": "Rock Your Body",
+        "name": "That's What I Like",
         "artistNames": [
-          "Justin Timberlake"
+          "Bruno Mars"
         ],
-        "albumName": "Justified",
-        "playedAt": "2026-07-21T20:55:43.489Z",
-        "url": "https://open.spotify.com/track/1AWQoqb9bSvzTjaLralEkT",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273346a5742374ab4cf9ed32dee"
+        "albumName": "24K Magic",
+        "playedAt": "2026-07-22T02:52:57.233Z",
+        "url": "https://open.spotify.com/track/0KKkJNfGyhkQ5aFogxQAPU",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273232711f7d66a1e19e89e28c5"
       },
       {
-        "name": "The Way I Are",
+        "name": "Let Me Love You",
         "artistNames": [
-          "Timbaland",
-          "Keri Hilson",
-          "D.O.E."
+          "DJ Snake",
+          "Justin Bieber"
         ],
-        "albumName": "Shock Value",
-        "playedAt": "2026-07-21T20:51:22.190Z",
-        "url": "https://open.spotify.com/track/2bLqfJjuC5syrsgDsZfGmn",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2734ed674ab91bdc566534f9285"
+        "albumName": "Encore",
+        "playedAt": "2026-07-22T02:49:36.525Z",
+        "url": "https://open.spotify.com/track/0lYBSQXN6rCTvUZvg9S0lU",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273212d776c31027c511f0ee3bc"
       },
       {
-        "name": "Earrings",
+        "name": "Babydoll",
         "artistNames": [
-          "Malcolm Todd"
+          "Dominic Fike"
         ],
-        "albumName": "Sweet Boy",
-        "playedAt": "2026-07-21T20:48:29.085Z",
-        "url": "https://open.spotify.com/track/0eAuGrXyGFYwur9ARUe7LJ",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2732c1f34ecc1929fb59908aad1"
+        "albumName": "Don't Forget About Me, Demos",
+        "playedAt": "2026-07-22T02:46:16.530Z",
+        "url": "https://open.spotify.com/track/7yNf9YjeO5JXUE3JEBgnYc",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2737b1b6f41c1645af9757d5616"
       },
       {
-        "name": "Beauty And A Beat",
+        "name": "Attention",
         "artistNames": [
-          "Justin Bieber",
-          "Nicki Minaj"
+          "Charlie Puth"
         ],
-        "albumName": "Believe (Deluxe Edition)",
-        "playedAt": "2026-07-21T20:46:03.574Z",
-        "url": "https://open.spotify.com/track/190jyVPHYjAqEaOGmMzdyk",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2736c20c4638a558132ba95bc39"
+        "albumName": "Voicenotes",
+        "playedAt": "2026-07-22T02:44:44.620Z",
+        "url": "https://open.spotify.com/track/5cF0dROlMOK5uNZtivgu50",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273897f73256b9128a9d70eaf66"
       }
     ],
     "topTracks": [
@@ -103,11 +101,6 @@
     ],
     "topArtists": [
       {
-        "name": "The Weeknd",
-        "genres": [],
-        "url": "https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ"
-      },
-      {
         "name": "Don Toliver",
         "genres": [],
         "url": "https://open.spotify.com/artist/4Gso3d4CscCijv0lmajZWs"
@@ -116,6 +109,11 @@
         "name": "Kanye West",
         "genres": [],
         "url": "https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x"
+      },
+      {
+        "name": "The Weeknd",
+        "genres": [],
+        "url": "https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ"
       },
       {
         "name": "Drake",
