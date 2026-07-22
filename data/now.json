@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-22T03:47:35+00:00",
+  "updatedAt": "2026-07-22T16:47:21+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -7,6 +7,16 @@
   "spotify": {
     "topTimeRange": "short_term",
     "recentTracks": [
+      {
+        "name": "Judas",
+        "artistNames": [
+          "Lady Gaga"
+        ],
+        "albumName": "Born This Way",
+        "playedAt": "2026-07-22T07:10:22.867Z",
+        "url": "https://open.spotify.com/track/0QkWikH5Z3U0f79T9iuF6c",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2734ba15b951a5cff36133ca5bd"
+      },
       {
         "name": "Moves Like Jagger - Studio Recording From \"The Voice\" Performance",
         "artistNames": [
@@ -48,16 +58,6 @@
         "playedAt": "2026-07-22T02:46:16.530Z",
         "url": "https://open.spotify.com/track/7yNf9YjeO5JXUE3JEBgnYc",
         "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2737b1b6f41c1645af9757d5616"
-      },
-      {
-        "name": "Attention",
-        "artistNames": [
-          "Charlie Puth"
-        ],
-        "albumName": "Voicenotes",
-        "playedAt": "2026-07-22T02:44:44.620Z",
-        "url": "https://open.spotify.com/track/5cF0dROlMOK5uNZtivgu50",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273897f73256b9128a9d70eaf66"
       }
     ],
     "topTracks": [
