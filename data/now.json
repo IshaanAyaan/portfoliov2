@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-24T03:45:51+00:00",
+  "updatedAt": "2026-07-24T16:58:15+00:00",
   "book": {
     "title": "Genghis Khan and the Making of the Modern World",
     "author": "Jack Weatherford"
@@ -7,6 +7,26 @@
   "spotify": {
     "topTimeRange": "short_term",
     "recentTracks": [
+      {
+        "name": "Sticky",
+        "artistNames": [
+          "Drake"
+        ],
+        "albumName": "Sticky",
+        "playedAt": "2026-07-24T06:40:22.755Z",
+        "url": "https://open.spotify.com/track/1QjJ1FBFtXHh0Fc1sfD0t7",
+        "albumImageUrl": "https://i.scdn.co/image/ab6742d3000053b7f5d44c71ee9b4dc0f9080f8b"
+      },
+      {
+        "name": "Mirrors",
+        "artistNames": [
+          "Justin Timberlake"
+        ],
+        "albumName": "The 20/20 Experience (Deluxe Version)",
+        "playedAt": "2026-07-24T00:56:29.128Z",
+        "url": "https://open.spotify.com/track/4rHZZAmHpZrA3iH5zx8frV",
+        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b27356d5fb0cc9cec001d8ae0c8c"
+      },
       {
         "name": "Lacrimosa",
         "artistNames": [
@@ -37,27 +57,6 @@
         "playedAt": "2026-07-24T00:27:42.577Z",
         "url": "https://open.spotify.com/track/3nPp6VXSoVeURuo0UEvDMh",
         "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273bf5606605d62f131a62ec5b2"
-      },
-      {
-        "name": "Judas",
-        "artistNames": [
-          "Lady Gaga"
-        ],
-        "albumName": "Born This Way",
-        "playedAt": "2026-07-22T07:10:22.867Z",
-        "url": "https://open.spotify.com/track/0QkWikH5Z3U0f79T9iuF6c",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2734ba15b951a5cff36133ca5bd"
-      },
-      {
-        "name": "Moves Like Jagger - Studio Recording From \"The Voice\" Performance",
-        "artistNames": [
-          "Maroon 5",
-          "Christina Aguilera"
-        ],
-        "albumName": "Hands All Over",
-        "playedAt": "2026-07-22T02:59:45.017Z",
-        "url": "https://open.spotify.com/track/7LcfRTgAVTs5pQGEQgUEzN",
-        "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b273ce70cb2d7063cf869f9f1239"
       }
     ],
     "topTracks": [
@@ -124,9 +123,9 @@
         "url": "https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm"
       },
       {
-        "name": "Don Toliver",
+        "name": "Drake",
         "genres": [],
-        "url": "https://open.spotify.com/artist/4Gso3d4CscCijv0lmajZWs"
+        "url": "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4"
       }
     ]
   }
